@@ -32501,6 +32501,17 @@ module.exports = "<h1> Add Sub Category </h1>\n<form [formGroup] = \"category\" 
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/pages/appointments/appointments.component.html":
+/*!******************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/pages/appointments/appointments.component.html ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>appointments works!</p>\n"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/pages/categories/categories.component.html":
 /*!**************************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/pages/categories/categories.component.html ***!
@@ -32508,7 +32519,7 @@ module.exports = "<h1> Add Sub Category </h1>\n<form [formGroup] = \"category\" 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n        <button (click)=\"navigateAddCategory()\" class=\"bnt btn-primary add-btn\">Add</button>\n    </div>\n    <table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n        <thead>\n          <tr>\n            <th>ID</th>\n            <th>Logo</th>\n            <th>Name</th>\n            <th>Arabic Name</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let person of persons\">\n            <td>{{ person.id }}</td>\n            <td><img [src]=\"person.image\"></td>\n            <td>{{ person.name }}</td>\n            <td>{{ person.arabic_name}}</td>\n          </tr>\n        </tbody>\n        </table>\n"
+module.exports = "<div>\n        <button (click)=\"navigateAddCategory()\" class=\"bnt btn-primary add-btn\">Add</button>\n    </div>\n    <table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n        <thead>\n          <tr>\n            <th>ID</th>\n            <th>Logo</th>\n            <th>Name</th>\n            <th>Arabic Name</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let person of persons\" [routerLink]=\"['/sub-category']\">\n            <td>{{ person.id }}</td>\n            <td><img [src]=\"person.image\"></td>\n            <td>{{ person.name }}</td>\n            <td>{{ person.arabic_name}}</td>\n          </tr>\n        </tbody>\n        </table>\n"
 
 /***/ }),
 
@@ -32519,7 +32530,7 @@ module.exports = "<div>\n        <button (click)=\"navigateAddCategory()\" class
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <button (click)=\"navigateAddCategory()\" class=\"bnt btn-primary add-btn\">Add</button>\n</div>\n<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n      <tr>\n        <th>ID</th>\n        <th>Logo</th>\n        <th>Name</th>\n        <th>Arabic Name</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let person of persons\">\n        <td>{{ person.id }}</td>\n        <td><img [src]=\"person.image\"></td>\n        <td>{{ person.name }}</td>\n        <td>{{ person.arabic_name}}</td>\n      </tr>\n    </tbody>\n    </table>"
+module.exports = "<div>\n    <button (click)=\"navigateAddCategory()\" class=\"bnt btn-primary add-btn\">Add</button>\n</div>\n<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n      <tr>\n        <th>ID</th>\n        <th>Logo</th>\n        <th>Name</th>\n        <th>Arabic Name</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let person of persons\" [routerLink]=\"['/categories']\">\n        <td>{{ person.id }}</td>\n        <td><img [src]=\"person.image\"></td>\n        <td>{{ person.name }}</td>\n        <td>{{ person.arabic_name}}</td>\n      </tr>\n    </tbody>\n    </table>"
 
 /***/ }),
 
@@ -32567,6 +32578,17 @@ module.exports = "<div class=\"row\">\n  <div class=\"col-md-12\">\n    <div cla
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/pages/main-services/main-services.component.html":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/pages/main-services/main-services.component.html ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>main-services works!</p>\n"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/pages/maps/maps.component.html":
 /*!**************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/pages/maps/maps.component.html ***!
@@ -32586,6 +32608,28 @@ module.exports = "\n<div class=\"row\">\n  <div class=\"col-md-12\">\n    <div c
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"row\">\n  <div class=\"col-md-12\">\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <h5 class=\"card-title\">Notifications</h5>\n        <p class=\"card-category\">Handcrafted by our friend\n          <a target=\"_blank\" href=\"https://github.com/mouse0270\">Robert McIntosh</a>. Please checkout the\n          <a href=\"http://bootstrap-notify.remabledesigns.com/\" target=\"_blank\">full documentation.</a>\n        </p>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"row\">\n          <div class=\"col-md-6\">\n            <div class=\"card card-plain\">\n              <div class=\"card-header\">\n                <h5 class=\"card-title\">Notifications Style</h5>\n              </div>\n              <div class=\"card-body\">\n                <div class=\"alert alert-info\">\n                  <span>This is a plain notification</span>\n                </div>\n                <div class=\"alert alert-info alert-dismissible fade show\">\n                  <button type=\"button\" aria-hidden=\"true\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n                    <i class=\"nc-icon nc-simple-remove\"></i>\n                  </button>\n                  <span>This is a notification with close button.</span>\n                </div>\n                <div class=\"alert alert-info alert-with-icon alert-dismissible fade show\" data-notify=\"container\">\n                  <button type=\"button\" aria-hidden=\"true\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n                    <i class=\"nc-icon nc-simple-remove\"></i>\n                  </button>\n                  <span data-notify=\"icon\" class=\"nc-icon nc-bell-55\"></span>\n                  <span data-notify=\"message\">This is a notification with close button and icon.</span>\n                </div>\n                <div class=\"alert alert-info alert-with-icon alert-dismissible fade show\" data-notify=\"container\">\n                  <button type=\"button\" aria-hidden=\"true\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n                    <i class=\"nc-icon nc-simple-remove\"></i>\n                  </button>\n                  <span data-notify=\"icon\" class=\"nc-icon nc-chart-pie-36\"></span>\n                  <span data-notify=\"message\">This is a notification with close button and icon and have many lines. You can see that the icon and the close button are always vertically aligned. This is a beautiful notification. So you don't have to worry about the style.</span>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-md-6\">\n            <div class=\"card card-plain\">\n              <div class=\"card-header\">\n                <h5 class=\"card-title\">Notification states</h5>\n              </div>\n              <div class=\"card-body\">\n                <div class=\"alert alert-primary alert-dismissible fade show\">\n                  <button type=\"button\" aria-hidden=\"true\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n                    <i class=\"nc-icon nc-simple-remove\"></i>\n                  </button>\n                  <span>\n                    <b> Primary - </b> This is a regular notification made with \".alert-primary\"</span>\n                </div>\n                <div class=\"alert alert-info alert-dismissible fade show\">\n                  <button type=\"button\" aria-hidden=\"true\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n                    <i class=\"nc-icon nc-simple-remove\"></i>\n                  </button>\n                  <span>\n                    <b> Info - </b> This is a regular notification made with \".alert-info\"</span>\n                </div>\n                <div class=\"alert alert-success alert-dismissible fade show\">\n                  <button type=\"button\" aria-hidden=\"true\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n                    <i class=\"nc-icon nc-simple-remove\"></i>\n                  </button>\n                  <span>\n                    <b> Success - </b> This is a regular notification made with \".alert-success\"</span>\n                </div>\n                <div class=\"alert alert-warning alert-dismissible fade show\">\n                  <button type=\"button\" aria-hidden=\"true\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n                    <i class=\"nc-icon nc-simple-remove\"></i>\n                  </button>\n                  <span>\n                    <b> Warning - </b> This is a regular notification made with \".alert-warning\"</span>\n                </div>\n                <div class=\"alert alert-danger alert-dismissible fade show\">\n                  <button type=\"button\" aria-hidden=\"true\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n                    <i class=\"nc-icon nc-simple-remove\"></i>\n                  </button>\n                  <span>\n                    <b> Danger - </b> This is a regular notification made with \".alert-danger\"</span>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"row\">\n  <div class=\"col-md-12\">\n    <div class=\"card\">\n      <div class=\"card-body\">\n        <div class=\"places-buttons\">\n          <div class=\"row\">\n            <div class=\"col-md-6 ml-auto mr-auto text-center\">\n              <h4 class=\"card-title\">\n                Notifications Places\n                <p class=\"category\">Click to view notifications</p>\n              </h4>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-lg-8 ml-auto mr-auto\">\n              <div class=\"row\">\n                <div class=\"col-md-4\">\n                  <button class=\"btn btn-primary btn-block\" (click)=\"showNotification('top','left')\">Top Left</button>\n                </div>\n                <div class=\"col-md-4\">\n                  <button class=\"btn btn-primary btn-block\" (click)=\"showNotification('top','center')\">Top Center</button>\n                </div>\n                <div class=\"col-md-4\">\n                  <button class=\"btn btn-primary btn-block\" (click)=\"showNotification('top','right')\">Top Right</button>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-lg-8 ml-auto mr-auto\">\n              <div class=\"row\">\n                <div class=\"col-md-4\">\n                  <button class=\"btn btn-primary btn-block\" (click)=\"showNotification('bottom','left')\">Bottom Left</button>\n                </div>\n                <div class=\"col-md-4\">\n                  <button class=\"btn btn-primary btn-block\" (click)=\"showNotification('bottom','center')\">Bottom Center</button>\n                </div>\n                <div class=\"col-md-4\">\n                  <button class=\"btn btn-primary btn-block\" (click)=\"showNotification('bottom','right')\">Bottom Right</button>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/pages/patients/patients.component.html":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/pages/patients/patients.component.html ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>patients works!</p>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/pages/profile/profile.component.html":
+/*!********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/pages/profile/profile.component.html ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>profile works!</p>\n"
 
 /***/ }),
 
@@ -32703,6 +32747,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var app_pages_customer_list_customer_list_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! app/pages/customer-list/customer-list.component */ "./src/app/pages/customer-list/customer-list.component.ts");
 /* harmony import */ var app_pages_customer_details_customer_details_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! app/pages/customer-details/customer-details.component */ "./src/app/pages/customer-details/customer-details.component.ts");
 /* harmony import */ var app_pages_service_providers_details_service_providers_details_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! app/pages/service-providers-details/service-providers-details.component */ "./src/app/pages/service-providers-details/service-providers-details.component.ts");
+/* harmony import */ var app_pages_main_services_main_services_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! app/pages/main-services/main-services.component */ "./src/app/pages/main-services/main-services.component.ts");
+/* harmony import */ var app_pages_appointments_appointments_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! app/pages/appointments/appointments.component */ "./src/app/pages/appointments/appointments.component.ts");
+/* harmony import */ var app_pages_patients_patients_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! app/pages/patients/patients.component */ "./src/app/pages/patients/patients.component.ts");
+/* harmony import */ var app_pages_profile_profile_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! app/pages/profile/profile.component */ "./src/app/pages/profile/profile.component.ts");
+
+
+
+
 
 
 
@@ -32763,7 +32815,11 @@ var AdminLayoutModule = /** @class */ (function () {
                 app_pages_service_providers_service_providers_component__WEBPACK_IMPORTED_MODULE_23__["ServiceProvidersComponent"],
                 app_pages_service_providers_details_service_providers_details_component__WEBPACK_IMPORTED_MODULE_26__["ServiceProvidersDetailsComponent"],
                 app_pages_customer_list_customer_list_component__WEBPACK_IMPORTED_MODULE_24__["CustomerListComponent"],
-                app_pages_customer_details_customer_details_component__WEBPACK_IMPORTED_MODULE_25__["CustomerDetailsComponent"]
+                app_pages_customer_details_customer_details_component__WEBPACK_IMPORTED_MODULE_25__["CustomerDetailsComponent"],
+                app_pages_main_services_main_services_component__WEBPACK_IMPORTED_MODULE_27__["MainServicesComponent"],
+                app_pages_appointments_appointments_component__WEBPACK_IMPORTED_MODULE_28__["AppointmentsComponent"],
+                app_pages_patients_patients_component__WEBPACK_IMPORTED_MODULE_29__["PatientsComponent"],
+                app_pages_profile_profile_component__WEBPACK_IMPORTED_MODULE_30__["ProfileComponent"]
             ]
         })
     ], AdminLayoutModule);
@@ -32802,6 +32858,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var app_pages_customer_list_customer_list_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! app/pages/customer-list/customer-list.component */ "./src/app/pages/customer-list/customer-list.component.ts");
 /* harmony import */ var app_pages_customer_details_customer_details_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! app/pages/customer-details/customer-details.component */ "./src/app/pages/customer-details/customer-details.component.ts");
 /* harmony import */ var app_pages_service_providers_details_service_providers_details_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! app/pages/service-providers-details/service-providers-details.component */ "./src/app/pages/service-providers-details/service-providers-details.component.ts");
+/* harmony import */ var app_pages_appointments_appointments_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! app/pages/appointments/appointments.component */ "./src/app/pages/appointments/appointments.component.ts");
+/* harmony import */ var app_pages_patients_patients_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! app/pages/patients/patients.component */ "./src/app/pages/patients/patients.component.ts");
+/* harmony import */ var app_pages_profile_profile_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! app/pages/profile/profile.component */ "./src/app/pages/profile/profile.component.ts");
+
+
+
 
 
 
@@ -32822,10 +32884,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var AdminLayoutRoutes = [
     { path: 'dashboard', component: _pages_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_0__["DashboardComponent"] },
-    { path: 'category', component: _pages_category_category_component__WEBPACK_IMPORTED_MODULE_8__["CategoryComponent"] },
+    // { path: 'services',      component: MainServicesComponent },
+    { path: 'appointments', component: app_pages_appointments_appointments_component__WEBPACK_IMPORTED_MODULE_18__["AppointmentsComponent"] },
+    { path: 'patients', component: app_pages_patients_patients_component__WEBPACK_IMPORTED_MODULE_19__["PatientsComponent"] },
     { path: 'add-main-category', component: app_pages_add_main_category_add_main_category_component__WEBPACK_IMPORTED_MODULE_11__["AddMainCategoryComponent"] },
     { path: 'add-categories', component: app_pages_add_categories_add_categories_component__WEBPACK_IMPORTED_MODULE_12__["AddCategoriesComponent"] },
     { path: 'add-sub-category', component: app_pages_add_sub_category_add_sub_category_component__WEBPACK_IMPORTED_MODULE_13__["AddSubCategoryComponent"] },
+    // { path: 'category',      component: CategoryComponent },
+    { path: 'services', component: _pages_category_category_component__WEBPACK_IMPORTED_MODULE_8__["CategoryComponent"] },
     { path: 'categories', component: app_pages_categories_categories_component__WEBPACK_IMPORTED_MODULE_9__["CategoriesComponent"] },
     { path: 'sub-category', component: app_pages_sub_category_sub_category_component__WEBPACK_IMPORTED_MODULE_10__["SubCategoryComponent"] },
     { path: 'service-provider', component: app_pages_service_providers_service_providers_component__WEBPACK_IMPORTED_MODULE_14__["ServiceProvidersComponent"] },
@@ -32838,7 +32904,8 @@ var AdminLayoutRoutes = [
     { path: 'icons', component: _pages_icons_icons_component__WEBPACK_IMPORTED_MODULE_4__["IconsComponent"] },
     { path: 'maps', component: _pages_maps_maps_component__WEBPACK_IMPORTED_MODULE_5__["MapsComponent"] },
     { path: 'notifications', component: _pages_notifications_notifications_component__WEBPACK_IMPORTED_MODULE_6__["NotificationsComponent"] },
-    { path: 'upgrade', component: _pages_upgrade_upgrade_component__WEBPACK_IMPORTED_MODULE_7__["UpgradeComponent"] }
+    { path: 'upgrade', component: _pages_upgrade_upgrade_component__WEBPACK_IMPORTED_MODULE_7__["UpgradeComponent"] },
+    { path: 'profile', component: app_pages_profile_profile_component__WEBPACK_IMPORTED_MODULE_20__["ProfileComponent"] },
 ];
 
 
@@ -33136,6 +33203,75 @@ var AddSubCategoryComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/pages/appointments/appointments.component.scss":
+/*!****************************************************************!*\
+  !*** ./src/app/pages/appointments/appointments.component.scss ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2FwcG9pbnRtZW50cy9hcHBvaW50bWVudHMuY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/pages/appointments/appointments.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/pages/appointments/appointments.component.ts ***!
+  \**************************************************************/
+/*! exports provided: AppointmentsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppointmentsComponent", function() { return AppointmentsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/services/appointments/appointments.service */ "./src/app/services/appointments/appointments.service.ts");
+
+
+
+
+
+
+var AppointmentsComponent = /** @class */ (function () {
+    function AppointmentsComponent(http, router, appointmentApi) {
+        this.http = http;
+        this.router = router;
+        this.appointmentApi = appointmentApi;
+        this.dtOptions = {};
+        this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+    }
+    AppointmentsComponent.prototype.ngOnInit = function () {
+        this.getAppoinments();
+    };
+    AppointmentsComponent.prototype.getAppoinments = function () {
+        var _this = this;
+        this.appointmentApi.getAllAppointments().subscribe(function (res) {
+            console.log(res);
+            _this.appointmentsList = res;
+        }, function (err) {
+            console.log(err);
+        });
+    };
+    AppointmentsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-appointments',
+            template: __webpack_require__(/*! raw-loader!./appointments.component.html */ "./node_modules/raw-loader/index.js!./src/app/pages/appointments/appointments.component.html"),
+            providers: [app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__["AppointmentsService"]],
+            styles: [__webpack_require__(/*! ./appointments.component.scss */ "./src/app/pages/appointments/appointments.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__["AppointmentsService"]])
+    ], AppointmentsComponent);
+    return AppointmentsComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/pages/categories/categories.component.scss":
 /*!************************************************************!*\
   !*** ./src/app/pages/categories/categories.component.scss ***!
@@ -33143,7 +33279,7 @@ var AddSubCategoryComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "img {\n  width: 10%;\n}\n\n.add-btn {\n  margin-bottom: 29px;\n  float: right;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zYWFkc3VmeWFuL0Rlc2t0b3AvbmFqZWVrLWFkbWluL3NyYy9hcHAvcGFnZXMvY2F0ZWdvcmllcy9jYXRlZ29yaWVzLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9wYWdlcy9jYXRlZ29yaWVzL2NhdGVnb3JpZXMuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxVQUFBO0FDQ0o7O0FERUE7RUFDSSxtQkFBQTtFQUNBLFlBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2NhdGVnb3JpZXMvY2F0ZWdvcmllcy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImltZyB7XG4gICAgd2lkdGg6IDEwJTtcbn1cblxuLmFkZC1idG4ge1xuICAgIG1hcmdpbi1ib3R0b206IDI5cHg7XG4gICAgZmxvYXQ6IHJpZ2h0O1xufSIsImltZyB7XG4gIHdpZHRoOiAxMCU7XG59XG5cbi5hZGQtYnRuIHtcbiAgbWFyZ2luLWJvdHRvbTogMjlweDtcbiAgZmxvYXQ6IHJpZ2h0O1xufSJdfQ== */"
+module.exports = "img {\n  width: 10%;\n}\n\n.add-btn {\n  margin-bottom: 29px;\n  float: right;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zYWFkc3VmeWFuL0Rlc2t0b3AvbmFqZWVrLWxvY2FsLWFkbWluLXBhbmVsL3NyYy9hcHAvcGFnZXMvY2F0ZWdvcmllcy9jYXRlZ29yaWVzLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9wYWdlcy9jYXRlZ29yaWVzL2NhdGVnb3JpZXMuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxVQUFBO0FDQ0o7O0FERUE7RUFDSSxtQkFBQTtFQUNBLFlBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2NhdGVnb3JpZXMvY2F0ZWdvcmllcy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImltZyB7XG4gICAgd2lkdGg6IDEwJTtcbn1cblxuLmFkZC1idG4ge1xuICAgIG1hcmdpbi1ib3R0b206IDI5cHg7XG4gICAgZmxvYXQ6IHJpZ2h0O1xufSIsImltZyB7XG4gIHdpZHRoOiAxMCU7XG59XG5cbi5hZGQtYnRuIHtcbiAgbWFyZ2luLWJvdHRvbTogMjlweDtcbiAgZmxvYXQ6IHJpZ2h0O1xufSJdfQ== */"
 
 /***/ }),
 
@@ -33222,7 +33358,7 @@ var CategoriesComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "img {\n  width: 10%;\n}\n\n.add-btn {\n  margin-bottom: 29px;\n  float: right;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zYWFkc3VmeWFuL0Rlc2t0b3AvbmFqZWVrLWFkbWluL3NyYy9hcHAvcGFnZXMvY2F0ZWdvcnkvY2F0ZWdvcnkuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2NhdGVnb3J5L2NhdGVnb3J5LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksVUFBQTtBQ0NKOztBREVBO0VBQ0ksbUJBQUE7RUFDQSxZQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9jYXRlZ29yeS9jYXRlZ29yeS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImltZyB7XG4gICAgd2lkdGg6IDEwJTtcbn1cblxuLmFkZC1idG4ge1xuICAgIG1hcmdpbi1ib3R0b206IDI5cHg7XG4gICAgZmxvYXQ6IHJpZ2h0O1xufSIsImltZyB7XG4gIHdpZHRoOiAxMCU7XG59XG5cbi5hZGQtYnRuIHtcbiAgbWFyZ2luLWJvdHRvbTogMjlweDtcbiAgZmxvYXQ6IHJpZ2h0O1xufSJdfQ== */"
+module.exports = "img {\n  width: 10%;\n}\n\n.add-btn {\n  margin-bottom: 29px;\n  float: right;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zYWFkc3VmeWFuL0Rlc2t0b3AvbmFqZWVrLWxvY2FsLWFkbWluLXBhbmVsL3NyYy9hcHAvcGFnZXMvY2F0ZWdvcnkvY2F0ZWdvcnkuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2NhdGVnb3J5L2NhdGVnb3J5LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksVUFBQTtBQ0NKOztBREVBO0VBQ0ksbUJBQUE7RUFDQSxZQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9jYXRlZ29yeS9jYXRlZ29yeS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImltZyB7XG4gICAgd2lkdGg6IDEwJTtcbn1cblxuLmFkZC1idG4ge1xuICAgIG1hcmdpbi1ib3R0b206IDI5cHg7XG4gICAgZmxvYXQ6IHJpZ2h0O1xufSIsImltZyB7XG4gIHdpZHRoOiAxMCU7XG59XG5cbi5hZGQtYnRuIHtcbiAgbWFyZ2luLWJvdHRvbTogMjlweDtcbiAgZmxvYXQ6IHJpZ2h0O1xufSJdfQ== */"
 
 /***/ }),
 
@@ -33380,7 +33516,7 @@ var CustomerDetailsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".eye-icon {\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zYWFkc3VmeWFuL0Rlc2t0b3AvbmFqZWVrLWFkbWluL3NyYy9hcHAvcGFnZXMvY3VzdG9tZXItbGlzdC9jdXN0b21lci1saXN0LmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9wYWdlcy9jdXN0b21lci1saXN0L2N1c3RvbWVyLWxpc3QuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxlQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9jdXN0b21lci1saXN0L2N1c3RvbWVyLWxpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZXllLWljb24ge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbn0iLCIuZXllLWljb24ge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */"
+module.exports = ".eye-icon {\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zYWFkc3VmeWFuL0Rlc2t0b3AvbmFqZWVrLWxvY2FsLWFkbWluLXBhbmVsL3NyYy9hcHAvcGFnZXMvY3VzdG9tZXItbGlzdC9jdXN0b21lci1saXN0LmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9wYWdlcy9jdXN0b21lci1saXN0L2N1c3RvbWVyLWxpc3QuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxlQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9jdXN0b21lci1saXN0L2N1c3RvbWVyLWxpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZXllLWljb24ge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbn0iLCIuZXllLWljb24ge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */"
 
 /***/ }),
 
@@ -33680,6 +33816,51 @@ var IconsComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/pages/main-services/main-services.component.scss":
+/*!******************************************************************!*\
+  !*** ./src/app/pages/main-services/main-services.component.scss ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL21haW4tc2VydmljZXMvbWFpbi1zZXJ2aWNlcy5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/pages/main-services/main-services.component.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/pages/main-services/main-services.component.ts ***!
+  \****************************************************************/
+/*! exports provided: MainServicesComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainServicesComponent", function() { return MainServicesComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var MainServicesComponent = /** @class */ (function () {
+    function MainServicesComponent() {
+    }
+    MainServicesComponent.prototype.ngOnInit = function () {
+    };
+    MainServicesComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-main-services',
+            template: __webpack_require__(/*! raw-loader!./main-services.component.html */ "./node_modules/raw-loader/index.js!./src/app/pages/main-services/main-services.component.html"),
+            styles: [__webpack_require__(/*! ./main-services.component.scss */ "./src/app/pages/main-services/main-services.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], MainServicesComponent);
+    return MainServicesComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/pages/maps/maps.component.ts":
 /*!**********************************************!*\
   !*** ./src/app/pages/maps/maps.component.ts ***!
@@ -33812,6 +33993,144 @@ var NotificationsComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/pages/patients/patients.component.scss":
+/*!********************************************************!*\
+  !*** ./src/app/pages/patients/patients.component.scss ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3BhdGllbnRzL3BhdGllbnRzLmNvbXBvbmVudC5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/pages/patients/patients.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/pages/patients/patients.component.ts ***!
+  \******************************************************/
+/*! exports provided: PatientsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PatientsComponent", function() { return PatientsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/services/appointments/appointments.service */ "./src/app/services/appointments/appointments.service.ts");
+
+
+
+
+
+
+var PatientsComponent = /** @class */ (function () {
+    function PatientsComponent(http, router, appointmentApi) {
+        this.http = http;
+        this.router = router;
+        this.appointmentApi = appointmentApi;
+        this.dtOptions = {};
+        this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+    }
+    PatientsComponent.prototype.ngOnInit = function () {
+        this.getPatientsList();
+    };
+    PatientsComponent.prototype.getPatientsList = function () {
+        var _this = this;
+        this.appointmentApi.getPatientsList().subscribe(function (res) {
+            console.log(res);
+            _this.patientList = res;
+        }, function (err) {
+            console.log(err);
+        });
+    };
+    PatientsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-patients',
+            template: __webpack_require__(/*! raw-loader!./patients.component.html */ "./node_modules/raw-loader/index.js!./src/app/pages/patients/patients.component.html"),
+            providers: [app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__["AppointmentsService"]],
+            styles: [__webpack_require__(/*! ./patients.component.scss */ "./src/app/pages/patients/patients.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__["AppointmentsService"]])
+    ], PatientsComponent);
+    return PatientsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/profile/profile.component.scss":
+/*!******************************************************!*\
+  !*** ./src/app/pages/profile/profile.component.scss ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3Byb2ZpbGUvcHJvZmlsZS5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/pages/profile/profile.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/pages/profile/profile.component.ts ***!
+  \****************************************************/
+/*! exports provided: ProfileComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileComponent", function() { return ProfileComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var app_services_profile_profile_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/services/profile/profile.service */ "./src/app/services/profile/profile.service.ts");
+
+
+
+
+
+
+var ProfileComponent = /** @class */ (function () {
+    function ProfileComponent(http, router, profileApi) {
+        this.http = http;
+        this.router = router;
+        this.profileApi = profileApi;
+        this.dtOptions = {};
+        this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+    }
+    ProfileComponent.prototype.ngOnInit = function () {
+        this.getProfileDetails();
+    };
+    ProfileComponent.prototype.getProfileDetails = function () {
+        var _this = this;
+        this.profileApi.getProfile().subscribe(function (res) {
+            console.log(res);
+            _this.profileData = res;
+        }, function (err) {
+            console.log(err);
+        });
+    };
+    ProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-profile',
+            template: __webpack_require__(/*! raw-loader!./profile.component.html */ "./node_modules/raw-loader/index.js!./src/app/pages/profile/profile.component.html"),
+            providers: [app_services_profile_profile_service__WEBPACK_IMPORTED_MODULE_5__["ProfileService"]],
+            styles: [__webpack_require__(/*! ./profile.component.scss */ "./src/app/pages/profile/profile.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], app_services_profile_profile_service__WEBPACK_IMPORTED_MODULE_5__["ProfileService"]])
+    ], ProfileComponent);
+    return ProfileComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/pages/service-providers-details/service-providers-details.component.scss":
 /*!******************************************************************************************!*\
   !*** ./src/app/pages/service-providers-details/service-providers-details.component.scss ***!
@@ -33819,7 +34138,7 @@ var NotificationsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".icon {\n  font-size: 25px;\n  padding: 6px;\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zYWFkc3VmeWFuL0Rlc2t0b3AvbmFqZWVrLWFkbWluL3NyYy9hcHAvcGFnZXMvc2VydmljZS1wcm92aWRlcnMtZGV0YWlscy9zZXJ2aWNlLXByb3ZpZGVycy1kZXRhaWxzLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9wYWdlcy9zZXJ2aWNlLXByb3ZpZGVycy1kZXRhaWxzL3NlcnZpY2UtcHJvdmlkZXJzLWRldGFpbHMuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxlQUFBO0VBQ0EsWUFBQTtFQUNBLGVBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3NlcnZpY2UtcHJvdmlkZXJzLWRldGFpbHMvc2VydmljZS1wcm92aWRlcnMtZGV0YWlscy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5pY29uIHtcbiAgICBmb250LXNpemU6IDI1cHg7XG4gICAgcGFkZGluZzogNnB4O1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbn0iLCIuaWNvbiB7XG4gIGZvbnQtc2l6ZTogMjVweDtcbiAgcGFkZGluZzogNnB4O1xuICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */"
+module.exports = ".icon {\n  font-size: 25px;\n  padding: 6px;\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zYWFkc3VmeWFuL0Rlc2t0b3AvbmFqZWVrLWxvY2FsLWFkbWluLXBhbmVsL3NyYy9hcHAvcGFnZXMvc2VydmljZS1wcm92aWRlcnMtZGV0YWlscy9zZXJ2aWNlLXByb3ZpZGVycy1kZXRhaWxzLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9wYWdlcy9zZXJ2aWNlLXByb3ZpZGVycy1kZXRhaWxzL3NlcnZpY2UtcHJvdmlkZXJzLWRldGFpbHMuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxlQUFBO0VBQ0EsWUFBQTtFQUNBLGVBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3NlcnZpY2UtcHJvdmlkZXJzLWRldGFpbHMvc2VydmljZS1wcm92aWRlcnMtZGV0YWlscy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5pY29uIHtcbiAgICBmb250LXNpemU6IDI1cHg7XG4gICAgcGFkZGluZzogNnB4O1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbn0iLCIuaWNvbiB7XG4gIGZvbnQtc2l6ZTogMjVweDtcbiAgcGFkZGluZzogNnB4O1xuICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */"
 
 /***/ }),
 
@@ -33940,7 +34259,7 @@ var ServiceProvidersDetailsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".img-logo {\n  width: 10% !important;\n}\n\n.icon {\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zYWFkc3VmeWFuL0Rlc2t0b3AvbmFqZWVrLWFkbWluL3NyYy9hcHAvcGFnZXMvc2VydmljZS1wcm92aWRlcnMvc2VydmljZS1wcm92aWRlcnMuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3BhZ2VzL3NlcnZpY2UtcHJvdmlkZXJzL3NlcnZpY2UtcHJvdmlkZXJzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0kscUJBQUE7QUNDSjs7QURDQTtFQUNJLGVBQUE7QUNFSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3NlcnZpY2UtcHJvdmlkZXJzL3NlcnZpY2UtcHJvdmlkZXJzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmltZy1sb2dvIHtcbiAgICB3aWR0aDogMTAlICFpbXBvcnRhbnQ7XG59XG4uaWNvbiB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xufSIsIi5pbWctbG9nbyB7XG4gIHdpZHRoOiAxMCUgIWltcG9ydGFudDtcbn1cblxuLmljb24ge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */"
+module.exports = ".img-logo {\n  width: 10% !important;\n}\n\n.icon {\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zYWFkc3VmeWFuL0Rlc2t0b3AvbmFqZWVrLWxvY2FsLWFkbWluLXBhbmVsL3NyYy9hcHAvcGFnZXMvc2VydmljZS1wcm92aWRlcnMvc2VydmljZS1wcm92aWRlcnMuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3BhZ2VzL3NlcnZpY2UtcHJvdmlkZXJzL3NlcnZpY2UtcHJvdmlkZXJzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0kscUJBQUE7QUNDSjs7QURDQTtFQUNJLGVBQUE7QUNFSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3NlcnZpY2UtcHJvdmlkZXJzL3NlcnZpY2UtcHJvdmlkZXJzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmltZy1sb2dvIHtcbiAgICB3aWR0aDogMTAlICFpbXBvcnRhbnQ7XG59XG4uaWNvbiB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xufSIsIi5pbWctbG9nbyB7XG4gIHdpZHRoOiAxMCUgIWltcG9ydGFudDtcbn1cblxuLmljb24ge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */"
 
 /***/ }),
 
@@ -34019,7 +34338,7 @@ var ServiceProvidersComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "img {\n  width: 10%;\n}\n\n.add-btn {\n  margin-bottom: 29px;\n  float: right;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zYWFkc3VmeWFuL0Rlc2t0b3AvbmFqZWVrLWFkbWluL3NyYy9hcHAvcGFnZXMvc3ViLWNhdGVnb3J5L3N1Yi1jYXRlZ29yeS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvcGFnZXMvc3ViLWNhdGVnb3J5L3N1Yi1jYXRlZ29yeS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFVBQUE7QUNDSjs7QURFQTtFQUNJLG1CQUFBO0VBQ0EsWUFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvc3ViLWNhdGVnb3J5L3N1Yi1jYXRlZ29yeS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImltZyB7XG4gICAgd2lkdGg6IDEwJTtcbn1cblxuLmFkZC1idG4ge1xuICAgIG1hcmdpbi1ib3R0b206IDI5cHg7XG4gICAgZmxvYXQ6IHJpZ2h0O1xufSIsImltZyB7XG4gIHdpZHRoOiAxMCU7XG59XG5cbi5hZGQtYnRuIHtcbiAgbWFyZ2luLWJvdHRvbTogMjlweDtcbiAgZmxvYXQ6IHJpZ2h0O1xufSJdfQ== */"
+module.exports = "img {\n  width: 10%;\n}\n\n.add-btn {\n  margin-bottom: 29px;\n  float: right;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zYWFkc3VmeWFuL0Rlc2t0b3AvbmFqZWVrLWxvY2FsLWFkbWluLXBhbmVsL3NyYy9hcHAvcGFnZXMvc3ViLWNhdGVnb3J5L3N1Yi1jYXRlZ29yeS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvcGFnZXMvc3ViLWNhdGVnb3J5L3N1Yi1jYXRlZ29yeS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFVBQUE7QUNDSjs7QURFQTtFQUNJLG1CQUFBO0VBQ0EsWUFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvc3ViLWNhdGVnb3J5L3N1Yi1jYXRlZ29yeS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImltZyB7XG4gICAgd2lkdGg6IDEwJTtcbn1cblxuLmFkZC1idG4ge1xuICAgIG1hcmdpbi1ib3R0b206IDI5cHg7XG4gICAgZmxvYXQ6IHJpZ2h0O1xufSIsImltZyB7XG4gIHdpZHRoOiAxMCU7XG59XG5cbi5hZGQtYnRuIHtcbiAgbWFyZ2luLWJvdHRvbTogMjlweDtcbiAgZmxvYXQ6IHJpZ2h0O1xufSJdfQ== */"
 
 /***/ }),
 
@@ -34235,6 +34554,69 @@ var UserComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/appointments/appointments.service.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/services/appointments/appointments.service.ts ***!
+  \***************************************************************/
+/*! exports provided: AppointmentsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppointmentsService", function() { return AppointmentsService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../environments/environment */ "./src/environments/environment.ts");
+
+
+
+
+var AppointmentsService = /** @class */ (function () {
+    function AppointmentsService(http) {
+        this.http = http;
+        this.token = localStorage.getItem('token');
+    }
+    AppointmentsService.prototype.getAllAppointments = function () {
+        return this.http
+            .get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].baseUrl + "/appointments/fetch_appointments", {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'x-access-token': this.token
+            }
+        });
+    };
+    AppointmentsService.prototype.getPatientsList = function () {
+        return this.http
+            .get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].baseUrl + "/appointments/fetch_patients_served", {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'x-access-token': this.token
+            }
+        });
+    };
+    AppointmentsService.prototype.getPatientAppointmentRequestList = function () {
+        return this.http
+            .get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].baseUrl + "/appointments/fetch_patients_request", {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'x-access-token': this.token
+            }
+        });
+    };
+    AppointmentsService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], AppointmentsService);
+    return AppointmentsService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/categories/categories.service.ts":
 /*!***********************************************************!*\
   !*** ./src/app/services/categories/categories.service.ts ***!
@@ -34352,6 +34734,60 @@ var MainCategoryService = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], MainCategoryService);
     return MainCategoryService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/profile/profile.service.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/services/profile/profile.service.ts ***!
+  \*****************************************************/
+/*! exports provided: ProfileService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileService", function() { return ProfileService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../environments/environment */ "./src/environments/environment.ts");
+
+
+
+
+var ProfileService = /** @class */ (function () {
+    function ProfileService(http) {
+        this.http = http;
+        this.token = localStorage.getItem('token');
+    }
+    ProfileService.prototype.getProfile = function () {
+        return this.http
+            .get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].baseUrl + "/users/profile_details", {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'x-access-token': this.token
+            }
+        });
+    };
+    ProfileService.prototype.updateProfile = function (body) {
+        return this.http
+            .post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].baseUrl + "/users/update_profile", body, {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'x-access-token': this.token
+            }
+        });
+    };
+    ProfileService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], ProfileService);
+    return ProfileService;
 }());
 
 
