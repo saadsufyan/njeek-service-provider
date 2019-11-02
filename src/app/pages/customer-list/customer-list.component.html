@@ -1,0 +1,24 @@
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+<thead>
+    <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Iqama ID</th>
+    <th>Gender</th>
+    <th>Actions</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let x of items">
+    <td>{{ x.customer_id }}</td>
+    <td>{{ x.name }}</td>
+    <td>{{ x.email }}</td>
+    <td>{{ x.phone }}</td>
+    <td>{{ x.iqama_id}}</td>
+    <td>{{ x.gender }}</td>
+    <td><i class="fa fa-eye eye-icon" [routerLink]="['/customer-details', x.customer_id]"></i></td>
+    </tr>
+</tbody>
+</table>

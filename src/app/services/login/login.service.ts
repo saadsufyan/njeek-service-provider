@@ -1,0 +1,20 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class LoginService {
+
+  constructor(private http: HttpClient) { }
+
+  loginUser(body) {
+      return this.http.post(`${environment.baseUrl}/users/signin_service_provider`, body, {
+        headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+      }
+      );
+  }
+}

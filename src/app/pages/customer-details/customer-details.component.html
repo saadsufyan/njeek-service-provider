@@ -1,0 +1,27 @@
+<div class="col-xl-12">
+    <h3>Appointment List</h3>
+</div>
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+    <thead>
+        <tr>
+        <th>Appointment ID</th>
+        <th>Patient Name</th>
+        <th>Service Name</th>
+        <th>Main Category</th>
+        <th>Sub Category</th>
+        <th>Status</th>
+        <th>Total Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of items">
+        <td>{{ x.appointment_id }}</td>
+        <td>{{ x.patient_name }}</td>
+        <td>{{ x.service_name }}</td>
+        <td>{{ x.main_category }}</td>
+        <td>{{ x.sub_category}}</td>
+        <td>{{ x.status }}</td>
+        <td>{{x.total_price}}</td>
+        </tr>
+    </tbody>
+    </table>

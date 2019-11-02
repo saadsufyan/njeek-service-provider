@@ -1,0 +1,28 @@
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+    <thead>
+        <tr>
+        <th>Service ID</th>
+        <th>Service Name</th>
+        <th>Service Arabic Name</th>
+        <th>Service Description</th>
+        <th>Service Arabic Description </th>
+        <th>Status</th>
+        <th>Charges</th>
+        <th>Commission</th>
+        <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of items">
+        <td>{{ x.service_id }}</td>
+        <td>{{ x.service_name }}</td>
+        <td>{{ x.service_name_arabic }}</td>
+        <td>{{ x.service_description }}</td>
+        <td>{{ x.service_description_arabic}}</td>
+        <td>{{ x.status }}</td>
+        <td>{{ x.charges }}</td>
+        <td><input name="commission" [(ngModel)]="x.commission"></td>
+        <td><i class="fa fa-check-circle icon" (click)="acceptService(x.commission)"></i> <i class="fa fa-times icon" (click)="rejectService()"></i></td>
+        </tr>
+    </tbody>
+    </table>

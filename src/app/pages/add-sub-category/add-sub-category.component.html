@@ -1,0 +1,50 @@
+<h1> Add Sub Category </h1>
+<form [formGroup] = "category" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label class="btn btn-primary" for="exampleFormControlFile1">Choose File</label>
+            <input type="file" (change)="onFileChange($event)" class="form-control-file" id="exampleFormControlFile1">
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="exampleInputEmail1">Name</label>
+            <input type="text"  formControlName="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+          </div>
+          <div class="col-md-6">
+                <label for="arabicName">Arabic Name</label>
+                <input type="text"  formControlName="arabic_name" class="form-control" id="arabicName" aria-describedby="emailHelp" placeholder="">
+          </div>
+        </div>
+        <div class="form-group row">
+                <div class="col-md-6">
+                  <label for="shortDescription">Short Description</label>
+                  <input type="text"  formControlName="short_description" class="form-control" id="shortDescription" aria-describedby="emailHelp" placeholder="Short Description">
+                </div>
+                <div class="col-md-6">
+                      <label for="shortDescriptionArabic">Short Description Arabic</label>
+                      <input type="text"  formControlName="arabic_short_description" class="form-control" id="shortDescriptionArabic" aria-describedby="emailHelp" placeholder="">
+                </div>
+        </div>
+        <div class="form-group">
+                <label for="category">Select Main Category</label>
+                <select class="form-control" formControlName="main_category_id" id="category">
+                    <option *ngFor="let mainCategory of mainCategoryList" value={{mainCategory.id}}>{{mainCategory.name}}</option>
+                </select>
+        </div>
+        <div class="form-group">
+            <label for="categories">Select Category</label>
+            <select class="form-control" formControlName="category_id" id="categories">
+                <option *ngFor="let category of categoryList" value={{category.id}}>{{category.name}}</option>
+            </select>
+    </div>
+        <div class="form-group row">
+                <div class="col-md-6">
+                  <label for="description">Description</label>
+                  <textarea class="form-control"  formControlName="long_description" id="description" rows="3"></textarea>
+                </div>
+                <div class="col-md-6">
+                    <label for="descriptionArabic">Arabic Description</label>
+                    <textarea class="form-control"  formControlName="arabic_long_description" id="descriptionArabic" rows="3"></textarea>
+                </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>

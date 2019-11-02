@@ -1,0 +1,21 @@
+<div>
+        <button (click)="navigateAddCategory()" class="bnt btn-primary add-btn">Add</button>
+    </div>
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Logo</th>
+            <th>Name</th>
+            <th>Arabic Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let person of persons" [routerLink]="['/sub-category']">
+            <td>{{ person.id }}</td>
+            <td><img [src]="person.image"></td>
+            <td>{{ person.name }}</td>
+            <td>{{ person.arabic_name}}</td>
+          </tr>
+        </tbody>
+        </table>
