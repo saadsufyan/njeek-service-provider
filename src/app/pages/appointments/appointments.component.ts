@@ -10,7 +10,7 @@ import { AppointmentsService } from 'app/services/appointments/appointments.serv
   styleUrls: ['./appointments.component.scss'],
   providers: [AppointmentsService]
 })
-export class AppointmentsComponent implements OnInit {
+export class AppointmentsComponent implements OnInit , OnDestroy {
 
   dtOptions: DataTables.Settings = {};
   appointmentsList;
@@ -18,15 +18,24 @@ export class AppointmentsComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router, public appointmentApi: AppointmentsService) { }
 
   ngOnInit() {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10
+    };
     this.getAppoinments();
   }
 
   getAppoinments() {
-    this.appointmentApi.getAllAppointments().subscribe(res => {
+    this.appointmentApi.getAllAppointments().subscribe((res: any) => {
       console.log(res);
-      this.appointmentsList = res;
+      this.appointmentsList = res.message;
+      this.dtTrigger.next();
     }, err => {
       console.log(err);
     })
+  }
+  ngOnDestroy(): void {
+    // Do not forget to unsubscribe the event
+    this.dtTrigger.unsubscribe();
   }
 }

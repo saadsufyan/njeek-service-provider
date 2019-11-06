@@ -1,1 +1,26 @@
-<p>appointments works!</p>
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+<thead>
+    <tr>
+    <th>ID</th>
+    <th>Patient Name</th>
+    <th>Main Service</th>
+    <th>Sub Service Category</th>
+    <th>Sub Service</th>
+    <th>Patient Mobile</th>
+    <th>Total Price</th>
+    <th>Status</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let x of appointmentsList" [routerLink]="['/categories']">
+    <td>{{ x.id }}</td>
+    <td>{{x.patient_name}}</td>
+    <td>{{ x.main_service }}</td>
+    <td>{{ x.sub_service_category}}</td>
+    <td>{{ x.sub_service}}</td>
+    <td>{{ x.patient_mobile}}</td>
+    <td>{{ x.total_price}}</td>
+    <td>{{ x.status}}</td>
+    </tr>
+</tbody>
+</table>
