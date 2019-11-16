@@ -32,6 +32,8 @@ import { MainServicesComponent } from 'app/pages/main-services/main-services.com
 import { AppointmentsComponent } from 'app/pages/appointments/appointments.component';
 import { PatientsComponent } from 'app/pages/patients/patients.component';
 import { ProfileComponent } from 'app/pages/profile/profile.component';
+import { PatientsRequestComponent } from 'app/pages/patients-request/patients-request.component';
+import { PatientsServedComponent } from 'app/pages/patients-served/patients-served.component';
 
 @NgModule({
   imports: [
@@ -65,6 +67,8 @@ import { ProfileComponent } from 'app/pages/profile/profile.component';
     MainServicesComponent,
     AppointmentsComponent,
     PatientsComponent,
+    PatientsRequestComponent,
+    PatientsServedComponent,
     ProfileComponent
   ]
 })

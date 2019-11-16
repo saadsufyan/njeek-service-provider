@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class GeneralApiService {
 
-  constructor(public http: HttpClient,) { }
+  constructor(public http: HttpClient, ) { }
 
 
 
@@ -17,7 +17,7 @@ export class GeneralApiService {
 
       console.log(environment.baseUrl + url)
 
-      var resp;
+      let resp;
 
 
       // const headers = new HttpHeaders({
@@ -32,7 +32,7 @@ export class GeneralApiService {
           resolve(resp)
         }, (err) => {
           console.log(err, 'err')
-          if (err.status == 0) {
+          if (err.status === 0) {
             // this.presentErrorAlert()
           }
           resolve(err)
@@ -41,12 +41,12 @@ export class GeneralApiService {
     })
   }
 
- 
+
   PostRequest(url, data) {
     return new Promise(resolve => {
       // this.localStorrage.get(environment.baseUrl_TOKEN).then((res) => {
 
-      var resp;
+      let resp;
       this.http.post(environment.baseUrl + url, data)
         .subscribe((res) => {
           console.log(res)
@@ -55,7 +55,7 @@ export class GeneralApiService {
           resolve(resp)
         }, (err) => {
           console.log(err, 'err')
-          if (err.status == 0) {
+          if (err.status === 0) {
             // this.presentErrorAlert()
           }
           resolve(err)

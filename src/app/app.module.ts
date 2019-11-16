@@ -23,7 +23,6 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ServiceDetailComponent } from './pages/service-detail/service-detail.component';
 
 
-
 export function tokenGetter() {
   return localStorage.getItem('token');
 }

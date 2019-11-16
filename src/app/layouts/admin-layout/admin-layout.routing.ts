@@ -22,12 +22,17 @@ import { MainServicesComponent } from 'app/pages/main-services/main-services.com
 import { AppointmentsComponent } from 'app/pages/appointments/appointments.component';
 import { PatientsComponent } from 'app/pages/patients/patients.component';
 import { ProfileComponent } from 'app/pages/profile/profile.component';
+import { PatientsRequestComponent } from 'app/pages/patients-request/patients-request.component';
+import { PatientsServedComponent } from 'app/pages/patients-served/patients-served.component';
+
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     // { path: 'services',      component: MainServicesComponent },
     { path: 'appointments',      component: AppointmentsComponent },
     { path: 'patients',      component: PatientsComponent },
+    { path: 'patients-request',      component: PatientsRequestComponent },
+    { path: 'patients-served',      component: PatientsServedComponent },
     { path: 'add-main-category',      component: AddMainCategoryComponent },
     { path: 'add-categories',      component: AddCategoriesComponent },
     { path: 'add-sub-category',      component: AddSubCategoryComponent },
@@ -37,7 +42,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'sub-category',      component: SubCategoryComponent },
     { path: 'service-provider',      component: ServiceProvidersComponent },
     { path: 'service-provider-detail/:id',      component: ServiceProvidersDetailsComponent },
-    { path: 'customers-list',      component: CustomerListComponent },
+    { path: 'customers',      component: CustomerListComponent },
     { path: 'customer-details/:id',      component: CustomerDetailsComponent },
     { path: 'user',           component: UserComponent },
     { path: 'table',          component: TableComponent },

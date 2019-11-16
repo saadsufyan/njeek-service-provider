@@ -24,6 +24,15 @@ export class AppointmentsService {
 
   getPatientsList() {
     return this.http
+    .get(`${environment.baseUrl}/appointments/fetch_patients_all`, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'x-access-token': this.token
+        }
+    });
+  }
+  getServedPatientsList() {
+    return this.http
     .get(`${environment.baseUrl}/appointments/fetch_patients_served`, {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -31,6 +40,7 @@ export class AppointmentsService {
         }
     });
   }
+
   getPatientAppointmentRequestList() {
     return this.http
     .get(`${environment.baseUrl}/appointments/fetch_patients_request`, {

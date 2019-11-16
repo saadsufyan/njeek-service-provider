@@ -13,6 +13,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/services',      title: 'Services',     icon: 'nc-bank',      class: '' },
     { path: '/appointments',      title: 'Appointments',     icon: 'nc-bank',      class: '' },
     { path: '/patients',      title: 'Patients',     icon: 'nc-bank',      class: '' },
+    { path: '/patients-request',      title: 'Patients Requests',     icon: 'nc-bank',      class: '' },
+    { path: '/patients-served',      title: 'Patients Served',     icon: 'nc-bank',      class: '' },
     // { path: '/category',      title: 'Main Category',     icon: 'nc-bank',      class: '' },
     // { path: '/categories',      title: 'Categories',     icon: 'nc-bank',      class: '' },
     // { path: '/sub-category',      title: 'Sub Categories',     icon: 'nc-bank',      class: '' },

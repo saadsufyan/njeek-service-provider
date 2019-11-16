@@ -13,7 +13,7 @@
     <tbody>
       <tr *ngFor="let person of persons" [routerLink]="['/categories']">
         <td>{{ person.id }}</td>
-        <td><img [src]="person.image"></td>
+        <td><img class="img-logo" [src]="person.image"></td>
         <td>{{ person.name }}</td>
         <td>{{ person.arabic_name}}</td>
       </tr>

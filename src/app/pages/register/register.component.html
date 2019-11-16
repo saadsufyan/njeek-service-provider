@@ -34,8 +34,17 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="btn btn-dark text-dark " for="exampleFormControlFile1">Select Image</label>
-            <input type="file" (change)="onFileChange($event)" class="form-control-file" id="exampleFormControlFile1" />
+
+            <!-- <div class="col-md-6">
+                <label class="btn btn-dark text-dark" for="exampleFormControlFile1">Select Image</label>
+                <input type="file" (change)="onFileChange($event)" class="form-control-file" id="exampleFormControlFile1" />
+            </div>
+            <div class="col-md-6">
+                <img src="image">
+            </div> -->
+
+            <label class="btn btn-dark text-dark" for="exampleFormControlFile1">Select Image</label>
+            <input type="file" (change)="onFileChange($event)" class="form-control-file" id="exampleFormControlFile1" /> 
         </div>
         <button type="submit" [disabled]="!register.valid" class="btn btn-primary">Register</button>
     </form>
