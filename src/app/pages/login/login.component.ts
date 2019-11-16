@@ -37,11 +37,17 @@ export class LoginComponent implements OnInit {
     }
     console.log('body ', body);
     this.loginService.loginUser(body).subscribe((res: any) => {
+      console.log(res)
       if (res.access_key) {
         localStorage.setItem('token', res.access_key);
         this.router.navigate(['/dashboard']);
       }
     });
+  }
+
+  gotoRegister(){
+    this.router.navigate(['/register']);
+
   }
 
 }

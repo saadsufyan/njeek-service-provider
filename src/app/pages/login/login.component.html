@@ -1,5 +1,5 @@
 <section id="content" class="mt-md-5">
-    <form [formGroup] = "loginForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <h1>Login Form</h1>
         <div>
             <input type="text" formControlName="mobile" placeholder="Mobile" required="" id="mobile" />
@@ -10,8 +10,10 @@
         <div>
             <input type="submit" [disabled]="!loginForm.valid" value="Log in" />
             <a href="#">Lost your password?</a>
-            <a href="#">Register</a>
+            <a href="#" (click)='gotoRegister()'>Register</a>
         </div>
-    </form><!-- form -->
-    
-</section><!-- content -->
+    </form>
+    <!-- form -->
+
+</section>
+<!-- content -->

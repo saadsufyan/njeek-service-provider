@@ -92,4 +92,8 @@ export class NavbarComponent implements OnInit{
 
       }
 
+      gotoProfile(){
+        this.router.navigate(['/profile'])
+      }
+
 }
