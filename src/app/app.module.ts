@@ -5,8 +5,8 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { SidebarModule } from './sidebar/sidebar.module';
 import { FooterModule } from './shared/footer/footer.module';
-import { NavbarModule} from './shared/navbar/navbar.module';
-import { FixedPluginModule} from './shared/fixedplugin/fixedplugin.module';
+import { NavbarModule } from './shared/navbar/navbar.module';
+import { FixedPluginModule } from './shared/fixedplugin/fixedplugin.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
@@ -15,49 +15,45 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
-
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './pages/login/login.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { RegisterComponent } from './pages/register/register.component';
-import { ServiceDetailComponent } from './pages/service-detail/service-detail.component';
-
 
 export function tokenGetter() {
-  return localStorage.getItem('token');
+    return localStorage.getItem('token');
 }
 
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    AdminLayoutComponent,
-    LoginComponent,
-    RegisterComponent,
-    ServiceDetailComponent
-  ],
-  imports: [
-    BrowserAnimationsModule,
-    NgxDatatableModule,
-    HttpClientModule,
-    AngularFontAwesomeModule,
-    RouterModule.forRoot(AppRoutes, {
-      useHash: true
-    }),
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: tokenGetter
-      }
-    }),
-    SidebarModule,
-    NavbarModule,
-    ToastrModule.forRoot(),
-    FooterModule,
-    FixedPluginModule,
-    ReactiveFormsModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        AdminLayoutComponent,
+        LoginComponent,
+        RegisterComponent
+    ],
+    imports: [
+        BrowserAnimationsModule,
+        NgxDatatableModule,
+        HttpClientModule,
+        AngularFontAwesomeModule,
+        RouterModule.forRoot(AppRoutes, {
+            useHash: true
+        }),
+        JwtModule.forRoot({
+            config: {
+                tokenGetter: tokenGetter
+            }
+        }),
+        SidebarModule,
+        NavbarModule,
+        ToastrModule.forRoot(),
+        FooterModule,
+        FixedPluginModule,
+        ReactiveFormsModule,
+        FormsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -1,0 +1,21 @@
+<h1> Add Consultant </h1>
+<form>
+    <div class="form-group row">
+        <div class="col-md-6">
+        <label>Name</label>
+        <input  name="name" [(ngModel)]="consultant_name" class="form-control" placeholder="Enter Name">
+        </div>
+        <div class="col-md-6">
+            <label for="designation">Designation</label>
+            <input type="text" name="designation" [(ngModel)]="designation" class="form-control" placeholder="">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label for="type">Type</label>
+            <input type="text" name="type" [(ngModel)]="type" class="form-control" placeholder="">
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+</form>

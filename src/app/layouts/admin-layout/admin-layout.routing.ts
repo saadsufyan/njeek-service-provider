@@ -24,11 +24,19 @@ import { PatientsComponent } from 'app/pages/patients/patients.component';
 import { ProfileComponent } from 'app/pages/profile/profile.component';
 import { PatientsRequestComponent } from 'app/pages/patients-request/patients-request.component';
 import { PatientsServedComponent } from 'app/pages/patients-served/patients-served.component';
+import { ServiceDetailComponent } from 'app/pages/service-detail/service-detail.component';
+import { MyServicesComponent } from 'app/pages/my-services/my-services.component';
+import { ConsultantsComponent } from 'app/pages/consultants/consultants.component';
+import { ConsultantDetailsComponent } from 'app/pages/consultant-details/consultant-details.component';
+import { MyServiceUpdateComponent } from 'app/pages/my-service-update/my-service-update.component';
 
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
-    // { path: 'services',      component: MainServicesComponent },
+    { path: 'services/:id',      component: MainServicesComponent },
+    { path: 'service-detail/:id',      component: ServiceDetailComponent },
+    { path: 'my-services',      component: MyServicesComponent },
+    { path: 'my-service-detail/:id',      component: MyServiceUpdateComponent },
     { path: 'appointments',      component: AppointmentsComponent },
     { path: 'patients',      component: PatientsComponent },
     { path: 'patients-request',      component: PatientsRequestComponent },
@@ -36,14 +44,16 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'add-main-category',      component: AddMainCategoryComponent },
     { path: 'add-categories',      component: AddCategoriesComponent },
     { path: 'add-sub-category',      component: AddSubCategoryComponent },
-    // { path: 'category',      component: CategoryComponent },
-    { path: 'services',      component: CategoryComponent },
+    { path: 'category',      component: CategoryComponent },
+    // { path: 'services',      component: CategoryComponent },
     { path: 'categories',      component: CategoriesComponent },
-    { path: 'sub-category',      component: SubCategoryComponent },
+    { path: 'sub-category/:id',      component: SubCategoryComponent },
     { path: 'service-provider',      component: ServiceProvidersComponent },
     { path: 'service-provider-detail/:id',      component: ServiceProvidersDetailsComponent },
     { path: 'customers',      component: CustomerListComponent },
     { path: 'customer-details/:id',      component: CustomerDetailsComponent },
+    { path: 'consultants',      component: ConsultantsComponent },
+    { path: 'consultant-details',      component: ConsultantDetailsComponent },
     { path: 'user',           component: UserComponent },
     { path: 'table',          component: TableComponent },
     { path: 'typography',     component: TypographyComponent },

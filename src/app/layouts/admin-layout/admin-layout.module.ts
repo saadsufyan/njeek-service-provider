@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { DataTablesModule } from 'angular-datatables';
 import { ReactiveFormsModule } from '@angular/forms';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+
 
 import { AdminLayoutRoutes } from './admin-layout.routing';
 
@@ -34,6 +36,12 @@ import { PatientsComponent } from 'app/pages/patients/patients.component';
 import { ProfileComponent } from 'app/pages/profile/profile.component';
 import { PatientsRequestComponent } from 'app/pages/patients-request/patients-request.component';
 import { PatientsServedComponent } from 'app/pages/patients-served/patients-served.component';
+import { ServiceDetailComponent } from 'app/pages/service-detail/service-detail.component';
+import { MyServicesComponent } from 'app/pages/my-services/my-services.component';
+import { ConsultantsComponent } from 'app/pages/consultants/consultants.component';
+import { ConsultantDetailsComponent } from 'app/pages/consultant-details/consultant-details.component';
+import { MyServiceUpdateComponent } from 'app/pages/my-service-update/my-service-update.component';
+
 
 @NgModule({
   imports: [
@@ -43,7 +51,8 @@ import { PatientsServedComponent } from 'app/pages/patients-served/patients-serv
     NgbModule,
     NgxDatatableModule,
     DataTablesModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMaterialTimepickerModule
   ],
   declarations: [
     DashboardComponent,
@@ -65,11 +74,16 @@ import { PatientsServedComponent } from 'app/pages/patients-served/patients-serv
     CustomerListComponent,
     CustomerDetailsComponent,
     MainServicesComponent,
+    ServiceDetailComponent,
+    MyServicesComponent,
     AppointmentsComponent,
     PatientsComponent,
     PatientsRequestComponent,
     PatientsServedComponent,
-    ProfileComponent
+    ProfileComponent,
+    ConsultantsComponent,
+    ConsultantDetailsComponent,
+    MyServiceUpdateComponent
   ]
 })
 

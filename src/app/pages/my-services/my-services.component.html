@@ -1,0 +1,28 @@
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+    <thead>
+        <tr>
+        <th>ID</th>
+        <th>Service Name</th>
+        <th>Arabic Name</th>
+        <th>Description</th>
+        <th>Arabic Description</th>
+        <th>Charges</th>
+        <th>Commision</th>
+        <th>Status</th>
+        <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of items">
+        <td>{{ x.id }}</td>
+        <td>{{ x.service_name }}</td>
+        <td>{{ x.service_name_arabic }}</td>
+        <td>{{ x.service_description }}</td>
+        <td>{{ x.service_description_arabic }}</td>
+        <td>{{ x.charges}}</td>
+        <td>{{x.commission}}</td>
+        <td>{{x.status}}</td>
+        <td><button (click)="onUpdateMyService(x.id)">Update</button></td>
+        </tr>
+    </tbody>
+</table>

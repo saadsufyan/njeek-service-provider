@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { HttpClient } from '@angular/common/http';
 
+let temp;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +12,14 @@ export class GeneralApiService {
   constructor(public http: HttpClient, ) { }
 
 
+  sendData(data) {
 
+    temp = data
+    console.log(temp)
+  }
+  fetchData() {
+    return temp;
+  }
   GetRequest(url) {
     return new Promise(resolve => {
       // this.localStorrage.get(environment.baseUrl_TOKEN).then((res) => {

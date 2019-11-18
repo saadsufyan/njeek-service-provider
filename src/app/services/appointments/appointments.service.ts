@@ -50,4 +50,22 @@ export class AppointmentsService {
         }
     });
   }
+  acceptAppointment(body) {
+    return this.http
+    .post(`${environment.baseUrl}/service/approve_appointment`, body, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'x-access-token': this.token
+        }
+    });
+  }
+  rejectAppointment(body) {
+    return this.http
+    .post(`${environment.baseUrl}/service/reject_appointment`, body, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'x-access-token': this.token
+        }
+    });
+  }
 }

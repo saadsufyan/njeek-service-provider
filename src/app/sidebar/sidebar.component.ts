@@ -10,11 +10,13 @@ export interface RouteInfo {
 
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard',     title: 'Dashboard',         icon: 'nc-bank',       class: '' },
-    { path: '/services',      title: 'Services',     icon: 'nc-bank',      class: '' },
+    { path: '/category',      title: 'Services',     icon: 'nc-bank',      class: '' },
+    { path: '/my-services',      title: 'My Services',     icon: 'nc-bank',      class: '' },
     { path: '/appointments',      title: 'Appointments',     icon: 'nc-bank',      class: '' },
     { path: '/patients',      title: 'Patients',     icon: 'nc-bank',      class: '' },
     { path: '/patients-request',      title: 'Patients Requests',     icon: 'nc-bank',      class: '' },
     { path: '/patients-served',      title: 'Patients Served',     icon: 'nc-bank',      class: '' },
+    { path: '/consultants',      title: 'Consultants',     icon: 'nc-bank',      class: '' },
     // { path: '/category',      title: 'Main Category',     icon: 'nc-bank',      class: '' },
     // { path: '/categories',      title: 'Categories',     icon: 'nc-bank',      class: '' },
     // { path: '/sub-category',      title: 'Sub Categories',     icon: 'nc-bank',      class: '' },

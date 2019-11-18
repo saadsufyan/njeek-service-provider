@@ -1,1 +1,41 @@
-<p>service-detail works!</p>
+<h1> Add Service </h1>
+<form [formGroup] = "service" (ngSubmit)="onSubmit()">
+    <div class="form-group row">
+        <div class="col-md-6">
+        <label for="serviceName">Name</label>
+        <input type="text"  formControlName="service_name" class="form-control" id="serviceName" aria-describedby="emailHelp" placeholder="Enter Name">
+        </div>
+        <div class="col-md-6">
+            <label for="arabicName">Arabic Name</label>
+            <input type="text"  formControlName="service_name_arabic" class="form-control" id="arabicName" aria-describedby="emailHelp" placeholder="">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-6">
+            <label for="description">Description</label>
+            <textarea class="form-control"  formControlName="service_description" id="description" rows="3"></textarea>
+        </div>
+        <div class="col-md-6">
+            <label for="descriptionArabic">Arabic Description</label>
+            <textarea class="form-control"  formControlName="service_description_arabic" id="descriptionArabic" rows="3"></textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label for="shortDescription">Charges</label>
+            <input type="number"  formControlName="charges" class="form-control" id="charges" aria-describedby="emailHelp" placeholder="charges">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-6">
+            <label for="shortDescription">Time To</label>
+            <input type="number"  formControlName="time_to" class="form-control" id="shortDescription" aria-describedby="emailHelp" placeholder="">
+        </div>
+        <div class="col-md-6">
+            <label for="shortDescriptionArabic">Time from </label>
+            <input type="number"  formControlName="time_from" class="form-control" id="shortDescriptionArabic" aria-describedby="emailHelp" placeholder="">
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

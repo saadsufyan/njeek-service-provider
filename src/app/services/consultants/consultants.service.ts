@@ -2,49 +2,38 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment'
 
+
 @Injectable({
   providedIn: 'root'
 })
-export class ServiceProviderService {
+export class ConsultantsService {
 
   token;
   constructor(private http: HttpClient) {
     this.token = localStorage.getItem('token');
   }
 
-  getAll() {
-    return this.http.get(`${environment.baseUrl}/admin/service_providers`);
-  }
-  getServicesWithID(id) {
-    return this.http.get(`${environment.baseUrl}/service/service_by_id?id=${id}`);
-  }
-  addService(body) {
+  getAllConsultants() {
     return this.http
-    .post(`${environment.baseUrl}/service/add_service`, body, {
+    .get(`${environment.baseUrl}/service/getConsultants`, {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         'x-access-token': this.token
         }
     });
   }
-  updateService(body) {
+  addConsultants(body) {
     return this.http
-    .post(`${environment.baseUrl}/service/update_service`, body, {
+    .post(`${environment.baseUrl}/service/add_consultant`, body, {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         'x-access-token': this.token
         }
     });
   }
-  acceptService(body) {
-    return this.http.post(`${environment.baseUrl}/admin/approve_service`, body);
-  }
-  rejectService(body) {
-    return this.http.post(`${environment.baseUrl}/admin/reject_service`, body);
-  }
-  getMyService() {
+  updateConsultants(body) {
     return this.http
-    .get(`${environment.baseUrl}/service/myServices`, {
+    .post(`${environment.baseUrl}/service/update_consultant`, body, {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         'x-access-token': this.token

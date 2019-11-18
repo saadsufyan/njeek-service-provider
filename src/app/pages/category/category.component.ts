@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class CategoryComponent implements OnInit, OnDestroy {
   dtOptions: DataTables.Settings = {};
-  persons = [];
+  items = [];
   dtTrigger = new Subject();
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -20,10 +20,10 @@ export class CategoryComponent implements OnInit, OnDestroy {
         pagingType: 'full_numbers',
         pageLength: 2
       };
-      this.http.get('https://najeek.herokuapp.com/admin/main_category')
-        .subscribe((persons: any) => {
-          console.log('person ', persons);
-          this.persons = persons;
+      this.http.get('https://najeek.herokuapp.com/service/main_category')
+        .subscribe((items: any) => {
+          console.log('category ', items);
+          this.items = items;
           // Calling the DT trigger to manually render the table
           this.dtTrigger.next();
         });
