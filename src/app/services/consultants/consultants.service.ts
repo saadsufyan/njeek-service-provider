@@ -17,7 +17,7 @@ export class ConsultantsService {
     return this.http
     .get(`${environment.baseUrl}/service/getConsultants`, {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         'x-access-token': this.token
         }
     });
@@ -26,7 +26,7 @@ export class ConsultantsService {
     return this.http
     .post(`${environment.baseUrl}/service/add_consultant`, body, {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         'x-access-token': this.token
         }
     });
@@ -35,7 +35,7 @@ export class ConsultantsService {
     return this.http
     .post(`${environment.baseUrl}/service/update_consultant`, body, {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         'x-access-token': this.token
         }
     });

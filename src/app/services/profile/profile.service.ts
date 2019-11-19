@@ -18,7 +18,7 @@ export class ProfileService {
     return this.http
     .get(`${environment.baseUrl}/users/profile_details`, {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         'x-access-token': this.token
         }
     });
@@ -27,7 +27,7 @@ export class ProfileService {
     return this.http
     .post(`${environment.baseUrl}/users/update_profile`, body, {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         'x-access-token': this.token
         }
     });

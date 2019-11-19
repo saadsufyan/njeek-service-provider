@@ -16,7 +16,7 @@ export class AppointmentsService {
     return this.http
     .get(`${environment.baseUrl}/appointments/fetch_appointments`, {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         'x-access-token': this.token
         }
     });
@@ -26,7 +26,7 @@ export class AppointmentsService {
     return this.http
     .get(`${environment.baseUrl}/appointments/fetch_patients_all`, {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         'x-access-token': this.token
         }
     });
@@ -35,7 +35,7 @@ export class AppointmentsService {
     return this.http
     .get(`${environment.baseUrl}/appointments/fetch_patients_served`, {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         'x-access-token': this.token
         }
     });
@@ -45,7 +45,7 @@ export class AppointmentsService {
     return this.http
     .get(`${environment.baseUrl}/appointments/fetch_patients_request`, {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         'x-access-token': this.token
         }
     });
@@ -54,7 +54,7 @@ export class AppointmentsService {
     return this.http
     .post(`${environment.baseUrl}/service/approve_appointment`, body, {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         'x-access-token': this.token
         }
     });
@@ -63,7 +63,7 @@ export class AppointmentsService {
     return this.http
     .post(`${environment.baseUrl}/service/reject_appointment`, body, {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         'x-access-token': this.token
         }
     });

@@ -22,16 +22,17 @@ export class ServiceProviderService {
     return this.http
     .post(`${environment.baseUrl}/service/add_service`, body, {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         'x-access-token': this.token
         }
     });
   }
   updateService(body) {
+    console.log(body);
     return this.http
     .post(`${environment.baseUrl}/service/update_service`, body, {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         'x-access-token': this.token
         }
     });
@@ -46,7 +47,7 @@ export class ServiceProviderService {
     return this.http
     .get(`${environment.baseUrl}/service/myServices`, {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         'x-access-token': this.token
         }
     });

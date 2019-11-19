@@ -62,10 +62,10 @@ export class ConsultantDetailsComponent implements OnInit, OnDestroy {
 
   updateConsultant() {
     const data = {
-      id: this.id,
-      name: this.consultant_name,
-      designation: this.designation,
-      type: this.type
+      'id': this.id,
+      'name': this.consultant_name,
+      'designation': this.designation,
+      'type': this.type
     }
     console.log(data);
     this.consultantApi.updateConsultants(data).subscribe(res => {
