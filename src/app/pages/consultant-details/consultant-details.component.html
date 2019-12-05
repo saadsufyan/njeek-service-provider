@@ -1,5 +1,11 @@
-<h1> Add Consultant </h1>
+<h1> Add New Staff </h1>
 <form>
+    <div class="form-group row">
+    <div class="col-md-12">
+        <label class="btn btn-primary" for="pic">Choose File</label>
+        <input type="file" name="pic" [(ngModel)]="pic" (change)="onFileChange($event)" class="form-control-file">
+    </div>
+    </div>
     <div class="form-group row">
         <div class="col-md-6">
         <label>Name</label>
@@ -11,11 +17,26 @@
         </div>
     </div>
     <div class="form-group row">
+        <div class="col-md-6">
+        <label>Email</label>
+        <input  name="email" [(ngModel)]="consultant_email" class="form-control" placeholder="Enter Email">
+        </div>
+        <div class="col-md-6">
+            <label for="number">Number</label>
+            <input type="number" name="number" [(ngModel)]="consultant_number" class="form-control" placeholder="Enter your number">
+        </div>
+    </div>
+    <div class="form-group row">
         <div class="col-md-12">
             <label for="type">Type</label>
             <input type="text" name="type" [(ngModel)]="type" class="form-control" placeholder="">
         </div>
     </div>
-
+    <div class="form-group row">
+        <div class="col-md-12">
+        <label>Skills</label>
+        <input  name="skills" [(ngModel)]="consultant_skills" class="form-control" placeholder="Enter Skills">
+        </div>
+    </div>
     <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
 </form>

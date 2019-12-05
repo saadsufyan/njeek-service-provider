@@ -41,6 +41,7 @@ import { MyServicesComponent } from 'app/pages/my-services/my-services.component
 import { ConsultantsComponent } from 'app/pages/consultants/consultants.component';
 import { ConsultantDetailsComponent } from 'app/pages/consultant-details/consultant-details.component';
 import { MyServiceUpdateComponent } from 'app/pages/my-service-update/my-service-update.component';
+import { AppointmentDetailsComponent } from 'app/pages/appointment-details/appointment-details.component';
 
 
 @NgModule({
@@ -77,6 +78,7 @@ import { MyServiceUpdateComponent } from 'app/pages/my-service-update/my-service
     ServiceDetailComponent,
     MyServicesComponent,
     AppointmentsComponent,
+    AppointmentDetailsComponent,
     PatientsComponent,
     PatientsRequestComponent,
     PatientsServedComponent,

@@ -16,9 +16,13 @@ export class ConsultantDetailsComponent implements OnInit, OnDestroy {
 
   id;
   consultant_name;
+  consultant_email;
+  consultant_number;
   designation;
   type;
+  skills;
   consultantData: any;
+  pic;
 
   constructor(
     private http: HttpClient,
@@ -44,6 +48,16 @@ export class ConsultantDetailsComponent implements OnInit, OnDestroy {
       this.updateConsultant();
     } else {
       this.addConsultant();
+    }
+  }
+  onFileChange(event) {
+    const reader = new FileReader();
+
+    if (event.target.files && event.target.files.length) {
+      const file = event.target.files[0];
+      this.pic = file;
+        // need to run CD since file load runs outside of zone
+        // this.cd.markForCheck();
     }
   }
   addConsultant() {

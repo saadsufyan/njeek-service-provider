@@ -3,12 +3,13 @@ import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ServiceProviderService } from 'app/services/service-provider/service-provider.service';
+import { GeneralApiService } from 'app/services/general-api.service';
 
 @Component({
   selector: 'app-main-services',
   templateUrl: './main-services.component.html',
   styleUrls: ['./main-services.component.scss'],
-  providers: [ServiceProviderService]
+  providers: [ServiceProviderService, GeneralApiService]
 })
 export class MainServicesComponent implements OnInit, OnDestroy {
   dtOptions: DataTables.Settings = {};
@@ -19,7 +20,8 @@ export class MainServicesComponent implements OnInit, OnDestroy {
     private http: HttpClient,
     private router: Router,
     private activatedroute: ActivatedRoute,
-    public servicesApi: ServiceProviderService
+    public servicesApi: ServiceProviderService,
+    public sharedService: GeneralApiService
     ) { }
 
   ngOnInit() {
@@ -42,6 +44,11 @@ export class MainServicesComponent implements OnInit, OnDestroy {
     }, err => {
       console.log(err);
     })
+  }
+  gotoAddService(id) {
+    const index = this.items.findIndex(x => x.id === id);
+    this.sharedService.sendData(this.items[index]);
+    this.router.navigate(['/service-detail', id]);
   }
   ngOnDestroy(): void {
     // Do not forget to unsubscribe the event

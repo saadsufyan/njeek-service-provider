@@ -1,41 +1,51 @@
 <h1> Add Service </h1>
-<form [formGroup] = "service" (ngSubmit)="onSubmit()">
+<form>
+<div class="form-group row">
+        <div class="col-md-6">
+        <label for="categoryName">Category</label>
+        <input type="text"  name="categoryName" [(ngModel)]="categoryName" class="form-control" disabled id="categoryName" aria-describedby="emailHelp" placeholder="Enter Name">
+        </div>
+        <div class="col-md-6">
+            <label for="subcategoryName">Sub Category</label>
+            <input type="text"  name="subCategoryName" [(ngModel)]="subCategoryName" class="form-control" disabled id="subcategoryName" aria-describedby="emailHelp" placeholder="">
+        </div>
+    </div>
     <div class="form-group row">
         <div class="col-md-6">
         <label for="serviceName">Name</label>
-        <input type="text"  formControlName="service_name" class="form-control" id="serviceName" aria-describedby="emailHelp" placeholder="Enter Name">
+        <input type="text"  name="serviceName" [(ngModel)]="serviceName" class="form-control" id="serviceName" aria-describedby="emailHelp" placeholder="Enter Name">
         </div>
         <div class="col-md-6">
             <label for="arabicName">Arabic Name</label>
-            <input type="text"  formControlName="service_name_arabic" class="form-control" id="arabicName" aria-describedby="emailHelp" placeholder="">
+            <input type="text"  name="serviceNameArabic" [(ngModel)]="serviceNameArabic" class="form-control" id="arabicName" aria-describedby="emailHelp" placeholder="">
         </div>
     </div>
     <div class="form-group row">
         <div class="col-md-6">
             <label for="description">Description</label>
-            <textarea class="form-control"  formControlName="service_description" id="description" rows="3"></textarea>
+            <textarea class="form-control"  name="serviceDescription" [(ngModel)]="serviceDescription" id="description" rows="3"></textarea>
         </div>
         <div class="col-md-6">
             <label for="descriptionArabic">Arabic Description</label>
-            <textarea class="form-control"  formControlName="service_description_arabic" id="descriptionArabic" rows="3"></textarea>
+            <textarea class="form-control"  name="serviceDescriptionArabic" [(ngModel)]="serviceDescriptionArabic" id="descriptionArabic" rows="3"></textarea>
         </div>
     </div>
     <div class="form-group row">
         <div class="col-md-12">
             <label for="shortDescription">Charges</label>
-            <input type="number"  formControlName="charges" class="form-control" id="charges" aria-describedby="emailHelp" placeholder="charges">
+            <input type="number"  name="charges" [(ngModel)]="charges" class="form-control" id="charges" aria-describedby="emailHelp" placeholder="charges">
         </div>
     </div>
     <div class="form-group row">
         <div class="col-md-6">
-            <label for="shortDescription">Time To</label>
-            <input type="number"  formControlName="time_to" class="form-control" id="shortDescription" aria-describedby="emailHelp" placeholder="">
+            <label for="time_to">Time To</label>
+            <input type="number"  name="time_to" [(ngModel)]="timeTo" class="form-control" id="time_to" aria-describedby="emailHelp" placeholder="">
         </div>
         <div class="col-md-6">
-            <label for="shortDescriptionArabic">Time from </label>
-            <input type="number"  formControlName="time_from" class="form-control" id="shortDescriptionArabic" aria-describedby="emailHelp" placeholder="">
+            <label for="time_from">Time from </label>
+            <input type="number"  name="time_from" [(ngModel)]="timeFrom" class="form-control" id="time_from" aria-describedby="emailHelp" placeholder="">
         </div>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
 </form>

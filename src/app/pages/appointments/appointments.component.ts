@@ -4,12 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AppointmentsService } from 'app/services/appointments/appointments.service';
 import { ConsultantsService } from 'app/services/consultants/consultants.service';
+import { GeneralApiService } from 'app/services/general-api.service';
 
 @Component({
   selector: 'app-appointments',
   templateUrl: './appointments.component.html',
   styleUrls: ['./appointments.component.scss'],
-  providers: [AppointmentsService, ConsultantsService]
+  providers: [AppointmentsService, ConsultantsService, GeneralApiService]
 })
 export class AppointmentsComponent implements OnInit , OnDestroy {
 
@@ -18,7 +19,11 @@ export class AppointmentsComponent implements OnInit , OnDestroy {
   dtTrigger = new Subject();
   consultantList;
   consultantObj;
-  constructor(public appointmentApi: AppointmentsService, public consultantApi: ConsultantsService) { }
+  constructor(
+    public router: Router,
+    public appointmentApi: AppointmentsService,
+    public consultantApi: ConsultantsService,
+    public sharedService: GeneralApiService) { }
 
   ngOnInit() {
     this.dtOptions = {
@@ -45,6 +50,11 @@ export class AppointmentsComponent implements OnInit , OnDestroy {
     }, err => {
       console.log(err);
     })
+  }
+  gotoAppointmentDetails(id) {
+    const index = this.appointmentsList.findIndex(x => x.appointment_id === id);
+    this.sharedService.sendData(this.appointmentsList[index]);
+    this.router.navigate(['/appointment-details']);
   }
 
   acceptAppointment(id) {

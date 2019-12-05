@@ -26,7 +26,7 @@ export class AddMainCategoryComponent implements OnInit {
   onFileChange(event) {
     const reader = new FileReader();
 
-    if(event.target.files && event.target.files.length) {
+    if (event.target.files && event.target.files.length) {
       const file = event.target.files[0];
       this.category.get('image').setValue(file);
         // need to run CD since file load runs outside of zone

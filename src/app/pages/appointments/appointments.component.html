@@ -1,39 +1,32 @@
-<div class="col-lg-12 no-pad">
-    <h6>Select Consultant</h6>
-    <select class="mb-2" name="consultantList" [(ngModel)]="consultantObj">
-        <option *ngFor="let x of consultantList;" [ngValue]="x">{{x.name}}</option>
-    </select>
-</div>
+
 <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
 <thead>
     <tr>
     <th>ID</th>
+    <th>Appintment Date</th>
     <th>Patient Name</th>
-    <th>Main Service</th>
-    <th>Sub Service Category</th>
     <th>Sub Service</th>
     <th>Patient Mobile</th>
     <th>Total Price</th>
     <th>Status</th>
-    <th>Actions</th>
+    <!-- <th>Actions</th> -->
     </tr>
 </thead>
 <tbody>
-    <tr *ngFor="let x of appointmentsList">
-    <td>{{ x.id }}</td>
+    <tr *ngFor="let x of appointmentsList" (click)="gotoAppointmentDetails(x.appointment_id)">
+    <td>{{ x.appointment_id }}</td>
+    <td>{{x.appointment_date_time | date:'h:mm E d:MMM:yyyy'}}</td>
     <td>{{x.patient_name}}</td>
-    <td>{{ x.main_service }}</td>
-    <td>{{ x.sub_service_category}}</td>
-    <td>{{ x.sub_service}}</td>
-    <td>{{ x.patient_mobile}}</td>
+    <td>{{ x.service_name}}</td>
+    <td>{{ x.patient_phone}}</td>
     <td>{{ x.total_price}}</td>
     <td>{{ x.status}}</td>
-    <td>
+    <!-- <td>
         <div class="col-lg-12">
             <button class="mr-2 mb-2" (click)="acceptAppointment(x.id)">Accept</button>
             <button (click)="rejectAppointment(x.id)">Reject</button>
         </div>
-    </td>
+    </td> -->
     </tr>
 </tbody>
 </table>
