@@ -21,7 +21,7 @@ export class ConsultantDetailsComponent implements OnInit, OnDestroy {
   designation;
   type;
   skills;
-  consultantData: any;
+  consultantData;
   pic;
 
   constructor(
