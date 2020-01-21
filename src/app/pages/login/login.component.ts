@@ -40,7 +40,8 @@ export class LoginComponent implements OnInit {
       console.log(res)
       if (res.access_key) {
         localStorage.setItem('token', res.access_key);
-        this.router.navigate(['/dashboard']);
+        localStorage.setItem('name', res.name);
+        this.router.navigate(['/category']);
       }
     });
   }

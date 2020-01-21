@@ -8,7 +8,7 @@ import { RegisterComponent } from './pages/register/register.component';
 export const AppRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'category',
     pathMatch: 'full',
     canActivate: [AuthGuardService]
   }, {
@@ -31,6 +31,6 @@ export const AppRoutes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'dashboard'
+    redirectTo: 'category'
   }
 ]

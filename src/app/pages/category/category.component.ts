@@ -18,7 +18,7 @@ export class CategoryComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
       this.dtOptions = {
         pagingType: 'full_numbers',
-        pageLength: 2
+        pageLength: 10
       };
       this.http.get('https://najeek.herokuapp.com/service/main_category')
         .subscribe((items: any) => {
