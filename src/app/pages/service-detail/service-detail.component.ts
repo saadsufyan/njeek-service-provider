@@ -19,6 +19,7 @@ export class ServiceDetailComponent implements OnInit {
   serviceDescription;
   serviceDescriptionArabic;
   charges;
+  conveyanceCharges;
   timeTo;
   timeFrom;
 
