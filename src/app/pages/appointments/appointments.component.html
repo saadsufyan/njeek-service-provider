@@ -3,7 +3,7 @@
 <thead>
     <tr>
     <th>ID</th>
-    <th>Appintment Date</th>
+    <th>Date</th>
     <th>Patient Name</th>
     <th>Sub Service</th>
     <th>Patient Mobile</th>
@@ -15,7 +15,7 @@
 <tbody>
     <tr *ngFor="let x of appointmentsList" (click)="gotoAppointmentDetails(x.appointment_id)">
     <td>{{ x.appointment_id }}</td>
-    <td>{{x.appointment_date_time | date:'h:mm E d:MMM:yyyy'}}</td>
+    <td>{{x.appointment_date_time | date:'shortDate'}}</td>
     <td>{{x.patient_name}}</td>
     <td>{{ x.service_name}}</td>
     <td>{{ x.patient_phone}}</td>
