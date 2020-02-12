@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AppointmentsService } from 'app/services/appointments/appointments.service';
 import { ConsultantsService } from 'app/services/consultants/consultants.service';
 import { GeneralApiService } from 'app/services/general-api.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-appointments',
@@ -23,20 +24,23 @@ export class AppointmentsComponent implements OnInit , OnDestroy {
     public router: Router,
     public appointmentApi: AppointmentsService,
     public consultantApi: ConsultantsService,
-    public sharedService: GeneralApiService) { }
+    public sharedService: GeneralApiService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 10
+      pageLength: 25
     };
     this.getAppoinments();
     this.getConsultant();
   }
 
   getAppoinments() {
+    this.spinner.show();
     this.appointmentApi.getAllAppointments().subscribe((res: any) => {
       console.log(res);
+      this.spinner.hide();
       this.appointmentsList = res.message;
       this.dtTrigger.next();
     }, err => {

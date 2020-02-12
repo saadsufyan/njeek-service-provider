@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { ProfileService } from 'app/services/profile/profile.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-profile',
@@ -28,7 +29,11 @@ export class ProfileComponent implements OnInit {
   });
 
 
-  constructor(private http: HttpClient, private router: Router, public profileApi: ProfileService) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    public profileApi: ProfileService,
+    private spinner: NgxSpinnerService) { }
 
 
   ngOnInit() {
@@ -48,8 +53,10 @@ export class ProfileComponent implements OnInit {
     });
   }
   getProfileDetails() {
+    this.spinner.show();
     this.profileApi.getProfile().subscribe((res: any) => {
       console.log(res);
+      this.spinner.hide();
       this.profileData = res.user;
       this.setData()
     }, err => {

@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ServiceProviderService } from 'app/services/service-provider/service-provider.service';
 import { ActivatedRoute } from '@angular/router';
 import { GeneralApiService } from 'app/services/general-api.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-my-service-update',
@@ -26,7 +27,8 @@ export class MyServiceUpdateComponent implements OnInit, OnDestroy {
   constructor(
     public serviceApi: ServiceProviderService,
     private activatedroute: ActivatedRoute,
-    public sharedService: GeneralApiService) { }
+    public sharedService: GeneralApiService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     if (this.activatedroute.snapshot.params['id']) {
@@ -58,11 +60,14 @@ export class MyServiceUpdateComponent implements OnInit, OnDestroy {
 
     }
 
+    this.spinner.show();
     console.log(data);
     this.serviceApi.updateService(data).subscribe(res => {
       console.log(res);
+      this.spinner.hide();
     }, err => {
       console.log(err);
+      this.spinner.hide();
     })
   }
   ngOnDestroy(): void {

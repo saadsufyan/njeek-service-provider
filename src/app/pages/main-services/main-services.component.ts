@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ServiceProviderService } from 'app/services/service-provider/service-provider.service';
 import { GeneralApiService } from 'app/services/general-api.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-main-services',
@@ -21,7 +22,8 @@ export class MainServicesComponent implements OnInit, OnDestroy {
     private router: Router,
     private activatedroute: ActivatedRoute,
     public servicesApi: ServiceProviderService,
-    public sharedService: GeneralApiService
+    public sharedService: GeneralApiService,
+    private spinner: NgxSpinnerService
     ) { }
 
   ngOnInit() {
@@ -37,8 +39,10 @@ export class MainServicesComponent implements OnInit, OnDestroy {
     this.getServices();
   }
   getServices() {
+    this.spinner.show();
     this.servicesApi.getServicesWithID(this.id).subscribe(res => {
       console.log(res);
+      this.spinner.hide();
       this.items = res;
       this.dtTrigger.next();
     }, err => {

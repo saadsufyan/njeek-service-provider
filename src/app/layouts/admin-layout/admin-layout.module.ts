@@ -43,6 +43,7 @@ import { ConsultantDetailsComponent } from 'app/pages/consultant-details/consult
 import { MyServiceUpdateComponent } from 'app/pages/my-service-update/my-service-update.component';
 import { AppointmentDetailsComponent } from 'app/pages/appointment-details/appointment-details.component';
 
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   imports: [
@@ -53,7 +54,8 @@ import { AppointmentDetailsComponent } from 'app/pages/appointment-details/appoi
     NgxDatatableModule,
     DataTablesModule,
     ReactiveFormsModule,
-    NgxMaterialTimepickerModule
+    NgxMaterialTimepickerModule,
+    NgxSpinnerModule
   ],
   declarations: [
     DashboardComponent,

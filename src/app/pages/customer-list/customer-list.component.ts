@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CustomerService } from 'app/services/customer/customer.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-customer-list',
@@ -15,19 +16,25 @@ export class CustomerListComponent implements OnInit, OnDestroy {
   dtOptions: DataTables.Settings = {};
   items: any;
   dtTrigger = new Subject();
-  constructor(private http: HttpClient, private router: Router, public customerApi: CustomerService) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    public customerApi: CustomerService,
+    private spinner: NgxSpinnerService) { }
 
 
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 2
+      pageLength: 25
     }
     this.getCustomerList();
   }
   getCustomerList() {
+    this.spinner.show();
     this.customerApi.getAll().subscribe(res => {
       console.log(res);
+      this.spinner.hide();
       this.items = res;
       // Calling the DT trigger to manually render the table
       this.dtTrigger.next();

@@ -4,6 +4,7 @@ import { ServiceProviderService } from 'app/services/service-provider/service-pr
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { GeneralApiService } from 'app/services/general-api.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-my-services',
@@ -17,21 +18,27 @@ export class MyServicesComponent implements OnInit, OnDestroy {
   items;
   dtTrigger = new Subject();
   id: any;
-  constructor(public servicesApi: ServiceProviderService, private router: Router, public sharedService: GeneralApiService) { }
+  constructor(
+    public servicesApi: ServiceProviderService,
+    private router: Router, public sharedService: GeneralApiService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 10
+      pageLength: 25
     };
     this.getMyServices();
   }
   getMyServices() {
+    this.spinner.show();
     this.servicesApi.getMyService().subscribe(res => {
       console.log(res);
+      this.spinner.hide();
       this.items = res;
       this.dtTrigger.next();
     }, err => {
+      this.spinner.hide();
       console.log(err);
     })
   }

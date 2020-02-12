@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { CustomerService } from 'app/services/customer/customer.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class CustomerDetailsComponent implements OnInit, OnDestroy {
 
   constructor(
     public customerApi: CustomerService,
-    private activatedroute: ActivatedRoute) { }
+    private activatedroute: ActivatedRoute,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     if (this.activatedroute.snapshot.params['id']) {
@@ -35,8 +37,10 @@ export class CustomerDetailsComponent implements OnInit, OnDestroy {
   }
 
   getCustomerData(id) {
+    this.spinner.show();
     this.customerApi.getCustomerWithId(id).subscribe(res => {
       console.log(res);
+      this.spinner.hide();
       this.items = res;
       // Calling the DT trigger to manually render the table
       this.dtTrigger.next();

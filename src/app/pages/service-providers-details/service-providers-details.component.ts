@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ServiceProviderService } from 'app/services/service-provider/service-provider.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -23,7 +24,8 @@ export class ServiceProvidersDetailsComponent implements OnInit, OnDestroy {
     private router: Router,
     public serviceProvider: ServiceProviderService,
     private activatedroute: ActivatedRoute,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     if (this.activatedroute.snapshot.params['id']) {
@@ -33,14 +35,16 @@ export class ServiceProvidersDetailsComponent implements OnInit, OnDestroy {
     }
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 2
+      pageLength: 25
     }
     this.getServiceProvidersWithID(this.serviceId);
   }
 
   getServiceProvidersWithID(id) {
+    this.spinner.show();
     this.serviceProvider.getServicesWithID(id).subscribe(res => {
       console.log(res);
+      this.spinner.hide();
       this.items = res;
       // Calling the DT trigger to manually render the table
       this.dtTrigger.next();

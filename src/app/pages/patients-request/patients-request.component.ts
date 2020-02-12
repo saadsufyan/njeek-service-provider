@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AppointmentsService } from 'app/services/appointments/appointments.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-patients-request',
@@ -16,22 +17,29 @@ export class PatientsRequestComponent implements OnInit, OnDestroy {
   patientRequestList;
   dtTrigger = new Subject();
 
-  constructor(private http: HttpClient, private router: Router, public appointmentApi: AppointmentsService) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    public appointmentApi: AppointmentsService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 10
+      pageLength: 25
     };
     this.getPatientsList();
   }
 
   getPatientsList() {
+    this.spinner.show();
     this.appointmentApi.getPatientAppointmentRequestList().subscribe((res: any) => {
       console.log(res);
+      this.spinner.hide();
       this.patientRequestList = res.message;
       this.dtTrigger.next();
     }, err => {
+      this.spinner.hide();
       console.log(err);
     })
   }

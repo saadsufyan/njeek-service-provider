@@ -45,6 +45,7 @@
     "moment": "2.24.0",
     "ngx-datatable": "^1.0.3",
     "ngx-material-timepicker": "^5.2.2",
+    "ngx-spinner": "^8.1.0",
     "ngx-toastr": "10.0.4",
     "resize-observer-polyfill": "^1.5.1",
     "rxjs": "6.5.2",
