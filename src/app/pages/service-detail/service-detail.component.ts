@@ -3,6 +3,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ServiceProviderService } from 'app/services/service-provider/service-provider.service';
 import { ActivatedRoute } from '@angular/router';
 import { GeneralApiService } from 'app/services/general-api.service';
+import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-service-detail',
@@ -30,9 +32,12 @@ export class ServiceDetailComponent implements OnInit {
   constructor(
     public serviceApi: ServiceProviderService,
     private activatedroute: ActivatedRoute,
+    private spinner: NgxSpinnerService,
+    private toastr: ToastrService,
     public sharedService: GeneralApiService) { }
 
   ngOnInit() {
+    this.spinner.show();
     if (this.activatedroute.snapshot.params['id']) {
       this.activatedroute.params.subscribe(params => {
         this.id = params['id'];
@@ -44,10 +49,11 @@ export class ServiceDetailComponent implements OnInit {
     this.subCategoryName = this.serviceData.category_name;
     this.serviceName = this.serviceData.name;
     this.serviceNameArabic = this.serviceData.arabic_name;
+    this.spinner.hide();
   }
 
   onSubmit() {
-
+    this.spinner.show();
     const data = {
       // tslint:disable-next-line:radix
       service_id: parseInt(this.id),
@@ -56,6 +62,7 @@ export class ServiceDetailComponent implements OnInit {
       service_description: this.serviceDescription,
       service_description_arabic: this.serviceDescriptionArabic,
       charges: this.charges,
+      conveyance_charges: this.conveyanceCharges,
       time_to: this.timeTo,
       time_from: this.timeFrom,
     }
@@ -63,8 +70,19 @@ export class ServiceDetailComponent implements OnInit {
     console.log(data);
     this.serviceApi.addService(data).subscribe(res => {
       console.log(res);
+      this.spinner.hide();
+      this.toastr.success('Service has been sent to admin for approval', 'Service Request');
+
     }, err => {
+      this.spinner.hide();
       console.log(err);
+      if (err.status === 200) {
+        this.toastr.success('Service has been sent to admin for approval', 'Service Request');
+      } else {
+        this.toastr.error('Something went wrong', 'Failure', {
+          timeOut: 3000
+        });
+      }
     })
   }
 }
