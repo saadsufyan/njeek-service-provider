@@ -25,6 +25,7 @@ export class ProfileComponent implements OnInit {
     email: new FormControl('', Validators.required),
     // password: new FormControl('',Validators.required),
     city: new FormControl('', Validators.required),
+    location: new FormControl('', Validators.required),
 
   });
 
@@ -48,6 +49,7 @@ export class ProfileComponent implements OnInit {
       mobile_number: new FormControl(this.profileData.mobile, Validators.required),
       email: new FormControl(this.profileData.email, Validators.required),
       city: new FormControl(this.profileData.city, Validators.required),
+      location: new FormControl(this.profileData.location, Validators.required),
       // image: new FormControl(this.profileData.license_image,Validators.required),
 
     });
@@ -66,7 +68,6 @@ export class ProfileComponent implements OnInit {
 
 
   onSubmit() {
-
     console.log(this.register)
     // const formData = new FormData();
     const data = {
@@ -75,7 +76,7 @@ export class ProfileComponent implements OnInit {
       email: this.register.get('email').value,
       license_number: this.register.get('license_number').value,
       city: this.register.get('city').value,
-
+      location: this.register.get('location').value,
     }
     console.log(data)
     this.profileApi.updateProfile(data).subscribe((res: any) => {
@@ -83,8 +84,6 @@ export class ProfileComponent implements OnInit {
         this.getProfileDetails();
         console.log('profile  updated', res)
       }
-
     })
-
   }
 }
