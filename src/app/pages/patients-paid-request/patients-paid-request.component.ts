@@ -1,29 +1,25 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AppointmentsService } from 'app/services/appointments/appointments.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
-  selector: 'app-patients-served',
-  templateUrl: './patients-served.component.html',
-  styleUrls: ['./patients-served.component.scss'],
+  selector: 'app-patients-paid-request',
+  templateUrl: './patients-paid-request.component.html',
+  styleUrls: ['./patients-paid-request.component.scss'],
   providers: [AppointmentsService]
 })
-export class PatientsServedComponent implements OnInit, OnDestroy {
+export class PatientsPaidRequestComponent implements OnInit, OnDestroy {
 
   dtOptions: DataTables.Settings = {};
-  patientServedList;
+  patientPaidList;
   dtTrigger = new Subject();
 
-  id;
-  appointmentDate;
-  
   constructor(
     private http: HttpClient,
     private router: Router,
-    public activatedRoute : ActivatedRoute,
     public appointmentApi: AppointmentsService,
     private spinner: NgxSpinnerService) { }
 
@@ -32,15 +28,15 @@ export class PatientsServedComponent implements OnInit, OnDestroy {
       pagingType: 'full_numbers',
       pageLength: 25
     };
-    this.getPatientsList();
+    this.getPaidPatientsList();
   }
 
-  getPatientsList() {
+  getPaidPatientsList() {
     this.spinner.show();
-    this.appointmentApi.getServedPatientsList().subscribe((res: any) => {
+    this.appointmentApi.getAllPaidPatients().subscribe((res: any) => {
       console.log(res);
       this.spinner.hide();
-      this.patientServedList = res.message;
+      this.patientPaidList = res.message;
       this.dtTrigger.next();
     }, err => {
       this.spinner.hide();
@@ -51,5 +47,4 @@ export class PatientsServedComponent implements OnInit, OnDestroy {
     // Do not forget to unsubscribe the event
     this.dtTrigger.unsubscribe();
   }
-
 }

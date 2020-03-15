@@ -17,6 +17,8 @@ export class MyServiceUpdateComponent implements OnInit, OnDestroy {
   service_id;
   service_name;
   service_name_arabic;
+  service_short_description;
+  service_short_description_arabic;
   service_description;
   service_description_arabic;
   charges;
@@ -40,6 +42,8 @@ export class MyServiceUpdateComponent implements OnInit, OnDestroy {
     this.id = this.MyServiceData.service_id;
     this.service_name = this.MyServiceData.service_name;
     this.service_name_arabic = this.MyServiceData.service_name_arabic;
+    this.service_short_description = this.MyServiceData.service_short_description;
+    this.service_short_description_arabic = this.MyServiceData.service_short_description_arabic;
     this.service_description = this.MyServiceData.service_description;
     this.service_description_arabic = this.MyServiceData.service_description_arabic;
     this.charges = this.MyServiceData.charges;
@@ -52,6 +56,8 @@ export class MyServiceUpdateComponent implements OnInit, OnDestroy {
       service_id: parseInt(this.id),
       service_name: this.service_name,
       service_name_arabic: this.service_name_arabic,
+      service_short_description: this.service_short_description,
+      service_short_description_arabic: this.service_short_description_arabic,
       service_description: this.service_description,
       service_description_arabic: this.service_description_arabic,
       charges: this.charges,

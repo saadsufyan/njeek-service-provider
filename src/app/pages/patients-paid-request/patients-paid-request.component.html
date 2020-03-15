@@ -1,0 +1,25 @@
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+    <thead>
+        <tr>
+        <th>Name</th>
+        <th>Service</th>
+        <th>Patient Address</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Total Price </th>
+        <th>Assign Staff</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of patientPaidList">
+        <td>{{ x.patient_name }}</td>
+        <td>{{x.service_name}}</td>
+        <td>{{ x.patient_address}}</td>
+        <td>{{ x.patient_email }}</td>
+        <td>{{ x.patient_phone}}</td>
+        <td>{{ x.total_price}}</td>
+        <td><button class="btn btn-primary" [routerLink]="['/assign-staff', x.appointment_id, x.appointment_date_time]">Assign</button></td>
+        </tr>
+    </tbody>
+</table>
+<ngx-spinner></ngx-spinner>

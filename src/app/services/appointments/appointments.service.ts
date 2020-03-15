@@ -68,4 +68,13 @@ export class AppointmentsService {
         }
     });
   }
+  getAllPaidPatients() {
+    return this.http
+    .get(`${environment.baseUrl}/appointments/fetch_paid_patients_request`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'x-access-token': this.token
+        }
+    });
+  }
 }

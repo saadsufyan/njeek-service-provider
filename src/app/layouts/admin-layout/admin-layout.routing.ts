@@ -30,7 +30,9 @@ import { ConsultantsComponent } from 'app/pages/consultants/consultants.componen
 import { ConsultantDetailsComponent } from 'app/pages/consultant-details/consultant-details.component';
 import { MyServiceUpdateComponent } from 'app/pages/my-service-update/my-service-update.component';
 import { AppointmentDetailsComponent } from 'app/pages/appointment-details/appointment-details.component';
-
+import { PatientsPaidRequestComponent } from 'app/pages/patients-paid-request/patients-paid-request.component';
+import { AssignStaffComponent } from 'app/pages/patients-paid-request/assign-staff/assign-staff.component';
+import { ApproveModalComponent } from 'app/pages/patients-paid-request/assign-staff/approve-modal/approve-modal.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -64,4 +66,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'profile',        component: ProfileComponent },
+    { path: 'patients-paid-request',        component: PatientsPaidRequestComponent },
+    { path: 'assign-staff/:id/:appointment_date',        component: AssignStaffComponent },
+    { path: 'assign-staff-approve',        component: ApproveModalComponent },
+
 ];

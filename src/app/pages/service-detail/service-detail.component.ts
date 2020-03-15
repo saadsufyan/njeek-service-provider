@@ -18,6 +18,8 @@ export class ServiceDetailComponent implements OnInit {
 
   serviceName;
   serviceNameArabic;
+  serviceShortDescription;
+  serviceShortDescriptionArabic;
   serviceDescription;
   serviceDescriptionArabic;
   charges;
@@ -59,6 +61,8 @@ export class ServiceDetailComponent implements OnInit {
       service_id: parseInt(this.id),
       service_name: this.serviceName,
       service_name_arabic: this.serviceNameArabic,
+      service_short_description: this.serviceShortDescription,
+      service_short_description_arabic: this.serviceShortDescriptionArabic,
       service_description: this.serviceDescription,
       service_description_arabic: this.serviceDescriptionArabic,
       charges: this.charges,

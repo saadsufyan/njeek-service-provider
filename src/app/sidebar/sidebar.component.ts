@@ -15,6 +15,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/appointments',      title: 'Appointments',     icon: 'nc-bank',      class: '' },
     { path: '/patients',      title: 'Patients',     icon: 'nc-bank',      class: '' },
     { path: '/patients-request',      title: 'Patients Requests',     icon: 'nc-bank',      class: '' },
+    { path: '/patients-paid-request',      title: 'Paid Patients Requests',     icon: 'nc-bank',      class: '' },
     { path: '/patients-served',      title: 'Patients Served',     icon: 'nc-bank',      class: '' },
     { path: '/consultants',      title: 'Staff',     icon: 'nc-bank',      class: '' },
     // { path: '/category',      title: 'Main Category',     icon: 'nc-bank',      class: '' },

@@ -44,6 +44,9 @@ import { MyServiceUpdateComponent } from 'app/pages/my-service-update/my-service
 import { AppointmentDetailsComponent } from 'app/pages/appointment-details/appointment-details.component';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { PatientsPaidRequestComponent } from 'app/pages/patients-paid-request/patients-paid-request.component';
+import { AssignStaffComponent } from 'app/pages/patients-paid-request/assign-staff/assign-staff.component';
+import { ApproveModalComponent } from 'app/pages/patients-paid-request/assign-staff/approve-modal/approve-modal.component';
 
 @NgModule({
   imports: [
@@ -87,7 +90,10 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ProfileComponent,
     ConsultantsComponent,
     ConsultantDetailsComponent,
-    MyServiceUpdateComponent
+    MyServiceUpdateComponent,
+    PatientsPaidRequestComponent,
+    AssignStaffComponent,
+    ApproveModalComponent
   ]
 })
 

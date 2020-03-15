@@ -19,6 +19,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { LoginComponent } from './pages/login/login.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { RegisterComponent } from './pages/register/register.component';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -52,7 +53,7 @@ export function tokenGetter() {
         ReactiveFormsModule,
         FormsModule
     ],
-    providers: [],
+    providers: [NgbActiveModal],
     bootstrap: [AppComponent]
 })
 export class AppModule {

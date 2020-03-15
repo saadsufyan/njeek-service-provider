@@ -43330,6 +43330,546 @@ var NgxMaterialTimepickerModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/ngx-spinner/fesm5/ngx-spinner.js ***!
+  \*******************************************************/
+/*! exports provided: NgxSpinnerComponent, NgxSpinnerModule, NgxSpinnerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgxSpinnerComponent", function() { return NgxSpinnerComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgxSpinnerModule", function() { return NgxSpinnerModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgxSpinnerService", function() { return NgxSpinnerService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm5/animations.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+
+
+
+
+
+
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: lib/ngx-spinner.enum.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+var LOADERS = {
+    'ball-8bits': 16,
+    'ball-atom': 4,
+    'ball-beat': 3,
+    'ball-circus': 5,
+    'ball-climbing-dot': 4,
+    'ball-clip-rotate': 1,
+    'ball-clip-rotate-multiple': 2,
+    'ball-clip-rotate-pulse': 2,
+    'ball-elastic-dots': 5,
+    'ball-fall': 3,
+    'ball-fussion': 4,
+    'ball-grid-beat': 9,
+    'ball-grid-pulse': 9,
+    'ball-newton-cradle': 4,
+    'ball-pulse': 3,
+    'ball-pulse-rise': 5,
+    'ball-pulse-sync': 3,
+    'ball-rotate': 1,
+    'ball-running-dots': 5,
+    'ball-scale': 1,
+    'ball-scale-multiple': 3,
+    'ball-scale-pulse': 2,
+    'ball-scale-ripple': 1,
+    'ball-scale-ripple-multiple': 3,
+    'ball-spin': 8,
+    'ball-spin-clockwise': 8,
+    'ball-spin-clockwise-fade': 8,
+    'ball-spin-clockwise-fade-rotating': 8,
+    'ball-spin-fade': 8,
+    'ball-spin-fade-rotating': 8,
+    'ball-spin-rotate': 2,
+    'ball-square-clockwise-spin': 8,
+    'ball-square-spin': 8,
+    'ball-triangle-path': 3,
+    'ball-zig-zag': 2,
+    'ball-zig-zag-deflect': 2,
+    'cog': 1,
+    'cube-transition': 2,
+    'fire': 3,
+    'line-scale': 5,
+    'line-scale-party': 5,
+    'line-scale-pulse-out': 5,
+    'line-scale-pulse-out-rapid': 5,
+    'line-spin-clockwise-fade': 8,
+    'line-spin-clockwise-fade-rotating': 8,
+    'line-spin-fade': 8,
+    'line-spin-fade-rotating': 8,
+    'pacman': 6,
+    'square-jelly-box': 2,
+    'square-loader': 1,
+    'square-spin': 1,
+    'timer': 1,
+    'triangle-skew-spin': 1
+};
+/** @type {?} */
+var DEFAULTS = {
+    BD_COLOR: 'rgba(51,51,51,0.8)',
+    SPINNER_COLOR: '#fff',
+    SPINNER_TYPE: 'ball-scale-multiple',
+    Z_INDEX: 99999,
+};
+/** @type {?} */
+var PRIMARY_SPINNER = 'primary';
+/**
+ * @record
+ */
+function Spinner() { }
+if (false) {}
+var NgxSpinner = /** @class */ (function () {
+    function NgxSpinner(init) {
+        Object.assign(this, init);
+    }
+    return NgxSpinner;
+}());
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: lib/ngx-spinner.service.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var NgxSpinnerService = /** @class */ (function () {
+    /**
+     * Creates an instance of NgxSpinnerService.
+     * @memberof NgxSpinnerService
+     */
+    function NgxSpinnerService() {
+        /**
+         * Spinner observable
+         *
+         * \@memberof NgxSpinnerService
+         */
+        this.spinnerObservable = new rxjs__WEBPACK_IMPORTED_MODULE_2__["ReplaySubject"](1);
+    }
+    /**
+    * Get subscription of desired spinner
+    * @memberof NgxSpinnerService
+    **/
+    /**
+     * Get subscription of desired spinner
+     * \@memberof NgxSpinnerService
+     *
+     * @param {?} name
+     * @return {?}
+     */
+    NgxSpinnerService.prototype.getSpinner = /**
+     * Get subscription of desired spinner
+     * \@memberof NgxSpinnerService
+     *
+     * @param {?} name
+     * @return {?}
+     */
+    function (name) {
+        return this.spinnerObservable.asObservable().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])((/**
+         * @param {?} x
+         * @return {?}
+         */
+        function (x) { return x && x.name === name; })));
+    };
+    /**
+     * To show spinner
+     *
+     * @memberof NgxSpinnerService
+     */
+    /**
+     * To show spinner
+     *
+     * \@memberof NgxSpinnerService
+     * @param {?=} name
+     * @param {?=} spinner
+     * @return {?}
+     */
+    NgxSpinnerService.prototype.show = /**
+     * To show spinner
+     *
+     * \@memberof NgxSpinnerService
+     * @param {?=} name
+     * @param {?=} spinner
+     * @return {?}
+     */
+    function (name, spinner) {
+        var _this = this;
+        if (name === void 0) { name = PRIMARY_SPINNER; }
+        /** @type {?} */
+        var showPromise = new Promise((/**
+         * @param {?} resolve
+         * @param {?} _reject
+         * @return {?}
+         */
+        function (resolve, _reject) {
+            if (spinner && Object.keys(spinner).length) {
+                spinner['name'] = name;
+                _this.spinnerObservable.next(new NgxSpinner(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, spinner, { show: true })));
+                resolve(true);
+            }
+            else {
+                _this.spinnerObservable.next(new NgxSpinner({ name: name, show: true }));
+                resolve(true);
+            }
+        }));
+        return showPromise;
+    };
+    /**
+    * To hide spinner
+    *
+    * @memberof NgxSpinnerService
+    */
+    /**
+     * To hide spinner
+     *
+     * \@memberof NgxSpinnerService
+     * @param {?=} name
+     * @param {?=} debounce
+     * @return {?}
+     */
+    NgxSpinnerService.prototype.hide = /**
+     * To hide spinner
+     *
+     * \@memberof NgxSpinnerService
+     * @param {?=} name
+     * @param {?=} debounce
+     * @return {?}
+     */
+    function (name, debounce) {
+        var _this = this;
+        if (name === void 0) { name = PRIMARY_SPINNER; }
+        if (debounce === void 0) { debounce = 0; }
+        /** @type {?} */
+        var hidePromise = new Promise((/**
+         * @param {?} resolve
+         * @param {?} _reject
+         * @return {?}
+         */
+        function (resolve, _reject) {
+            setTimeout((/**
+             * @return {?}
+             */
+            function () {
+                _this.spinnerObservable.next(new NgxSpinner({ name: name, show: false }));
+                resolve(true);
+            }), debounce);
+        }));
+        return hidePromise;
+    };
+    NgxSpinnerService.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"], args: [{
+                    providedIn: 'root'
+                },] }
+    ];
+    /** @nocollapse */
+    NgxSpinnerService.ctorParameters = function () { return []; };
+    /** @nocollapse */ NgxSpinnerService.ngInjectableDef = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({ factory: function NgxSpinnerService_Factory() { return new NgxSpinnerService(); }, token: NgxSpinnerService, providedIn: "root" });
+    return NgxSpinnerService;
+}());
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: lib/ngx-spinner.component.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var NgxSpinnerComponent = /** @class */ (function () {
+    /**
+     * Creates an instance of NgxSpinnerComponent.
+     *
+     * @memberof NgxSpinnerComponent
+     */
+    function NgxSpinnerComponent(spinnerService, changeDetector) {
+        var _this = this;
+        this.spinnerService = spinnerService;
+        this.changeDetector = changeDetector;
+        /**
+         * Spinner Object
+         *
+         * \@memberof NgxSpinnerComponent
+         */
+        this.spinner = new NgxSpinner();
+        /**
+         * Unsubscribe from spinner's observable
+         *
+         * \@memberof NgxSpinnerComponent
+         *
+         */
+        this.ngUnsubscribe = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        /**
+         * To set default ngx-spinner options
+         *
+         * \@memberof NgxSpinnerComponent
+         */
+        this.setDefaultOptions = (/**
+         * @return {?}
+         */
+        function () {
+            _this.spinner = new NgxSpinner({
+                name: _this.name,
+                bdColor: _this.bdColor,
+                size: _this.size,
+                color: _this.color,
+                type: _this.type,
+                fullScreen: _this.fullScreen,
+                divArray: _this.divArray,
+                divCount: _this.divCount,
+                show: _this.show,
+                zIndex: _this.zIndex,
+            });
+        });
+        this.bdColor = DEFAULTS.BD_COLOR;
+        this.zIndex = DEFAULTS.Z_INDEX;
+        this.color = DEFAULTS.SPINNER_COLOR;
+        this.type = DEFAULTS.SPINNER_TYPE;
+        this.size = 'large';
+        this.fullScreen = true;
+        this.name = PRIMARY_SPINNER;
+        this.divArray = [];
+        this.divCount = 0;
+        this.show = false;
+    }
+    /**
+     * Initialization method
+     *
+     * @memberof NgxSpinnerComponent
+     */
+    /**
+     * Initialization method
+     *
+     * \@memberof NgxSpinnerComponent
+     * @return {?}
+     */
+    NgxSpinnerComponent.prototype.ngOnInit = /**
+     * Initialization method
+     *
+     * \@memberof NgxSpinnerComponent
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        this.setDefaultOptions();
+        this.spinnerService.getSpinner(this.name)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this.ngUnsubscribe))
+            .subscribe((/**
+         * @param {?} spinner
+         * @return {?}
+         */
+        function (spinner) {
+            _this.setDefaultOptions();
+            Object.assign(_this.spinner, spinner);
+            if (spinner.show) {
+                _this.onInputChange();
+            }
+            _this.changeDetector.markForCheck();
+        }));
+    };
+    /**
+     * On changes event for input variables
+     *
+     * @memberof NgxSpinnerComponent
+     */
+    /**
+     * On changes event for input variables
+     *
+     * \@memberof NgxSpinnerComponent
+     * @param {?} changes
+     * @return {?}
+     */
+    NgxSpinnerComponent.prototype.ngOnChanges = /**
+     * On changes event for input variables
+     *
+     * \@memberof NgxSpinnerComponent
+     * @param {?} changes
+     * @return {?}
+     */
+    function (changes) {
+        for (var propName in changes) {
+            if (propName) {
+                /** @type {?} */
+                var changedProp = changes[propName];
+                if (changedProp.isFirstChange()) {
+                    return;
+                }
+                else if (typeof changedProp.currentValue !== 'undefined' && changedProp.currentValue !== changedProp.previousValue) {
+                    if (changedProp.currentValue !== '') {
+                        this.spinner[propName] = changedProp.currentValue;
+                    }
+                }
+            }
+        }
+    };
+    /**
+     * To get class for spinner
+     *
+     * @memberof NgxSpinnerComponent
+     */
+    /**
+     * To get class for spinner
+     *
+     * \@memberof NgxSpinnerComponent
+     * @param {?} type
+     * @param {?} size
+     * @return {?}
+     */
+    NgxSpinnerComponent.prototype.getClass = /**
+     * To get class for spinner
+     *
+     * \@memberof NgxSpinnerComponent
+     * @param {?} type
+     * @param {?} size
+     * @return {?}
+     */
+    function (type, size) {
+        this.spinner.divCount = LOADERS[type];
+        this.spinner.divArray = Array(this.spinner.divCount).fill(0).map((/**
+         * @param {?} x
+         * @param {?} i
+         * @return {?}
+         */
+        function (x, i) { return i; }));
+        /** @type {?} */
+        var sizeClass = '';
+        switch (size.toLowerCase()) {
+            case 'small':
+                sizeClass = 'la-sm';
+                break;
+            case 'medium':
+                sizeClass = 'la-2x';
+                break;
+            case 'large':
+                sizeClass = 'la-3x';
+                break;
+            default:
+                break;
+        }
+        return 'la-' + type + ' ' + sizeClass;
+    };
+    /**
+     * Check if input variables have changed
+     *
+     * @memberof NgxSpinnerComponent
+     */
+    /**
+     * Check if input variables have changed
+     *
+     * \@memberof NgxSpinnerComponent
+     * @return {?}
+     */
+    NgxSpinnerComponent.prototype.onInputChange = /**
+     * Check if input variables have changed
+     *
+     * \@memberof NgxSpinnerComponent
+     * @return {?}
+     */
+    function () {
+        this.spinner.class = this.getClass(this.spinner.type, this.spinner.size);
+    };
+    /**
+     * Component destroy event
+     *
+     * @memberof NgxSpinnerComponent
+     */
+    /**
+     * Component destroy event
+     *
+     * \@memberof NgxSpinnerComponent
+     * @return {?}
+     */
+    NgxSpinnerComponent.prototype.ngOnDestroy = /**
+     * Component destroy event
+     *
+     * \@memberof NgxSpinnerComponent
+     * @return {?}
+     */
+    function () {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
+    };
+    NgxSpinnerComponent.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"], args: [{
+                    selector: 'ngx-spinner',
+                    template: "<div [@fadeIn]=\"'in'\" *ngIf=\"spinner.show\" class=\"overlay\" [style.background-color]=\"spinner.bdColor\" [style.z-index]=\"spinner.zIndex\"\n  [style.position]=\"spinner.fullScreen ? 'fixed' : 'absolute'\">\n  <div [class]=\"spinner.class\" [style.color]=\"spinner.color\">\n    <div *ngFor=\"let index of spinner.divArray\"></div>\n  </div>\n  <div class=\"loading-text\" [style.z-index]=\"spinner.zIndex\">\n    <ng-content></ng-content>\n  </div>\n</div>",
+                    changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectionStrategy"].OnPush,
+                    animations: [
+                        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_4__["trigger"])('fadeIn', [
+                            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_4__["state"])('in', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_4__["style"])({ opacity: 1 })),
+                            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_4__["transition"])(':enter', [
+                                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_4__["style"])({ opacity: 0 }),
+                                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_4__["animate"])(300)
+                            ]),
+                            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_4__["transition"])(':leave', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_4__["animate"])(200, Object(_angular_animations__WEBPACK_IMPORTED_MODULE_4__["style"])({ opacity: 0 })))
+                        ])
+                    ],
+                    styles: ["/*!\n * Load Awesome v1.1.0 (http://github.danielcardoso.net/load-awesome/)\n * Copyright 2015 Daniel Cardoso <@DanielCardoso>\n * Licensed under MIT\n */.la-ball-8bits,.la-ball-8bits>div{position:relative;box-sizing:border-box}.la-ball-8bits{display:block;font-size:0;color:#fff;width:12px;height:12px}.la-ball-8bits.la-dark{color:#333}.la-ball-8bits>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;top:50%;left:50%;width:4px;height:4px;border-radius:0;opacity:0;transform:translate(100%,100%);-webkit-animation:1s infinite ball-8bits;animation:1s infinite ball-8bits}.la-ball-8bits>div:nth-child(1){-webkit-animation-delay:-.9375s;animation-delay:-.9375s;top:-100%;left:0}.la-ball-8bits>div:nth-child(2){-webkit-animation-delay:-.875s;animation-delay:-.875s;top:-100%;left:33.3333333333%}.la-ball-8bits>div:nth-child(3){-webkit-animation-delay:-.8125s;animation-delay:-.8125s;top:-66.6666666667%;left:66.6666666667%}.la-ball-8bits>div:nth-child(4){-webkit-animation-delay:-.75s;animation-delay:-.75s;top:-33.3333333333%;left:100%}.la-ball-8bits>div:nth-child(5){-webkit-animation-delay:-.6875s;animation-delay:-.6875s;top:0;left:100%}.la-ball-8bits>div:nth-child(6){-webkit-animation-delay:-.625s;animation-delay:-.625s;top:33.3333333333%;left:100%}.la-ball-8bits>div:nth-child(7){-webkit-animation-delay:-.5625s;animation-delay:-.5625s;top:66.6666666667%;left:66.6666666667%}.la-ball-8bits>div:nth-child(8){-webkit-animation-delay:-.5s;animation-delay:-.5s;top:100%;left:33.3333333333%}.la-ball-8bits>div:nth-child(9){-webkit-animation-delay:-.4375s;animation-delay:-.4375s;top:100%;left:0}.la-ball-8bits>div:nth-child(10){-webkit-animation-delay:-.375s;animation-delay:-.375s;top:100%;left:-33.3333333333%}.la-ball-8bits>div:nth-child(11){-webkit-animation-delay:-.3125s;animation-delay:-.3125s;top:66.6666666667%;left:-66.6666666667%}.la-ball-8bits>div:nth-child(12){-webkit-animation-delay:-.25s;animation-delay:-.25s;top:33.3333333333%;left:-100%}.la-ball-8bits>div:nth-child(13){-webkit-animation-delay:-.1875s;animation-delay:-.1875s;top:0;left:-100%}.la-ball-8bits>div:nth-child(14){-webkit-animation-delay:-.125s;animation-delay:-.125s;top:-33.3333333333%;left:-100%}.la-ball-8bits>div:nth-child(15){-webkit-animation-delay:-.0625s;animation-delay:-.0625s;top:-66.6666666667%;left:-66.6666666667%}.la-ball-8bits>div:nth-child(16){-webkit-animation-delay:0s;animation-delay:0s;top:-100%;left:-33.3333333333%}.la-ball-8bits.la-sm{width:6px;height:6px}.la-ball-8bits.la-sm>div{width:2px;height:2px}.la-ball-8bits.la-2x{width:24px;height:24px}.la-ball-8bits.la-2x>div{width:8px;height:8px}.la-ball-8bits.la-3x{width:36px;height:36px}.la-ball-8bits.la-3x>div{width:12px;height:12px}@-webkit-keyframes ball-8bits{0%,50%{opacity:1}51%{opacity:0}}@keyframes ball-8bits{0%,50%{opacity:1}51%{opacity:0}}.la-ball-atom,.la-ball-atom>div{position:relative;box-sizing:border-box}.la-ball-atom{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-ball-atom.la-dark{color:#333}.la-ball-atom>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor}.la-ball-atom>div:nth-child(1){position:absolute;top:50%;left:50%;z-index:1;width:60%;height:60%;background:#aaa;border-radius:100%;transform:translate(-50%,-50%);-webkit-animation:4.5s linear infinite ball-atom-shrink;animation:4.5s linear infinite ball-atom-shrink}.la-ball-atom>div:not(:nth-child(1)){position:absolute;left:0;z-index:0;width:100%;height:100%;background:0 0;-webkit-animation:1.5s steps(2,end) infinite ball-atom-zindex;animation:1.5s steps(2,end) infinite ball-atom-zindex}.la-ball-atom>div:not(:nth-child(1)):before{position:absolute;top:0;left:0;width:10px;height:10px;margin-top:-5px;margin-left:-5px;content:\"\";background:currentColor;border-radius:50%;opacity:.75;-webkit-animation:1.5s infinite ball-atom-position,1.5s infinite ball-atom-size;animation:1.5s infinite ball-atom-position,1.5s infinite ball-atom-size}.la-ball-atom>div:nth-child(2){-webkit-animation-delay:.75s;animation-delay:.75s}.la-ball-atom>div:nth-child(2):before{-webkit-animation-delay:0s,-1.125s;animation-delay:0s,-1.125s}.la-ball-atom>div:nth-child(3){transform:rotate(120deg);-webkit-animation-delay:-.25s;animation-delay:-.25s}.la-ball-atom>div:nth-child(3):before{-webkit-animation-delay:-1s,-.75s;animation-delay:-1s,-.75s}.la-ball-atom>div:nth-child(4){transform:rotate(240deg);-webkit-animation-delay:.25s;animation-delay:.25s}.la-ball-atom>div:nth-child(4):before{-webkit-animation-delay:-.5s,-125ms;animation-delay:-.5s,-125ms}.la-ball-atom.la-sm{width:16px;height:16px}.la-ball-atom.la-sm>div:not(:nth-child(1)):before{width:4px;height:4px;margin-top:-2px;margin-left:-2px}.la-ball-atom.la-2x{width:64px;height:64px}.la-ball-atom.la-2x>div:not(:nth-child(1)):before{width:20px;height:20px;margin-top:-10px;margin-left:-10px}.la-ball-atom.la-3x{width:96px;height:96px}.la-ball-atom.la-3x>div:not(:nth-child(1)):before{width:30px;height:30px;margin-top:-15px;margin-left:-15px}@-webkit-keyframes ball-atom-position{50%{top:100%;left:100%}}@keyframes ball-atom-position{50%{top:100%;left:100%}}@-webkit-keyframes ball-atom-size{50%{transform:scale(.5,.5)}}@keyframes ball-atom-size{50%{transform:scale(.5,.5)}}@-webkit-keyframes ball-atom-zindex{50%{z-index:10}}@keyframes ball-atom-zindex{50%{z-index:10}}@-webkit-keyframes ball-atom-shrink{50%{transform:translate(-50%,-50%) scale(.8,.8)}}@keyframes ball-atom-shrink{50%{transform:translate(-50%,-50%) scale(.8,.8)}}.la-ball-beat,.la-ball-beat>div{position:relative;box-sizing:border-box}.la-ball-beat{display:block;font-size:0;color:#fff;width:54px;height:18px}.la-ball-beat.la-dark{color:#333}.la-ball-beat>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;width:10px;height:10px;margin:4px;border-radius:100%;-webkit-animation:.7s linear -.15s infinite ball-beat;animation:.7s linear -.15s infinite ball-beat}.la-ball-beat>div:nth-child(2n-1){-webkit-animation-delay:-.5s;animation-delay:-.5s}.la-ball-beat.la-sm{width:26px;height:8px}.la-ball-beat.la-sm>div{width:4px;height:4px;margin:2px}.la-ball-beat.la-2x{width:108px;height:36px}.la-ball-beat.la-2x>div{width:20px;height:20px;margin:8px}.la-ball-beat.la-3x{width:162px;height:54px}.la-ball-beat.la-3x>div{width:30px;height:30px;margin:12px}@-webkit-keyframes ball-beat{50%{opacity:.2;transform:scale(.75)}100%{opacity:1;transform:scale(1)}}@keyframes ball-beat{50%{opacity:.2;transform:scale(.75)}100%{opacity:1;transform:scale(1)}}.la-ball-circus,.la-ball-circus>div{position:relative;box-sizing:border-box}.la-ball-circus{display:block;font-size:0;color:#fff;width:16px;height:16px}.la-ball-circus.la-dark{color:#333}.la-ball-circus>div{float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;top:0;left:-100%;display:block;width:100%;height:100%;border-radius:100%;opacity:.5;-webkit-animation:2.5s cubic-bezier(.25,0,.75,1) infinite ball-circus-position,2.5s cubic-bezier(.25,0,.75,1) infinite ball-circus-size;animation:2.5s cubic-bezier(.25,0,.75,1) infinite ball-circus-position,2.5s cubic-bezier(.25,0,.75,1) infinite ball-circus-size}.la-ball-circus>div:nth-child(1){-webkit-animation-delay:0s,-.5s;animation-delay:0s,-.5s}.la-ball-circus>div:nth-child(2){-webkit-animation-delay:-.5s,-1s;animation-delay:-.5s,-1s}.la-ball-circus>div:nth-child(3){-webkit-animation-delay:-1s,-1.5s;animation-delay:-1s,-1.5s}.la-ball-circus>div:nth-child(4){-webkit-animation-delay:-1.5s,-2s;animation-delay:-1.5s,-2s}.la-ball-circus>div:nth-child(5){-webkit-animation-delay:-2s,-2.5s;animation-delay:-2s,-2.5s}.la-ball-circus.la-sm,.la-ball-circus.la-sm>div{width:8px;height:8px}.la-ball-circus.la-2x,.la-ball-circus.la-2x>div{width:32px;height:32px}.la-ball-circus.la-3x,.la-ball-circus.la-3x>div{width:48px;height:48px}@-webkit-keyframes ball-circus-position{50%{left:100%}}@keyframes ball-circus-position{50%{left:100%}}@-webkit-keyframes ball-circus-size{50%{transform:scale(.3,.3)}}@keyframes ball-circus-size{50%{transform:scale(.3,.3)}}.la-ball-climbing-dot,.la-ball-climbing-dot>div{position:relative;box-sizing:border-box}.la-ball-climbing-dot{display:block;font-size:0;color:#fff;width:42px;height:32px}.la-ball-climbing-dot.la-dark{color:#333}.la-ball-climbing-dot>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor}.la-ball-climbing-dot>div:nth-child(1){position:absolute;bottom:32%;left:18%;width:14px;height:14px;border-radius:100%;transform-origin:center bottom;-webkit-animation:.6s ease-in-out infinite ball-climbing-dot-jump;animation:.6s ease-in-out infinite ball-climbing-dot-jump}.la-ball-climbing-dot>div:not(:nth-child(1)){position:absolute;top:0;right:0;width:14px;height:2px;border-radius:0;transform:translate(60%,0);-webkit-animation:1.8s linear infinite ball-climbing-dot-steps;animation:1.8s linear infinite ball-climbing-dot-steps}.la-ball-climbing-dot>div:not(:nth-child(1)):nth-child(2){-webkit-animation-delay:0s;animation-delay:0s}.la-ball-climbing-dot>div:not(:nth-child(1)):nth-child(3){-webkit-animation-delay:-.6s;animation-delay:-.6s}.la-ball-climbing-dot>div:not(:nth-child(1)):nth-child(4){-webkit-animation-delay:-1.2s;animation-delay:-1.2s}.la-ball-climbing-dot.la-sm{width:20px;height:16px}.la-ball-climbing-dot.la-sm>div:nth-child(1){width:6px;height:6px}.la-ball-climbing-dot.la-sm>div:not(:nth-child(1)){width:6px;height:1px}.la-ball-climbing-dot.la-2x{width:84px;height:64px}.la-ball-climbing-dot.la-2x>div:nth-child(1){width:28px;height:28px}.la-ball-climbing-dot.la-2x>div:not(:nth-child(1)){width:28px;height:4px}.la-ball-climbing-dot.la-3x{width:126px;height:96px}.la-ball-climbing-dot.la-3x>div:nth-child(1){width:42px;height:42px}.la-ball-climbing-dot.la-3x>div:not(:nth-child(1)){width:42px;height:6px}@-webkit-keyframes ball-climbing-dot-jump{0%,100%{transform:scale(1,.7)}20%,80%,90%{transform:scale(.7,1.2)}40%,46%{transform:scale(1,1)}50%{bottom:125%}}@keyframes ball-climbing-dot-jump{0%,100%{transform:scale(1,.7)}20%,80%,90%{transform:scale(.7,1.2)}40%,46%{transform:scale(1,1)}50%{bottom:125%}}@-webkit-keyframes ball-climbing-dot-steps{0%{top:0;right:0;opacity:0}50%{opacity:1}100%{top:100%;right:100%;opacity:0}}@keyframes ball-climbing-dot-steps{0%{top:0;right:0;opacity:0}50%{opacity:1}100%{top:100%;right:100%;opacity:0}}.la-ball-clip-rotate-multiple,.la-ball-clip-rotate-multiple>div{position:relative;box-sizing:border-box}.la-ball-clip-rotate-multiple{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-ball-clip-rotate-multiple.la-dark{color:#333}.la-ball-clip-rotate-multiple>div{display:inline-block;float:none;border:2px solid currentColor;position:absolute;top:50%;left:50%;background:0 0;border-radius:100%;-webkit-animation:1s ease-in-out infinite ball-clip-rotate-multiple-rotate;animation:1s ease-in-out infinite ball-clip-rotate-multiple-rotate}.la-ball-clip-rotate-multiple>div:first-child{position:absolute;width:32px;height:32px;border-right-color:transparent;border-left-color:transparent}.la-ball-clip-rotate-multiple>div:last-child{width:16px;height:16px;border-top-color:transparent;border-bottom-color:transparent;-webkit-animation-duration:.5s;animation-duration:.5s;-webkit-animation-direction:reverse;animation-direction:reverse}.la-ball-clip-rotate-multiple.la-sm{width:16px;height:16px}.la-ball-clip-rotate-multiple.la-sm>div{border-width:1px}.la-ball-clip-rotate-multiple.la-sm>div:first-child{width:16px;height:16px}.la-ball-clip-rotate-multiple.la-sm>div:last-child{width:8px;height:8px}.la-ball-clip-rotate-multiple.la-2x{width:64px;height:64px}.la-ball-clip-rotate-multiple.la-2x>div{border-width:4px}.la-ball-clip-rotate-multiple.la-2x>div:first-child{width:64px;height:64px}.la-ball-clip-rotate-multiple.la-2x>div:last-child{width:32px;height:32px}.la-ball-clip-rotate-multiple.la-3x{width:96px;height:96px}.la-ball-clip-rotate-multiple.la-3x>div{border-width:6px}.la-ball-clip-rotate-multiple.la-3x>div:first-child{width:96px;height:96px}.la-ball-clip-rotate-multiple.la-3x>div:last-child{width:48px;height:48px}@-webkit-keyframes ball-clip-rotate-multiple-rotate{0%{transform:translate(-50%,-50%) rotate(0)}50%{transform:translate(-50%,-50%) rotate(180deg)}100%{transform:translate(-50%,-50%) rotate(360deg)}}@keyframes ball-clip-rotate-multiple-rotate{0%{transform:translate(-50%,-50%) rotate(0)}50%{transform:translate(-50%,-50%) rotate(180deg)}100%{transform:translate(-50%,-50%) rotate(360deg)}}.la-ball-clip-rotate-pulse,.la-ball-clip-rotate-pulse>div{position:relative;box-sizing:border-box}.la-ball-clip-rotate-pulse{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-ball-clip-rotate-pulse.la-dark{color:#333}.la-ball-clip-rotate-pulse>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;top:50%;left:50%;border-radius:100%}.la-ball-clip-rotate-pulse>div:first-child{position:absolute;width:32px;height:32px;background:0 0;border-style:solid;border-width:2px;border-right-color:transparent;border-left-color:transparent;-webkit-animation:1s cubic-bezier(.09,.57,.49,.9) infinite ball-clip-rotate-pulse-rotate;animation:1s cubic-bezier(.09,.57,.49,.9) infinite ball-clip-rotate-pulse-rotate}.la-ball-clip-rotate-pulse>div:last-child{width:16px;height:16px;-webkit-animation:1s cubic-bezier(.09,.57,.49,.9) infinite ball-clip-rotate-pulse-scale;animation:1s cubic-bezier(.09,.57,.49,.9) infinite ball-clip-rotate-pulse-scale}.la-ball-clip-rotate-pulse.la-sm{width:16px;height:16px}.la-ball-clip-rotate-pulse.la-sm>div:first-child{width:16px;height:16px;border-width:1px}.la-ball-clip-rotate-pulse.la-sm>div:last-child{width:8px;height:8px}.la-ball-clip-rotate-pulse.la-2x{width:64px;height:64px}.la-ball-clip-rotate-pulse.la-2x>div:first-child{width:64px;height:64px;border-width:4px}.la-ball-clip-rotate-pulse.la-2x>div:last-child{width:32px;height:32px}.la-ball-clip-rotate-pulse.la-3x{width:96px;height:96px}.la-ball-clip-rotate-pulse.la-3x>div:first-child{width:96px;height:96px;border-width:6px}.la-ball-clip-rotate-pulse.la-3x>div:last-child{width:48px;height:48px}@-webkit-keyframes ball-clip-rotate-pulse-rotate{0%{transform:translate(-50%,-50%) rotate(0)}50%{transform:translate(-50%,-50%) rotate(180deg)}100%{transform:translate(-50%,-50%) rotate(360deg)}}@keyframes ball-clip-rotate-pulse-rotate{0%{transform:translate(-50%,-50%) rotate(0)}50%{transform:translate(-50%,-50%) rotate(180deg)}100%{transform:translate(-50%,-50%) rotate(360deg)}}@-webkit-keyframes ball-clip-rotate-pulse-scale{0%,100%{opacity:1;transform:translate(-50%,-50%) scale(1)}30%{opacity:.3;transform:translate(-50%,-50%) scale(.15)}}@keyframes ball-clip-rotate-pulse-scale{0%,100%{opacity:1;transform:translate(-50%,-50%) scale(1)}30%{opacity:.3;transform:translate(-50%,-50%) scale(.15)}}.la-ball-clip-rotate,.la-ball-clip-rotate>div{position:relative;box-sizing:border-box}.la-ball-clip-rotate{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-ball-clip-rotate.la-dark{color:#333}.la-ball-clip-rotate>div{display:inline-block;float:none;border:2px solid currentColor;width:32px;height:32px;background:0 0;border-bottom-color:transparent;border-radius:100%;-webkit-animation:.75s linear infinite ball-clip-rotate;animation:.75s linear infinite ball-clip-rotate}.la-ball-clip-rotate.la-sm{width:16px;height:16px}.la-ball-clip-rotate.la-sm>div{width:16px;height:16px;border-width:1px}.la-ball-clip-rotate.la-2x{width:64px;height:64px}.la-ball-clip-rotate.la-2x>div{width:64px;height:64px;border-width:4px}.la-ball-clip-rotate.la-3x{width:96px;height:96px}.la-ball-clip-rotate.la-3x>div{width:96px;height:96px;border-width:6px}@-webkit-keyframes ball-clip-rotate{0%{transform:rotate(0)}50%{transform:rotate(180deg)}100%{transform:rotate(360deg)}}@keyframes ball-clip-rotate{0%{transform:rotate(0)}50%{transform:rotate(180deg)}100%{transform:rotate(360deg)}}.la-ball-elastic-dots,.la-ball-elastic-dots>div{position:relative;box-sizing:border-box}.la-ball-elastic-dots{display:block;color:#fff;width:120px;height:10px;font-size:0;text-align:center}.la-ball-elastic-dots.la-dark{color:#333}.la-ball-elastic-dots>div{float:none;background-color:currentColor;border:0 solid currentColor;display:inline-block;width:10px;height:10px;white-space:nowrap;border-radius:100%;-webkit-animation:1s infinite ball-elastic-dots-anim;animation:1s infinite ball-elastic-dots-anim}.la-ball-elastic-dots.la-sm{width:60px;height:4px}.la-ball-elastic-dots.la-sm>div{width:4px;height:4px}.la-ball-elastic-dots.la-2x{width:240px;height:20px}.la-ball-elastic-dots.la-2x>div{width:20px;height:20px}.la-ball-elastic-dots.la-3x{width:360px;height:30px}.la-ball-elastic-dots.la-3x>div{width:30px;height:30px}@-webkit-keyframes ball-elastic-dots-anim{0%,100%{margin:0;transform:scale(1)}50%{margin:0 5%;transform:scale(.65)}}@keyframes ball-elastic-dots-anim{0%,100%{margin:0;transform:scale(1)}50%{margin:0 5%;transform:scale(.65)}}.la-ball-fall,.la-ball-fall>div{position:relative;box-sizing:border-box}.la-ball-fall{display:block;font-size:0;color:#fff;width:54px;height:18px}.la-ball-fall.la-dark{color:#333}.la-ball-fall>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;width:10px;height:10px;margin:4px;border-radius:100%;opacity:0;-webkit-animation:1s ease-in-out infinite ball-fall;animation:1s ease-in-out infinite ball-fall}.la-ball-fall>div:nth-child(1){-webkit-animation-delay:-.2s;animation-delay:-.2s}.la-ball-fall>div:nth-child(2){-webkit-animation-delay:-.1s;animation-delay:-.1s}.la-ball-fall>div:nth-child(3){-webkit-animation-delay:0s;animation-delay:0s}.la-ball-fall.la-sm{width:26px;height:8px}.la-ball-fall.la-sm>div{width:4px;height:4px;margin:2px}.la-ball-fall.la-2x{width:108px;height:36px}.la-ball-fall.la-2x>div{width:20px;height:20px;margin:8px}.la-ball-fall.la-3x{width:162px;height:54px}.la-ball-fall.la-3x>div{width:30px;height:30px;margin:12px}@-webkit-keyframes ball-fall{0%{opacity:0;transform:translateY(-145%)}10%,90%{opacity:.5}20%,80%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(145%)}}@keyframes ball-fall{0%{opacity:0;transform:translateY(-145%)}10%,90%{opacity:.5}20%,80%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(145%)}}.la-ball-fussion,.la-ball-fussion>div{position:relative;box-sizing:border-box}.la-ball-fussion{display:block;font-size:0;color:#fff;width:8px;height:8px}.la-ball-fussion.la-dark{color:#333}.la-ball-fussion>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;width:12px;height:12px;border-radius:100%;transform:translate(-50%,-50%);-webkit-animation:1s infinite ball-fussion-ball1;animation:1s infinite ball-fussion-ball1}.la-ball-fussion>div:nth-child(1){top:0;left:50%;z-index:1}.la-ball-fussion>div:nth-child(2){top:50%;left:100%;z-index:2;-webkit-animation-name:ball-fussion-ball2;animation-name:ball-fussion-ball2}.la-ball-fussion>div:nth-child(3){top:100%;left:50%;z-index:1;-webkit-animation-name:ball-fussion-ball3;animation-name:ball-fussion-ball3}.la-ball-fussion>div:nth-child(4){top:50%;left:0;z-index:2;-webkit-animation-name:ball-fussion-ball4;animation-name:ball-fussion-ball4}.la-ball-fussion.la-sm{width:4px;height:4px}.la-ball-fussion.la-sm>div{width:6px;height:6px}.la-ball-fussion.la-2x{width:16px;height:16px}.la-ball-fussion.la-2x>div,.la-ball-fussion.la-3x{width:24px;height:24px}.la-ball-fussion.la-3x>div{width:36px;height:36px}@-webkit-keyframes ball-fussion-ball1{0%{opacity:.35}50%{top:-100%;left:200%;opacity:1}100%{top:50%;left:100%;z-index:2;opacity:.35}}@keyframes ball-fussion-ball1{0%{opacity:.35}50%{top:-100%;left:200%;opacity:1}100%{top:50%;left:100%;z-index:2;opacity:.35}}@-webkit-keyframes ball-fussion-ball2{0%{opacity:.35}50%{top:200%;left:200%;opacity:1}100%{top:100%;left:50%;z-index:1;opacity:.35}}@keyframes ball-fussion-ball2{0%{opacity:.35}50%{top:200%;left:200%;opacity:1}100%{top:100%;left:50%;z-index:1;opacity:.35}}@-webkit-keyframes ball-fussion-ball3{0%{opacity:.35}50%{top:200%;left:-100%;opacity:1}100%{top:50%;left:0;z-index:2;opacity:.35}}@keyframes ball-fussion-ball3{0%{opacity:.35}50%{top:200%;left:-100%;opacity:1}100%{top:50%;left:0;z-index:2;opacity:.35}}@-webkit-keyframes ball-fussion-ball4{0%{opacity:.35}50%{top:-100%;left:-100%;opacity:1}100%{top:0;left:50%;z-index:1;opacity:.35}}@keyframes ball-fussion-ball4{0%{opacity:.35}50%{top:-100%;left:-100%;opacity:1}100%{top:0;left:50%;z-index:1;opacity:.35}}.la-ball-grid-beat,.la-ball-grid-beat>div{position:relative;box-sizing:border-box}.la-ball-grid-beat{display:block;font-size:0;color:#fff;width:36px;height:36px}.la-ball-grid-beat.la-dark{color:#333}.la-ball-grid-beat>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;width:8px;height:8px;margin:2px;border-radius:100%;-webkit-animation-name:ball-grid-beat;animation-name:ball-grid-beat;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite}.la-ball-grid-beat>div:nth-child(1){-webkit-animation-duration:.65s;animation-duration:.65s;-webkit-animation-delay:.03s;animation-delay:.03s}.la-ball-grid-beat>div:nth-child(2){-webkit-animation-duration:1.02s;animation-duration:1.02s;-webkit-animation-delay:.09s;animation-delay:.09s}.la-ball-grid-beat>div:nth-child(3){-webkit-animation-duration:1.06s;animation-duration:1.06s;-webkit-animation-delay:-.69s;animation-delay:-.69s}.la-ball-grid-beat>div:nth-child(4){-webkit-animation-duration:1.5s;animation-duration:1.5s;-webkit-animation-delay:-.41s;animation-delay:-.41s}.la-ball-grid-beat>div:nth-child(5){-webkit-animation-duration:1.6s;animation-duration:1.6s;-webkit-animation-delay:.04s;animation-delay:.04s}.la-ball-grid-beat>div:nth-child(6){-webkit-animation-duration:.84s;animation-duration:.84s;-webkit-animation-delay:.07s;animation-delay:.07s}.la-ball-grid-beat>div:nth-child(7){-webkit-animation-duration:.68s;animation-duration:.68s;-webkit-animation-delay:-.66s;animation-delay:-.66s}.la-ball-grid-beat>div:nth-child(8){-webkit-animation-duration:.93s;animation-duration:.93s;-webkit-animation-delay:-.76s;animation-delay:-.76s}.la-ball-grid-beat>div:nth-child(9){-webkit-animation-duration:1.24s;animation-duration:1.24s;-webkit-animation-delay:-.76s;animation-delay:-.76s}.la-ball-grid-beat.la-sm{width:18px;height:18px}.la-ball-grid-beat.la-sm>div{width:4px;height:4px;margin:1px}.la-ball-grid-beat.la-2x{width:72px;height:72px}.la-ball-grid-beat.la-2x>div{width:16px;height:16px;margin:4px}.la-ball-grid-beat.la-3x{width:108px;height:108px}.la-ball-grid-beat.la-3x>div{width:24px;height:24px;margin:6px}@-webkit-keyframes ball-grid-beat{0%,100%{opacity:1}50%{opacity:.35}}@keyframes ball-grid-beat{0%,100%{opacity:1}50%{opacity:.35}}.la-ball-grid-pulse,.la-ball-grid-pulse>div{position:relative;box-sizing:border-box}.la-ball-grid-pulse{display:block;font-size:0;color:#fff;width:36px;height:36px}.la-ball-grid-pulse.la-dark{color:#333}.la-ball-grid-pulse>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;width:8px;height:8px;margin:2px;border-radius:100%;-webkit-animation-name:ball-grid-pulse;animation-name:ball-grid-pulse;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite}.la-ball-grid-pulse>div:nth-child(1){-webkit-animation-duration:.65s;animation-duration:.65s;-webkit-animation-delay:.03s;animation-delay:.03s}.la-ball-grid-pulse>div:nth-child(2){-webkit-animation-duration:1.02s;animation-duration:1.02s;-webkit-animation-delay:.09s;animation-delay:.09s}.la-ball-grid-pulse>div:nth-child(3){-webkit-animation-duration:1.06s;animation-duration:1.06s;-webkit-animation-delay:-.69s;animation-delay:-.69s}.la-ball-grid-pulse>div:nth-child(4){-webkit-animation-duration:1.5s;animation-duration:1.5s;-webkit-animation-delay:-.41s;animation-delay:-.41s}.la-ball-grid-pulse>div:nth-child(5){-webkit-animation-duration:1.6s;animation-duration:1.6s;-webkit-animation-delay:.04s;animation-delay:.04s}.la-ball-grid-pulse>div:nth-child(6){-webkit-animation-duration:.84s;animation-duration:.84s;-webkit-animation-delay:.07s;animation-delay:.07s}.la-ball-grid-pulse>div:nth-child(7){-webkit-animation-duration:.68s;animation-duration:.68s;-webkit-animation-delay:-.66s;animation-delay:-.66s}.la-ball-grid-pulse>div:nth-child(8){-webkit-animation-duration:.93s;animation-duration:.93s;-webkit-animation-delay:-.76s;animation-delay:-.76s}.la-ball-grid-pulse>div:nth-child(9){-webkit-animation-duration:1.24s;animation-duration:1.24s;-webkit-animation-delay:-.76s;animation-delay:-.76s}.la-ball-grid-pulse.la-sm{width:18px;height:18px}.la-ball-grid-pulse.la-sm>div{width:4px;height:4px;margin:1px}.la-ball-grid-pulse.la-2x{width:72px;height:72px}.la-ball-grid-pulse.la-2x>div{width:16px;height:16px;margin:4px}.la-ball-grid-pulse.la-3x{width:108px;height:108px}.la-ball-grid-pulse.la-3x>div{width:24px;height:24px;margin:6px}@-webkit-keyframes ball-grid-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.45)}}@keyframes ball-grid-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.45)}}.la-ball-newton-cradle,.la-ball-newton-cradle>div{position:relative;box-sizing:border-box}.la-ball-newton-cradle{display:block;font-size:0;color:#fff;width:40px;height:10px}.la-ball-newton-cradle.la-dark{color:#333}.la-ball-newton-cradle>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;width:10px;height:10px;border-radius:100%}.la-ball-newton-cradle>div:first-child{transform:translateX(0);-webkit-animation:1s ease-out infinite ball-newton-cradle-left;animation:1s ease-out infinite ball-newton-cradle-left}.la-ball-newton-cradle>div:last-child{transform:translateX(0);-webkit-animation:1s ease-out infinite ball-newton-cradle-right;animation:1s ease-out infinite ball-newton-cradle-right}.la-ball-newton-cradle.la-sm{width:20px;height:4px}.la-ball-newton-cradle.la-sm>div{width:4px;height:4px}.la-ball-newton-cradle.la-2x{width:80px;height:20px}.la-ball-newton-cradle.la-2x>div{width:20px;height:20px}.la-ball-newton-cradle.la-3x{width:120px;height:30px}.la-ball-newton-cradle.la-3x>div{width:30px;height:30px}@-webkit-keyframes ball-newton-cradle-left{25%{transform:translateX(-100%);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}50%{transform:translateX(0)}}@keyframes ball-newton-cradle-left{25%{transform:translateX(-100%);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}50%{transform:translateX(0)}}@-webkit-keyframes ball-newton-cradle-right{100%,50%{transform:translateX(0)}75%{transform:translateX(100%);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}}@keyframes ball-newton-cradle-right{100%,50%{transform:translateX(0)}75%{transform:translateX(100%);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}}.la-ball-pulse-rise,.la-ball-pulse-rise>div{position:relative;box-sizing:border-box}.la-ball-pulse-rise{display:block;font-size:0;color:#fff;width:70px;height:14px}.la-ball-pulse-rise.la-dark{color:#333}.la-ball-pulse-rise>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;width:10px;height:10px;margin:2px;border-radius:100%;-webkit-animation:1s cubic-bezier(.15,.36,.9,.6) infinite ball-pulse-rise-even;animation:1s cubic-bezier(.15,.36,.9,.6) infinite ball-pulse-rise-even}.la-ball-pulse-rise>div:nth-child(2n-1){-webkit-animation-name:ball-pulse-rise-odd;animation-name:ball-pulse-rise-odd}.la-ball-pulse-rise.la-sm{width:34px;height:6px}.la-ball-pulse-rise.la-sm>div{width:4px;height:4px;margin:1px}.la-ball-pulse-rise.la-2x{width:140px;height:28px}.la-ball-pulse-rise.la-2x>div{width:20px;height:20px;margin:4px}.la-ball-pulse-rise.la-3x{width:210px;height:42px}.la-ball-pulse-rise.la-3x>div{width:30px;height:30px;margin:6px}@-webkit-keyframes ball-pulse-rise-even{0%{opacity:1;transform:scale(1.1)}25%{transform:translateY(-200%)}50%{opacity:.35;transform:scale(.3)}75%{transform:translateY(200%)}100%{opacity:1;transform:translateY(0);transform:scale(1)}}@keyframes ball-pulse-rise-even{0%{opacity:1;transform:scale(1.1)}25%{transform:translateY(-200%)}50%{opacity:.35;transform:scale(.3)}75%{transform:translateY(200%)}100%{opacity:1;transform:translateY(0);transform:scale(1)}}@-webkit-keyframes ball-pulse-rise-odd{0%{opacity:.35;transform:scale(.4)}25%{transform:translateY(200%)}50%{opacity:1;transform:scale(1.1)}75%{transform:translateY(-200%)}100%{opacity:.35;transform:translateY(0);transform:scale(.75)}}@keyframes ball-pulse-rise-odd{0%{opacity:.35;transform:scale(.4)}25%{transform:translateY(200%)}50%{opacity:1;transform:scale(1.1)}75%{transform:translateY(-200%)}100%{opacity:.35;transform:translateY(0);transform:scale(.75)}}.la-ball-pulse-sync,.la-ball-pulse-sync>div{position:relative;box-sizing:border-box}.la-ball-pulse-sync{display:block;font-size:0;color:#fff;width:54px;height:18px}.la-ball-pulse-sync.la-dark{color:#333}.la-ball-pulse-sync>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;width:10px;height:10px;margin:4px;border-radius:100%;-webkit-animation:.6s ease-in-out infinite ball-pulse-sync;animation:.6s ease-in-out infinite ball-pulse-sync}.la-ball-pulse-sync>div:nth-child(1){-webkit-animation-delay:-.14s;animation-delay:-.14s}.la-ball-pulse-sync>div:nth-child(2){-webkit-animation-delay:-.07s;animation-delay:-.07s}.la-ball-pulse-sync>div:nth-child(3){-webkit-animation-delay:0s;animation-delay:0s}.la-ball-pulse-sync.la-sm{width:26px;height:8px}.la-ball-pulse-sync.la-sm>div{width:4px;height:4px;margin:2px}.la-ball-pulse-sync.la-2x{width:108px;height:36px}.la-ball-pulse-sync.la-2x>div{width:20px;height:20px;margin:8px}.la-ball-pulse-sync.la-3x{width:162px;height:54px}.la-ball-pulse-sync.la-3x>div{width:30px;height:30px;margin:12px}@-webkit-keyframes ball-pulse-sync{33%{transform:translateY(100%)}66%{transform:translateY(-100%)}100%{transform:translateY(0)}}@keyframes ball-pulse-sync{33%{transform:translateY(100%)}66%{transform:translateY(-100%)}100%{transform:translateY(0)}}.la-ball-pulse,.la-ball-pulse>div{position:relative;box-sizing:border-box}.la-ball-pulse{display:block;font-size:0;color:#fff;width:54px;height:18px}.la-ball-pulse.la-dark{color:#333}.la-ball-pulse>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;width:10px;height:10px;margin:4px;border-radius:100%;-webkit-animation:1s infinite ball-pulse;animation:1s infinite ball-pulse}.la-ball-pulse>div:nth-child(1){-webkit-animation-delay:-.2s;animation-delay:-.2s}.la-ball-pulse>div:nth-child(2){-webkit-animation-delay:-.1s;animation-delay:-.1s}.la-ball-pulse>div:nth-child(3){-webkit-animation-delay:0s;animation-delay:0s}.la-ball-pulse.la-sm{width:26px;height:8px}.la-ball-pulse.la-sm>div{width:4px;height:4px;margin:2px}.la-ball-pulse.la-2x{width:108px;height:36px}.la-ball-pulse.la-2x>div{width:20px;height:20px;margin:8px}.la-ball-pulse.la-3x{width:162px;height:54px}.la-ball-pulse.la-3x>div{width:30px;height:30px;margin:12px}@-webkit-keyframes ball-pulse{0%,100%,60%{opacity:1;transform:scale(1)}30%{opacity:.1;transform:scale(.01)}}@keyframes ball-pulse{0%,100%,60%{opacity:1;transform:scale(1)}30%{opacity:.1;transform:scale(.01)}}.la-ball-rotate,.la-ball-rotate>div{position:relative;box-sizing:border-box}.la-ball-rotate{display:block;font-size:0;color:#fff;width:10px;height:10px}.la-ball-rotate.la-dark{color:#333}.la-ball-rotate>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;width:10px;height:10px;border-radius:100%;-webkit-animation:1s cubic-bezier(.7,-.13,.22,.86) infinite ball-rotate-animation;animation:1s cubic-bezier(.7,-.13,.22,.86) infinite ball-rotate-animation}.la-ball-rotate>div:after,.la-ball-rotate>div:before{position:absolute;width:inherit;height:inherit;margin:inherit;content:\"\";background:currentColor;border-radius:inherit;opacity:.8}.la-ball-rotate>div:before{top:0;left:-150%}.la-ball-rotate>div:after{top:0;left:150%}.la-ball-rotate.la-sm,.la-ball-rotate.la-sm>div{width:4px;height:4px}.la-ball-rotate.la-2x,.la-ball-rotate.la-2x>div{width:20px;height:20px}.la-ball-rotate.la-3x,.la-ball-rotate.la-3x>div{width:30px;height:30px}@-webkit-keyframes ball-rotate-animation{0%{transform:rotate(0)}50%{transform:rotate(180deg)}100%{transform:rotate(360deg)}}@keyframes ball-rotate-animation{0%{transform:rotate(0)}50%{transform:rotate(180deg)}100%{transform:rotate(360deg)}}.la-ball-running-dots,.la-ball-running-dots>div{position:relative;box-sizing:border-box}.la-ball-running-dots{display:block;font-size:0;color:#fff;width:10px;height:10px}.la-ball-running-dots.la-dark{color:#333}.la-ball-running-dots>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;width:10px;height:10px;margin-left:-25px;border-radius:100%;-webkit-animation:2s linear infinite ball-running-dots-animate;animation:2s linear infinite ball-running-dots-animate}.la-ball-running-dots>div:nth-child(1){-webkit-animation-delay:0s;animation-delay:0s}.la-ball-running-dots>div:nth-child(2){-webkit-animation-delay:-.4s;animation-delay:-.4s}.la-ball-running-dots>div:nth-child(3){-webkit-animation-delay:-.8s;animation-delay:-.8s}.la-ball-running-dots>div:nth-child(4){-webkit-animation-delay:-1.2s;animation-delay:-1.2s}.la-ball-running-dots>div:nth-child(5){-webkit-animation-delay:-1.6s;animation-delay:-1.6s}.la-ball-running-dots>div:nth-child(6){-webkit-animation-delay:-2s;animation-delay:-2s}.la-ball-running-dots>div:nth-child(7){-webkit-animation-delay:-2.4s;animation-delay:-2.4s}.la-ball-running-dots>div:nth-child(8){-webkit-animation-delay:-2.8s;animation-delay:-2.8s}.la-ball-running-dots>div:nth-child(9){-webkit-animation-delay:-3.2s;animation-delay:-3.2s}.la-ball-running-dots>div:nth-child(10){-webkit-animation-delay:-3.6s;animation-delay:-3.6s}.la-ball-running-dots.la-sm{width:4px;height:4px}.la-ball-running-dots.la-sm>div{width:4px;height:4px;margin-left:-12px}.la-ball-running-dots.la-2x{width:20px;height:20px}.la-ball-running-dots.la-2x>div{width:20px;height:20px;margin-left:-50px}.la-ball-running-dots.la-3x{width:30px;height:30px}.la-ball-running-dots.la-3x>div{width:30px;height:30px;margin-left:-75px}@-webkit-keyframes ball-running-dots-animate{0%,100%{width:100%;height:100%;transform:translateY(0) translateX(500%)}80%{transform:translateY(0) translateX(0)}85%{width:100%;height:100%;transform:translateY(-125%) translateX(0)}90%{width:200%;height:75%}95%{width:100%;height:100%;transform:translateY(-100%) translateX(500%)}}@keyframes ball-running-dots-animate{0%,100%{width:100%;height:100%;transform:translateY(0) translateX(500%)}80%{transform:translateY(0) translateX(0)}85%{width:100%;height:100%;transform:translateY(-125%) translateX(0)}90%{width:200%;height:75%}95%{width:100%;height:100%;transform:translateY(-100%) translateX(500%)}}.la-ball-scale-multiple,.la-ball-scale-multiple>div{position:relative;box-sizing:border-box}.la-ball-scale-multiple{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-ball-scale-multiple.la-dark{color:#333}.la-ball-scale-multiple>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;top:0;left:0;width:32px;height:32px;border-radius:100%;opacity:0;-webkit-animation:1s linear infinite ball-scale-multiple;animation:1s linear infinite ball-scale-multiple}.la-ball-scale-multiple>div:nth-child(2){-webkit-animation-delay:.2s;animation-delay:.2s}.la-ball-scale-multiple>div:nth-child(3){-webkit-animation-delay:.4s;animation-delay:.4s}.la-ball-scale-multiple.la-sm,.la-ball-scale-multiple.la-sm>div{width:16px;height:16px}.la-ball-scale-multiple.la-2x,.la-ball-scale-multiple.la-2x>div{width:64px;height:64px}.la-ball-scale-multiple.la-3x,.la-ball-scale-multiple.la-3x>div{width:96px;height:96px}@-webkit-keyframes ball-scale-multiple{0%{opacity:0;transform:scale(0)}5%{opacity:.75}100%{opacity:0;transform:scale(1)}}@keyframes ball-scale-multiple{0%{opacity:0;transform:scale(0)}5%{opacity:.75}100%{opacity:0;transform:scale(1)}}.la-ball-scale-pulse,.la-ball-scale-pulse>div{position:relative;box-sizing:border-box}.la-ball-scale-pulse{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-ball-scale-pulse.la-dark{color:#333}.la-ball-scale-pulse>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;top:0;left:0;width:32px;height:32px;border-radius:100%;opacity:.5;-webkit-animation:2s ease-in-out infinite ball-scale-pulse;animation:2s ease-in-out infinite ball-scale-pulse}.la-ball-scale-pulse>div:last-child{-webkit-animation-delay:-1s;animation-delay:-1s}.la-ball-scale-pulse.la-sm,.la-ball-scale-pulse.la-sm>div{width:16px;height:16px}.la-ball-scale-pulse.la-2x,.la-ball-scale-pulse.la-2x>div{width:64px;height:64px}.la-ball-scale-pulse.la-3x,.la-ball-scale-pulse.la-3x>div{width:96px;height:96px}@-webkit-keyframes ball-scale-pulse{0%,100%{transform:scale(0)}50%{transform:scale(1)}}@keyframes ball-scale-pulse{0%,100%{transform:scale(0)}50%{transform:scale(1)}}.la-ball-scale-ripple-multiple,.la-ball-scale-ripple-multiple>div{position:relative;box-sizing:border-box}.la-ball-scale-ripple-multiple{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-ball-scale-ripple-multiple.la-dark{color:#333}.la-ball-scale-ripple-multiple>div{display:inline-block;float:none;border:2px solid currentColor;position:absolute;top:0;left:0;width:32px;height:32px;background:0 0;border-radius:100%;opacity:0;-webkit-animation:1.25s cubic-bezier(.21,.53,.56,.8) infinite ball-scale-ripple-multiple;animation:1.25s cubic-bezier(.21,.53,.56,.8) infinite ball-scale-ripple-multiple}.la-ball-scale-ripple-multiple>div:nth-child(1){-webkit-animation-delay:0s;animation-delay:0s}.la-ball-scale-ripple-multiple>div:nth-child(2){-webkit-animation-delay:.25s;animation-delay:.25s}.la-ball-scale-ripple-multiple>div:nth-child(3){-webkit-animation-delay:.5s;animation-delay:.5s}.la-ball-scale-ripple-multiple.la-sm{width:16px;height:16px}.la-ball-scale-ripple-multiple.la-sm>div{width:16px;height:16px;border-width:1px}.la-ball-scale-ripple-multiple.la-2x{width:64px;height:64px}.la-ball-scale-ripple-multiple.la-2x>div{width:64px;height:64px;border-width:4px}.la-ball-scale-ripple-multiple.la-3x{width:96px;height:96px}.la-ball-scale-ripple-multiple.la-3x>div{width:96px;height:96px;border-width:6px}@-webkit-keyframes ball-scale-ripple-multiple{0%{opacity:1;transform:scale(.1)}70%{opacity:.5;transform:scale(1)}95%{opacity:0}}@keyframes ball-scale-ripple-multiple{0%{opacity:1;transform:scale(.1)}70%{opacity:.5;transform:scale(1)}95%{opacity:0}}.la-ball-scale-ripple,.la-ball-scale-ripple>div{position:relative;box-sizing:border-box}.la-ball-scale-ripple{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-ball-scale-ripple.la-dark{color:#333}.la-ball-scale-ripple>div{display:inline-block;float:none;border:2px solid currentColor;width:32px;height:32px;background:0 0;border-radius:100%;opacity:0;-webkit-animation:1s cubic-bezier(.21,.53,.56,.8) infinite ball-scale-ripple;animation:1s cubic-bezier(.21,.53,.56,.8) infinite ball-scale-ripple}.la-ball-scale-ripple.la-sm{width:16px;height:16px}.la-ball-scale-ripple.la-sm>div{width:16px;height:16px;border-width:1px}.la-ball-scale-ripple.la-2x{width:64px;height:64px}.la-ball-scale-ripple.la-2x>div{width:64px;height:64px;border-width:4px}.la-ball-scale-ripple.la-3x{width:96px;height:96px}.la-ball-scale-ripple.la-3x>div{width:96px;height:96px;border-width:6px}@-webkit-keyframes ball-scale-ripple{0%{opacity:1;transform:scale(.1)}70%{opacity:.65;transform:scale(1)}100%{opacity:0}}@keyframes ball-scale-ripple{0%{opacity:1;transform:scale(.1)}70%{opacity:.65;transform:scale(1)}100%{opacity:0}}.la-ball-scale,.la-ball-scale>div{position:relative;box-sizing:border-box}.la-ball-scale{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-ball-scale.la-dark{color:#333}.la-ball-scale>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;width:32px;height:32px;border-radius:100%;opacity:0;-webkit-animation:1s ease-in-out infinite ball-scale;animation:1s ease-in-out infinite ball-scale}.la-ball-scale.la-sm,.la-ball-scale.la-sm>div{width:16px;height:16px}.la-ball-scale.la-2x,.la-ball-scale.la-2x>div{width:64px;height:64px}.la-ball-scale.la-3x,.la-ball-scale.la-3x>div{width:96px;height:96px}@-webkit-keyframes ball-scale{0%{opacity:1;transform:scale(0)}100%{opacity:0;transform:scale(1)}}@keyframes ball-scale{0%{opacity:1;transform:scale(0)}100%{opacity:0;transform:scale(1)}}.la-ball-spin-clockwise-fade-rotating,.la-ball-spin-clockwise-fade-rotating>div{position:relative;box-sizing:border-box}.la-ball-spin-clockwise-fade-rotating{display:block;font-size:0;color:#fff;width:32px;height:32px;-webkit-animation:6s linear infinite ball-spin-clockwise-fade-rotating-rotate;animation:6s linear infinite ball-spin-clockwise-fade-rotating-rotate}.la-ball-spin-clockwise-fade-rotating.la-dark{color:#333}.la-ball-spin-clockwise-fade-rotating>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;top:50%;left:50%;width:8px;height:8px;margin-top:-4px;margin-left:-4px;border-radius:100%;-webkit-animation:1s linear infinite ball-spin-clockwise-fade-rotating;animation:1s linear infinite ball-spin-clockwise-fade-rotating}.la-ball-spin-clockwise-fade-rotating>div:nth-child(1){top:5%;left:50%;-webkit-animation-delay:-.875s;animation-delay:-.875s}.la-ball-spin-clockwise-fade-rotating>div:nth-child(2){top:18.1801948466%;left:81.8198051534%;-webkit-animation-delay:-.75s;animation-delay:-.75s}.la-ball-spin-clockwise-fade-rotating>div:nth-child(3){top:50%;left:95%;-webkit-animation-delay:-.625s;animation-delay:-.625s}.la-ball-spin-clockwise-fade-rotating>div:nth-child(4){top:81.8198051534%;left:81.8198051534%;-webkit-animation-delay:-.5s;animation-delay:-.5s}.la-ball-spin-clockwise-fade-rotating>div:nth-child(5){top:94.9999999966%;left:50.0000000005%;-webkit-animation-delay:-.375s;animation-delay:-.375s}.la-ball-spin-clockwise-fade-rotating>div:nth-child(6){top:81.8198046966%;left:18.1801949248%;-webkit-animation-delay:-.25s;animation-delay:-.25s}.la-ball-spin-clockwise-fade-rotating>div:nth-child(7){top:49.9999750815%;left:5.0000051215%;-webkit-animation-delay:-.125s;animation-delay:-.125s}.la-ball-spin-clockwise-fade-rotating>div:nth-child(8){top:18.179464974%;left:18.1803700518%;-webkit-animation-delay:0s;animation-delay:0s}.la-ball-spin-clockwise-fade-rotating.la-sm{width:16px;height:16px}.la-ball-spin-clockwise-fade-rotating.la-sm>div{width:4px;height:4px;margin-top:-2px;margin-left:-2px}.la-ball-spin-clockwise-fade-rotating.la-2x{width:64px;height:64px}.la-ball-spin-clockwise-fade-rotating.la-2x>div{width:16px;height:16px;margin-top:-8px;margin-left:-8px}.la-ball-spin-clockwise-fade-rotating.la-3x{width:96px;height:96px}.la-ball-spin-clockwise-fade-rotating.la-3x>div{width:24px;height:24px;margin-top:-12px;margin-left:-12px}@-webkit-keyframes ball-spin-clockwise-fade-rotating-rotate{100%{transform:rotate(-360deg)}}@keyframes ball-spin-clockwise-fade-rotating-rotate{100%{transform:rotate(-360deg)}}@-webkit-keyframes ball-spin-clockwise-fade-rotating{50%{opacity:.25;transform:scale(.5)}100%{opacity:1;transform:scale(1)}}@keyframes ball-spin-clockwise-fade-rotating{50%{opacity:.25;transform:scale(.5)}100%{opacity:1;transform:scale(1)}}.la-ball-spin-clockwise-fade,.la-ball-spin-clockwise-fade>div{position:relative;box-sizing:border-box}.la-ball-spin-clockwise-fade{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-ball-spin-clockwise-fade.la-dark{color:#333}.la-ball-spin-clockwise-fade>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;top:50%;left:50%;width:8px;height:8px;margin-top:-4px;margin-left:-4px;border-radius:100%;-webkit-animation:1s linear infinite ball-spin-clockwise-fade;animation:1s linear infinite ball-spin-clockwise-fade}.la-ball-spin-clockwise-fade>div:nth-child(1){top:5%;left:50%;-webkit-animation-delay:-.875s;animation-delay:-.875s}.la-ball-spin-clockwise-fade>div:nth-child(2){top:18.1801948466%;left:81.8198051534%;-webkit-animation-delay:-.75s;animation-delay:-.75s}.la-ball-spin-clockwise-fade>div:nth-child(3){top:50%;left:95%;-webkit-animation-delay:-.625s;animation-delay:-.625s}.la-ball-spin-clockwise-fade>div:nth-child(4){top:81.8198051534%;left:81.8198051534%;-webkit-animation-delay:-.5s;animation-delay:-.5s}.la-ball-spin-clockwise-fade>div:nth-child(5){top:94.9999999966%;left:50.0000000005%;-webkit-animation-delay:-.375s;animation-delay:-.375s}.la-ball-spin-clockwise-fade>div:nth-child(6){top:81.8198046966%;left:18.1801949248%;-webkit-animation-delay:-.25s;animation-delay:-.25s}.la-ball-spin-clockwise-fade>div:nth-child(7){top:49.9999750815%;left:5.0000051215%;-webkit-animation-delay:-.125s;animation-delay:-.125s}.la-ball-spin-clockwise-fade>div:nth-child(8){top:18.179464974%;left:18.1803700518%;-webkit-animation-delay:0s;animation-delay:0s}.la-ball-spin-clockwise-fade.la-sm{width:16px;height:16px}.la-ball-spin-clockwise-fade.la-sm>div{width:4px;height:4px;margin-top:-2px;margin-left:-2px}.la-ball-spin-clockwise-fade.la-2x{width:64px;height:64px}.la-ball-spin-clockwise-fade.la-2x>div{width:16px;height:16px;margin-top:-8px;margin-left:-8px}.la-ball-spin-clockwise-fade.la-3x{width:96px;height:96px}.la-ball-spin-clockwise-fade.la-3x>div{width:24px;height:24px;margin-top:-12px;margin-left:-12px}@-webkit-keyframes ball-spin-clockwise-fade{50%{opacity:.25;transform:scale(.5)}100%{opacity:1;transform:scale(1)}}@keyframes ball-spin-clockwise-fade{50%{opacity:.25;transform:scale(.5)}100%{opacity:1;transform:scale(1)}}.la-ball-spin-clockwise,.la-ball-spin-clockwise>div{position:relative;box-sizing:border-box}.la-ball-spin-clockwise{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-ball-spin-clockwise.la-dark{color:#333}.la-ball-spin-clockwise>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;top:50%;left:50%;width:8px;height:8px;margin-top:-4px;margin-left:-4px;border-radius:100%;-webkit-animation:1s ease-in-out infinite ball-spin-clockwise;animation:1s ease-in-out infinite ball-spin-clockwise}.la-ball-spin-clockwise>div:nth-child(1){top:5%;left:50%;-webkit-animation-delay:-.875s;animation-delay:-.875s}.la-ball-spin-clockwise>div:nth-child(2){top:18.1801948466%;left:81.8198051534%;-webkit-animation-delay:-.75s;animation-delay:-.75s}.la-ball-spin-clockwise>div:nth-child(3){top:50%;left:95%;-webkit-animation-delay:-.625s;animation-delay:-.625s}.la-ball-spin-clockwise>div:nth-child(4){top:81.8198051534%;left:81.8198051534%;-webkit-animation-delay:-.5s;animation-delay:-.5s}.la-ball-spin-clockwise>div:nth-child(5){top:94.9999999966%;left:50.0000000005%;-webkit-animation-delay:-.375s;animation-delay:-.375s}.la-ball-spin-clockwise>div:nth-child(6){top:81.8198046966%;left:18.1801949248%;-webkit-animation-delay:-.25s;animation-delay:-.25s}.la-ball-spin-clockwise>div:nth-child(7){top:49.9999750815%;left:5.0000051215%;-webkit-animation-delay:-.125s;animation-delay:-.125s}.la-ball-spin-clockwise>div:nth-child(8){top:18.179464974%;left:18.1803700518%;-webkit-animation-delay:0s;animation-delay:0s}.la-ball-spin-clockwise.la-sm{width:16px;height:16px}.la-ball-spin-clockwise.la-sm>div{width:4px;height:4px;margin-top:-2px;margin-left:-2px}.la-ball-spin-clockwise.la-2x{width:64px;height:64px}.la-ball-spin-clockwise.la-2x>div{width:16px;height:16px;margin-top:-8px;margin-left:-8px}.la-ball-spin-clockwise.la-3x{width:96px;height:96px}.la-ball-spin-clockwise.la-3x>div{width:24px;height:24px;margin-top:-12px;margin-left:-12px}@-webkit-keyframes ball-spin-clockwise{0%,100%{opacity:1;transform:scale(1)}20%{opacity:1}80%{opacity:0;transform:scale(0)}}@keyframes ball-spin-clockwise{0%,100%{opacity:1;transform:scale(1)}20%{opacity:1}80%{opacity:0;transform:scale(0)}}.la-ball-spin-fade-rotating,.la-ball-spin-fade-rotating>div{position:relative;box-sizing:border-box}.la-ball-spin-fade-rotating{display:block;font-size:0;color:#fff;width:32px;height:32px;-webkit-animation:6s linear infinite ball-spin-fade-rotate;animation:6s linear infinite ball-spin-fade-rotate}.la-ball-spin-fade-rotating.la-dark{color:#333}.la-ball-spin-fade-rotating>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;top:50%;left:50%;width:8px;height:8px;margin-top:-4px;margin-left:-4px;border-radius:100%;-webkit-animation:1s linear infinite ball-spin-fade;animation:1s linear infinite ball-spin-fade}.la-ball-spin-fade-rotating>div:nth-child(1){top:5%;left:50%;-webkit-animation-delay:-1.125s;animation-delay:-1.125s}.la-ball-spin-fade-rotating>div:nth-child(2){top:18.1801948466%;left:81.8198051534%;-webkit-animation-delay:-1.25s;animation-delay:-1.25s}.la-ball-spin-fade-rotating>div:nth-child(3){top:50%;left:95%;-webkit-animation-delay:-1.375s;animation-delay:-1.375s}.la-ball-spin-fade-rotating>div:nth-child(4){top:81.8198051534%;left:81.8198051534%;-webkit-animation-delay:-1.5s;animation-delay:-1.5s}.la-ball-spin-fade-rotating>div:nth-child(5){top:94.9999999966%;left:50.0000000005%;-webkit-animation-delay:-1.625s;animation-delay:-1.625s}.la-ball-spin-fade-rotating>div:nth-child(6){top:81.8198046966%;left:18.1801949248%;-webkit-animation-delay:-1.75s;animation-delay:-1.75s}.la-ball-spin-fade-rotating>div:nth-child(7){top:49.9999750815%;left:5.0000051215%;-webkit-animation-delay:-1.875s;animation-delay:-1.875s}.la-ball-spin-fade-rotating>div:nth-child(8){top:18.179464974%;left:18.1803700518%;-webkit-animation-delay:-2s;animation-delay:-2s}.la-ball-spin-fade-rotating.la-sm{width:16px;height:16px}.la-ball-spin-fade-rotating.la-sm>div{width:4px;height:4px;margin-top:-2px;margin-left:-2px}.la-ball-spin-fade-rotating.la-2x{width:64px;height:64px}.la-ball-spin-fade-rotating.la-2x>div{width:16px;height:16px;margin-top:-8px;margin-left:-8px}.la-ball-spin-fade-rotating.la-3x{width:96px;height:96px}.la-ball-spin-fade-rotating.la-3x>div{width:24px;height:24px;margin-top:-12px;margin-left:-12px}@-webkit-keyframes ball-spin-fade-rotate{100%{transform:rotate(360deg)}}@keyframes ball-spin-fade-rotate{100%{transform:rotate(360deg)}}.la-ball-spin-fade,.la-ball-spin-fade>div{position:relative;box-sizing:border-box}.la-ball-spin-fade{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-ball-spin-fade.la-dark{color:#333}.la-ball-spin-fade>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;top:50%;left:50%;width:8px;height:8px;margin-top:-4px;margin-left:-4px;border-radius:100%;-webkit-animation:1s linear infinite ball-spin-fade;animation:1s linear infinite ball-spin-fade}.la-ball-spin-fade>div:nth-child(1){top:5%;left:50%;-webkit-animation-delay:-1.125s;animation-delay:-1.125s}.la-ball-spin-fade>div:nth-child(2){top:18.1801948466%;left:81.8198051534%;-webkit-animation-delay:-1.25s;animation-delay:-1.25s}.la-ball-spin-fade>div:nth-child(3){top:50%;left:95%;-webkit-animation-delay:-1.375s;animation-delay:-1.375s}.la-ball-spin-fade>div:nth-child(4){top:81.8198051534%;left:81.8198051534%;-webkit-animation-delay:-1.5s;animation-delay:-1.5s}.la-ball-spin-fade>div:nth-child(5){top:94.9999999966%;left:50.0000000005%;-webkit-animation-delay:-1.625s;animation-delay:-1.625s}.la-ball-spin-fade>div:nth-child(6){top:81.8198046966%;left:18.1801949248%;-webkit-animation-delay:-1.75s;animation-delay:-1.75s}.la-ball-spin-fade>div:nth-child(7){top:49.9999750815%;left:5.0000051215%;-webkit-animation-delay:-1.875s;animation-delay:-1.875s}.la-ball-spin-fade>div:nth-child(8){top:18.179464974%;left:18.1803700518%;-webkit-animation-delay:-2s;animation-delay:-2s}.la-ball-spin-fade.la-sm{width:16px;height:16px}.la-ball-spin-fade.la-sm>div{width:4px;height:4px;margin-top:-2px;margin-left:-2px}.la-ball-spin-fade.la-2x{width:64px;height:64px}.la-ball-spin-fade.la-2x>div{width:16px;height:16px;margin-top:-8px;margin-left:-8px}.la-ball-spin-fade.la-3x{width:96px;height:96px}.la-ball-spin-fade.la-3x>div{width:24px;height:24px;margin-top:-12px;margin-left:-12px}@-webkit-keyframes ball-spin-fade{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.5)}}@keyframes ball-spin-fade{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.5)}}.la-ball-spin-rotate,.la-ball-spin-rotate>div{position:relative;box-sizing:border-box}.la-ball-spin-rotate{display:block;font-size:0;color:#fff;width:32px;height:32px;-webkit-animation:2s linear infinite ball-spin-rotate;animation:2s linear infinite ball-spin-rotate}.la-ball-spin-rotate.la-dark{color:#333}.la-ball-spin-rotate>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;top:0;width:60%;height:60%;border-radius:100%;-webkit-animation:2s ease-in-out infinite ball-spin-bounce;animation:2s ease-in-out infinite ball-spin-bounce}.la-ball-spin-rotate>div:last-child{top:auto;bottom:0;-webkit-animation-delay:-1s;animation-delay:-1s}.la-ball-spin-rotate.la-sm{width:16px;height:16px}.la-ball-spin-rotate.la-2x{width:64px;height:64px}.la-ball-spin-rotate.la-3x{width:96px;height:96px}@-webkit-keyframes ball-spin-rotate{100%{transform:rotate(360deg)}}@keyframes ball-spin-rotate{100%{transform:rotate(360deg)}}@-webkit-keyframes ball-spin-bounce{0%,100%{transform:scale(0)}50%{transform:scale(1)}}@keyframes ball-spin-bounce{0%,100%{transform:scale(0)}50%{transform:scale(1)}}.la-ball-spin,.la-ball-spin>div{position:relative;box-sizing:border-box}.la-ball-spin{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-ball-spin.la-dark{color:#333}.la-ball-spin>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;top:50%;left:50%;width:8px;height:8px;margin-top:-4px;margin-left:-4px;border-radius:100%;-webkit-animation:1s ease-in-out infinite ball-spin;animation:1s ease-in-out infinite ball-spin}.la-ball-spin>div:nth-child(1){top:5%;left:50%;-webkit-animation-delay:-1.125s;animation-delay:-1.125s}.la-ball-spin>div:nth-child(2){top:18.1801948466%;left:81.8198051534%;-webkit-animation-delay:-1.25s;animation-delay:-1.25s}.la-ball-spin>div:nth-child(3){top:50%;left:95%;-webkit-animation-delay:-1.375s;animation-delay:-1.375s}.la-ball-spin>div:nth-child(4){top:81.8198051534%;left:81.8198051534%;-webkit-animation-delay:-1.5s;animation-delay:-1.5s}.la-ball-spin>div:nth-child(5){top:94.9999999966%;left:50.0000000005%;-webkit-animation-delay:-1.625s;animation-delay:-1.625s}.la-ball-spin>div:nth-child(6){top:81.8198046966%;left:18.1801949248%;-webkit-animation-delay:-1.75s;animation-delay:-1.75s}.la-ball-spin>div:nth-child(7){top:49.9999750815%;left:5.0000051215%;-webkit-animation-delay:-1.875s;animation-delay:-1.875s}.la-ball-spin>div:nth-child(8){top:18.179464974%;left:18.1803700518%;-webkit-animation-delay:-2s;animation-delay:-2s}.la-ball-spin.la-sm{width:16px;height:16px}.la-ball-spin.la-sm>div{width:4px;height:4px;margin-top:-2px;margin-left:-2px}.la-ball-spin.la-2x{width:64px;height:64px}.la-ball-spin.la-2x>div{width:16px;height:16px;margin-top:-8px;margin-left:-8px}.la-ball-spin.la-3x{width:96px;height:96px}.la-ball-spin.la-3x>div{width:24px;height:24px;margin-top:-12px;margin-left:-12px}@-webkit-keyframes ball-spin{0%,100%{opacity:1;transform:scale(1)}20%{opacity:1}80%{opacity:0;transform:scale(0)}}@keyframes ball-spin{0%,100%{opacity:1;transform:scale(1)}20%{opacity:1}80%{opacity:0;transform:scale(0)}}.la-ball-square-clockwise-spin,.la-ball-square-clockwise-spin>div{position:relative;box-sizing:border-box}.la-ball-square-clockwise-spin{display:block;font-size:0;color:#fff;width:26px;height:26px}.la-ball-square-clockwise-spin.la-dark{color:#333}.la-ball-square-clockwise-spin>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;top:50%;left:50%;width:12px;height:12px;margin-top:-6px;margin-left:-6px;border-radius:100%;-webkit-animation:1s ease-in-out infinite ball-square-clockwise-spin;animation:1s ease-in-out infinite ball-square-clockwise-spin}.la-ball-square-clockwise-spin>div:nth-child(1){top:0;left:0;-webkit-animation-delay:-.875s;animation-delay:-.875s}.la-ball-square-clockwise-spin>div:nth-child(2){top:0;left:50%;-webkit-animation-delay:-.75s;animation-delay:-.75s}.la-ball-square-clockwise-spin>div:nth-child(3){top:0;left:100%;-webkit-animation-delay:-.625s;animation-delay:-.625s}.la-ball-square-clockwise-spin>div:nth-child(4){top:50%;left:100%;-webkit-animation-delay:-.5s;animation-delay:-.5s}.la-ball-square-clockwise-spin>div:nth-child(5){top:100%;left:100%;-webkit-animation-delay:-.375s;animation-delay:-.375s}.la-ball-square-clockwise-spin>div:nth-child(6){top:100%;left:50%;-webkit-animation-delay:-.25s;animation-delay:-.25s}.la-ball-square-clockwise-spin>div:nth-child(7){top:100%;left:0;-webkit-animation-delay:-.125s;animation-delay:-.125s}.la-ball-square-clockwise-spin>div:nth-child(8){top:50%;left:0;-webkit-animation-delay:0s;animation-delay:0s}.la-ball-square-clockwise-spin.la-sm{width:12px;height:12px}.la-ball-square-clockwise-spin.la-sm>div{width:6px;height:6px;margin-top:-3px;margin-left:-3px}.la-ball-square-clockwise-spin.la-2x{width:52px;height:52px}.la-ball-square-clockwise-spin.la-2x>div{width:24px;height:24px;margin-top:-12px;margin-left:-12px}.la-ball-square-clockwise-spin.la-3x{width:78px;height:78px}.la-ball-square-clockwise-spin.la-3x>div{width:36px;height:36px;margin-top:-18px;margin-left:-18px}@-webkit-keyframes ball-square-clockwise-spin{0%,100%,40%{transform:scale(.4)}70%{transform:scale(1)}}@keyframes ball-square-clockwise-spin{0%,100%,40%{transform:scale(.4)}70%{transform:scale(1)}}.la-ball-square-spin,.la-ball-square-spin>div{position:relative;box-sizing:border-box}.la-ball-square-spin{display:block;font-size:0;color:#fff;width:26px;height:26px}.la-ball-square-spin.la-dark{color:#333}.la-ball-square-spin>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;top:50%;left:50%;width:12px;height:12px;margin-top:-6px;margin-left:-6px;border-radius:100%;-webkit-animation:1s ease-in-out infinite ball-square-spin;animation:1s ease-in-out infinite ball-square-spin}.la-ball-square-spin>div:nth-child(1){top:0;left:0;-webkit-animation-delay:-1.125s;animation-delay:-1.125s}.la-ball-square-spin>div:nth-child(2){top:0;left:50%;-webkit-animation-delay:-1.25s;animation-delay:-1.25s}.la-ball-square-spin>div:nth-child(3){top:0;left:100%;-webkit-animation-delay:-1.375s;animation-delay:-1.375s}.la-ball-square-spin>div:nth-child(4){top:50%;left:100%;-webkit-animation-delay:-1.5s;animation-delay:-1.5s}.la-ball-square-spin>div:nth-child(5){top:100%;left:100%;-webkit-animation-delay:-1.625s;animation-delay:-1.625s}.la-ball-square-spin>div:nth-child(6){top:100%;left:50%;-webkit-animation-delay:-1.75s;animation-delay:-1.75s}.la-ball-square-spin>div:nth-child(7){top:100%;left:0;-webkit-animation-delay:-1.875s;animation-delay:-1.875s}.la-ball-square-spin>div:nth-child(8){top:50%;left:0;-webkit-animation-delay:-2s;animation-delay:-2s}.la-ball-square-spin.la-sm{width:12px;height:12px}.la-ball-square-spin.la-sm>div{width:6px;height:6px;margin-top:-3px;margin-left:-3px}.la-ball-square-spin.la-2x{width:52px;height:52px}.la-ball-square-spin.la-2x>div{width:24px;height:24px;margin-top:-12px;margin-left:-12px}.la-ball-square-spin.la-3x{width:78px;height:78px}.la-ball-square-spin.la-3x>div{width:36px;height:36px;margin-top:-18px;margin-left:-18px}@-webkit-keyframes ball-square-spin{0%,100%,40%{transform:scale(.4)}70%{transform:scale(1)}}@keyframes ball-square-spin{0%,100%,40%{transform:scale(.4)}70%{transform:scale(1)}}.la-ball-triangle-path,.la-ball-triangle-path>div{position:relative;box-sizing:border-box}.la-ball-triangle-path{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-ball-triangle-path.la-dark{color:#333}.la-ball-triangle-path>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;top:0;left:0;width:10px;height:10px;border-radius:100%}.la-ball-triangle-path>div:nth-child(1){-webkit-animation:2s ease-in-out infinite ball-triangle-path-ball-one;animation:2s ease-in-out infinite ball-triangle-path-ball-one}.la-ball-triangle-path>div:nth-child(2){-webkit-animation:2s ease-in-out infinite ball-triangle-path-ball-two;animation:2s ease-in-out infinite ball-triangle-path-ball-two}.la-ball-triangle-path>div:nth-child(3){-webkit-animation:2s ease-in-out infinite ball-triangle-path-ball-tree;animation:2s ease-in-out infinite ball-triangle-path-ball-tree}.la-ball-triangle-path.la-sm{width:16px;height:16px}.la-ball-triangle-path.la-sm>div{width:4px;height:4px}.la-ball-triangle-path.la-2x{width:64px;height:64px}.la-ball-triangle-path.la-2x>div{width:20px;height:20px}.la-ball-triangle-path.la-3x{width:96px;height:96px}.la-ball-triangle-path.la-3x>div{width:30px;height:30px}@-webkit-keyframes ball-triangle-path-ball-one{0%{transform:translate(0,220%)}17%,50%,83%{opacity:.25}33%{opacity:1;transform:translate(110%,0)}66%{opacity:1;transform:translate(220%,220%)}100%{opacity:1;transform:translate(0,220%)}}@keyframes ball-triangle-path-ball-one{0%{transform:translate(0,220%)}17%,50%,83%{opacity:.25}33%{opacity:1;transform:translate(110%,0)}66%{opacity:1;transform:translate(220%,220%)}100%{opacity:1;transform:translate(0,220%)}}@-webkit-keyframes ball-triangle-path-ball-two{0%{transform:translate(110%,0)}17%,50%,83%{opacity:.25}33%{opacity:1;transform:translate(220%,220%)}66%{opacity:1;transform:translate(0,220%)}100%{opacity:1;transform:translate(110%,0)}}@keyframes ball-triangle-path-ball-two{0%{transform:translate(110%,0)}17%,50%,83%{opacity:.25}33%{opacity:1;transform:translate(220%,220%)}66%{opacity:1;transform:translate(0,220%)}100%{opacity:1;transform:translate(110%,0)}}@-webkit-keyframes ball-triangle-path-ball-tree{0%{transform:translate(220%,220%)}17%,50%,83%{opacity:.25}33%{opacity:1;transform:translate(0,220%)}66%{opacity:1;transform:translate(110%,0)}100%{opacity:1;transform:translate(220%,220%)}}@keyframes ball-triangle-path-ball-tree{0%{transform:translate(220%,220%)}17%,50%,83%{opacity:.25}33%{opacity:1;transform:translate(0,220%)}66%{opacity:1;transform:translate(110%,0)}100%{opacity:1;transform:translate(220%,220%)}}.la-ball-zig-zag-deflect,.la-ball-zig-zag-deflect>div{box-sizing:border-box}.la-ball-zig-zag-deflect{display:block;font-size:0;color:#fff;position:relative;width:32px;height:32px}.la-ball-zig-zag-deflect.la-dark{color:#333}.la-ball-zig-zag-deflect>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;top:50%;left:50%;width:10px;height:10px;margin-top:-5px;margin-left:-5px;border-radius:100%}.la-ball-zig-zag-deflect>div:first-child{-webkit-animation:1.5s linear infinite ball-zig-deflect;animation:1.5s linear infinite ball-zig-deflect}.la-ball-zig-zag-deflect>div:last-child{-webkit-animation:1.5s linear infinite ball-zag-deflect;animation:1.5s linear infinite ball-zag-deflect}.la-ball-zig-zag-deflect.la-sm{width:16px;height:16px}.la-ball-zig-zag-deflect.la-sm>div{width:4px;height:4px;margin-top:-2px;margin-left:-2px}.la-ball-zig-zag-deflect.la-2x{width:64px;height:64px}.la-ball-zig-zag-deflect.la-2x>div{width:20px;height:20px;margin-top:-10px;margin-left:-10px}.la-ball-zig-zag-deflect.la-3x{width:96px;height:96px}.la-ball-zig-zag-deflect.la-3x>div{width:30px;height:30px;margin-top:-15px;margin-left:-15px}@-webkit-keyframes ball-zig-deflect{17%,84%{transform:translate(-80%,-160%)}34%,67%{transform:translate(80%,-160%)}100%,50%{transform:translate(0,0)}}@keyframes ball-zig-deflect{17%,84%{transform:translate(-80%,-160%)}34%,67%{transform:translate(80%,-160%)}100%,50%{transform:translate(0,0)}}@-webkit-keyframes ball-zag-deflect{17%,84%{transform:translate(80%,160%)}34%,67%{transform:translate(-80%,160%)}100%,50%{transform:translate(0,0)}}@keyframes ball-zag-deflect{17%,84%{transform:translate(80%,160%)}34%,67%{transform:translate(-80%,160%)}100%,50%{transform:translate(0,0)}}.la-ball-zig-zag,.la-ball-zig-zag>div{box-sizing:border-box}.la-ball-zig-zag{display:block;font-size:0;color:#fff;position:relative;width:32px;height:32px}.la-ball-zig-zag.la-dark{color:#333}.la-ball-zig-zag>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;top:50%;left:50%;width:10px;height:10px;margin-top:-5px;margin-left:-5px;border-radius:100%}.la-ball-zig-zag>div:first-child{-webkit-animation:.7s linear infinite ball-zig-effect;animation:.7s linear infinite ball-zig-effect}.la-ball-zig-zag>div:last-child{-webkit-animation:.7s linear infinite ball-zag-effect;animation:.7s linear infinite ball-zag-effect}.la-ball-zig-zag.la-sm{width:16px;height:16px}.la-ball-zig-zag.la-sm>div{width:4px;height:4px;margin-top:-2px;margin-left:-2px}.la-ball-zig-zag.la-2x{width:64px;height:64px}.la-ball-zig-zag.la-2x>div{width:20px;height:20px;margin-top:-10px;margin-left:-10px}.la-ball-zig-zag.la-3x{width:96px;height:96px}.la-ball-zig-zag.la-3x>div{width:30px;height:30px;margin-top:-15px;margin-left:-15px}@-webkit-keyframes ball-zig-effect{0%,100%{transform:translate(0,0)}33%{transform:translate(-75%,-150%)}66%{transform:translate(75%,-150%)}}@keyframes ball-zig-effect{0%,100%{transform:translate(0,0)}33%{transform:translate(-75%,-150%)}66%{transform:translate(75%,-150%)}}@-webkit-keyframes ball-zag-effect{0%,100%{transform:translate(0,0)}33%{transform:translate(75%,150%)}66%{transform:translate(-75%,150%)}}@keyframes ball-zag-effect{0%,100%{transform:translate(0,0)}33%{transform:translate(75%,150%)}66%{transform:translate(-75%,150%)}}.la-cog,.la-cog>div{position:relative;box-sizing:border-box}.la-cog{display:block;font-size:0;color:#fff;width:31px;height:31px}.la-cog.la-dark{color:#333}.la-cog>div{display:inline-block;float:none;border:2px dashed currentColor;width:100%;height:100%;background-color:transparent;border-radius:100%;-webkit-animation:4s linear infinite cog-rotate;animation:4s linear infinite cog-rotate}.la-cog>div:after{position:absolute;top:0;left:0;width:100%;height:100%;content:\"\";border:2px solid currentColor;border-radius:100%}.la-cog.la-sm{width:15px;height:15px}.la-cog.la-sm>div,.la-cog.la-sm>div:after{border-width:1px}.la-cog.la-2x{width:61px;height:61px}.la-cog.la-2x>div,.la-cog.la-2x>div:after{border-width:4px}.la-cog.la-3x{width:91px;height:91px}.la-cog.la-3x>div,.la-cog.la-3x>div:after{border-width:6px}@-webkit-keyframes cog-rotate{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes cog-rotate{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}.la-cube-transition,.la-cube-transition>div{position:relative;box-sizing:border-box}.la-cube-transition{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-cube-transition.la-dark{color:#333}.la-cube-transition>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;top:0;left:0;width:14px;height:14px;margin-top:-7px;margin-left:-7px;border-radius:0;-webkit-animation:1.6s ease-in-out infinite cube-transition;animation:1.6s ease-in-out infinite cube-transition}.la-cube-transition>div:last-child{-webkit-animation-delay:-.8s;animation-delay:-.8s}.la-cube-transition.la-sm{width:16px;height:16px}.la-cube-transition.la-sm>div{width:6px;height:6px;margin-top:-3px;margin-left:-3px}.la-cube-transition.la-2x{width:64px;height:64px}.la-cube-transition.la-2x>div{width:28px;height:28px;margin-top:-14px;margin-left:-14px}.la-cube-transition.la-3x{width:96px;height:96px}.la-cube-transition.la-3x>div{width:42px;height:42px;margin-top:-21px;margin-left:-21px}@-webkit-keyframes cube-transition{25%{top:0;left:100%;transform:scale(.5) rotate(-90deg)}50%{top:100%;left:100%;transform:scale(1) rotate(-180deg)}75%{top:100%;left:0;transform:scale(.5) rotate(-270deg)}100%{top:0;left:0;transform:scale(1) rotate(-360deg)}}@keyframes cube-transition{25%{top:0;left:100%;transform:scale(.5) rotate(-90deg)}50%{top:100%;left:100%;transform:scale(1) rotate(-180deg)}75%{top:100%;left:0;transform:scale(.5) rotate(-270deg)}100%{top:0;left:0;transform:scale(1) rotate(-360deg)}}.la-fire,.la-fire>div{position:relative;box-sizing:border-box}.la-fire{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-fire.la-dark{color:#333}.la-fire>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;bottom:0;left:50%;width:12px;height:12px;border-radius:2px;transform:translateY(0) translateX(-50%) rotate(45deg) scale(0);-webkit-animation:1.5s linear infinite fire-diamonds;animation:1.5s linear infinite fire-diamonds}.la-fire>div:nth-child(1){-webkit-animation-delay:-.85s;animation-delay:-.85s}.la-fire>div:nth-child(2){-webkit-animation-delay:-1.85s;animation-delay:-1.85s}.la-fire>div:nth-child(3){-webkit-animation-delay:-2.85s;animation-delay:-2.85s}.la-fire.la-sm{width:16px;height:16px}.la-fire.la-sm>div{width:6px;height:6px}.la-fire.la-2x{width:64px;height:64px}.la-fire.la-2x>div{width:24px;height:24px}.la-fire.la-3x{width:96px;height:96px}.la-fire.la-3x>div{width:36px;height:36px}@-webkit-keyframes fire-diamonds{0%{transform:translateY(75%) translateX(-50%) rotate(45deg) scale(0)}50%{transform:translateY(-87.5%) translateX(-50%) rotate(45deg) scale(1)}100%{transform:translateY(-212.5%) translateX(-50%) rotate(45deg) scale(0)}}@keyframes fire-diamonds{0%{transform:translateY(75%) translateX(-50%) rotate(45deg) scale(0)}50%{transform:translateY(-87.5%) translateX(-50%) rotate(45deg) scale(1)}100%{transform:translateY(-212.5%) translateX(-50%) rotate(45deg) scale(0)}}.la-line-scale-party,.la-line-scale-party>div{position:relative;box-sizing:border-box}.la-line-scale-party{display:block;font-size:0;color:#fff;width:40px;height:32px}.la-line-scale-party.la-dark{color:#333}.la-line-scale-party>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;width:4px;height:32px;margin:0 2px;border-radius:0;-webkit-animation-name:line-scale-party;animation-name:line-scale-party;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite}.la-line-scale-party>div:nth-child(1){-webkit-animation-duration:.43s;animation-duration:.43s;-webkit-animation-delay:-.23s;animation-delay:-.23s}.la-line-scale-party>div:nth-child(2){-webkit-animation-duration:.62s;animation-duration:.62s;-webkit-animation-delay:-.32s;animation-delay:-.32s}.la-line-scale-party>div:nth-child(3){-webkit-animation-duration:.43s;animation-duration:.43s;-webkit-animation-delay:-.44s;animation-delay:-.44s}.la-line-scale-party>div:nth-child(4){-webkit-animation-duration:.8s;animation-duration:.8s;-webkit-animation-delay:-.31s;animation-delay:-.31s}.la-line-scale-party>div:nth-child(5){-webkit-animation-duration:.74s;animation-duration:.74s;-webkit-animation-delay:-.24s;animation-delay:-.24s}.la-line-scale-party.la-sm{width:20px;height:16px}.la-line-scale-party.la-sm>div{width:2px;height:16px;margin:0 1px}.la-line-scale-party.la-2x{width:80px;height:64px}.la-line-scale-party.la-2x>div{width:8px;height:64px;margin:0 4px}.la-line-scale-party.la-3x{width:120px;height:96px}.la-line-scale-party.la-3x>div{width:12px;height:96px;margin:0 6px}@-webkit-keyframes line-scale-party{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.3)}}@keyframes line-scale-party{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.3)}}.la-line-scale-pulse-out-rapid,.la-line-scale-pulse-out-rapid>div{position:relative;box-sizing:border-box}.la-line-scale-pulse-out-rapid{display:block;font-size:0;color:#fff;width:40px;height:32px}.la-line-scale-pulse-out-rapid.la-dark{color:#333}.la-line-scale-pulse-out-rapid>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;width:4px;height:32px;margin:0 2px;border-radius:0;-webkit-animation:.9s cubic-bezier(.11,.49,.38,.78) infinite line-scale-pulse-out-rapid;animation:.9s cubic-bezier(.11,.49,.38,.78) infinite line-scale-pulse-out-rapid}.la-line-scale-pulse-out-rapid>div:nth-child(3){-webkit-animation-delay:-.9s;animation-delay:-.9s}.la-line-scale-pulse-out-rapid>div:nth-child(2),.la-line-scale-pulse-out-rapid>div:nth-child(4){-webkit-animation-delay:-.65s;animation-delay:-.65s}.la-line-scale-pulse-out-rapid>div:nth-child(1),.la-line-scale-pulse-out-rapid>div:nth-child(5){-webkit-animation-delay:-.4s;animation-delay:-.4s}.la-line-scale-pulse-out-rapid.la-sm{width:20px;height:16px}.la-line-scale-pulse-out-rapid.la-sm>div{width:2px;height:16px;margin:0 1px}.la-line-scale-pulse-out-rapid.la-2x{width:80px;height:64px}.la-line-scale-pulse-out-rapid.la-2x>div{width:8px;height:64px;margin:0 4px}.la-line-scale-pulse-out-rapid.la-3x{width:120px;height:96px}.la-line-scale-pulse-out-rapid.la-3x>div{width:12px;height:96px;margin:0 6px}@-webkit-keyframes line-scale-pulse-out-rapid{0%,90%{transform:scaley(1)}80%{transform:scaley(.3)}}@keyframes line-scale-pulse-out-rapid{0%,90%{transform:scaley(1)}80%{transform:scaley(.3)}}.la-line-scale-pulse-out,.la-line-scale-pulse-out>div{position:relative;box-sizing:border-box}.la-line-scale-pulse-out{display:block;font-size:0;color:#fff;width:40px;height:32px}.la-line-scale-pulse-out.la-dark{color:#333}.la-line-scale-pulse-out>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;width:4px;height:32px;margin:0 2px;border-radius:0;-webkit-animation:.9s cubic-bezier(.85,.25,.37,.85) infinite line-scale-pulse-out;animation:.9s cubic-bezier(.85,.25,.37,.85) infinite line-scale-pulse-out}.la-line-scale-pulse-out>div:nth-child(3){-webkit-animation-delay:-.9s;animation-delay:-.9s}.la-line-scale-pulse-out>div:nth-child(2),.la-line-scale-pulse-out>div:nth-child(4){-webkit-animation-delay:-.7s;animation-delay:-.7s}.la-line-scale-pulse-out>div:nth-child(1),.la-line-scale-pulse-out>div:nth-child(5){-webkit-animation-delay:-.5s;animation-delay:-.5s}.la-line-scale-pulse-out.la-sm{width:20px;height:16px}.la-line-scale-pulse-out.la-sm>div{width:2px;height:16px;margin:0 1px}.la-line-scale-pulse-out.la-2x{width:80px;height:64px}.la-line-scale-pulse-out.la-2x>div{width:8px;height:64px;margin:0 4px}.la-line-scale-pulse-out.la-3x{width:120px;height:96px}.la-line-scale-pulse-out.la-3x>div{width:12px;height:96px;margin:0 6px}@-webkit-keyframes line-scale-pulse-out{0%,100%{transform:scaley(1)}50%{transform:scaley(.3)}}@keyframes line-scale-pulse-out{0%,100%{transform:scaley(1)}50%{transform:scaley(.3)}}.la-line-scale,.la-line-scale>div{position:relative;box-sizing:border-box}.la-line-scale{display:block;font-size:0;color:#fff;width:40px;height:32px}.la-line-scale.la-dark{color:#333}.la-line-scale>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;width:4px;height:32px;margin:0 2px;border-radius:0;-webkit-animation:1.2s infinite line-scale;animation:1.2s infinite line-scale}.la-line-scale>div:nth-child(1){-webkit-animation-delay:-1.2s;animation-delay:-1.2s}.la-line-scale>div:nth-child(2){-webkit-animation-delay:-1.1s;animation-delay:-1.1s}.la-line-scale>div:nth-child(3){-webkit-animation-delay:-1s;animation-delay:-1s}.la-line-scale>div:nth-child(4){-webkit-animation-delay:-.9s;animation-delay:-.9s}.la-line-scale>div:nth-child(5){-webkit-animation-delay:-.8s;animation-delay:-.8s}.la-line-scale.la-sm{width:20px;height:16px}.la-line-scale.la-sm>div{width:2px;height:16px;margin:0 1px}.la-line-scale.la-2x{width:80px;height:64px}.la-line-scale.la-2x>div{width:8px;height:64px;margin:0 4px}.la-line-scale.la-3x{width:120px;height:96px}.la-line-scale.la-3x>div{width:12px;height:96px;margin:0 6px}@-webkit-keyframes line-scale{0%,100%,40%{transform:scaleY(.4)}20%{transform:scaleY(1)}}@keyframes line-scale{0%,100%,40%{transform:scaleY(.4)}20%{transform:scaleY(1)}}.la-line-spin-clockwise-fade-rotating,.la-line-spin-clockwise-fade-rotating>div{position:relative;box-sizing:border-box}.la-line-spin-clockwise-fade-rotating{display:block;font-size:0;color:#fff;width:32px;height:32px;-webkit-animation:6s linear infinite line-spin-clockwise-fade-rotating-rotate;animation:6s linear infinite line-spin-clockwise-fade-rotating-rotate}.la-line-spin-clockwise-fade-rotating.la-dark{color:#333}.la-line-spin-clockwise-fade-rotating>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;width:2px;height:10px;margin:-5px 2px 2px -1px;border-radius:0;-webkit-animation:1s ease-in-out infinite line-spin-clockwise-fade-rotating;animation:1s ease-in-out infinite line-spin-clockwise-fade-rotating}.la-line-spin-clockwise-fade-rotating>div:nth-child(1){top:15%;left:50%;transform:rotate(0);-webkit-animation-delay:-.875s;animation-delay:-.875s}.la-line-spin-clockwise-fade-rotating>div:nth-child(2){top:25.2512626585%;left:74.7487373415%;transform:rotate(45deg);-webkit-animation-delay:-.75s;animation-delay:-.75s}.la-line-spin-clockwise-fade-rotating>div:nth-child(3){top:50%;left:85%;transform:rotate(90deg);-webkit-animation-delay:-.625s;animation-delay:-.625s}.la-line-spin-clockwise-fade-rotating>div:nth-child(4){top:74.7487373415%;left:74.7487373415%;transform:rotate(135deg);-webkit-animation-delay:-.5s;animation-delay:-.5s}.la-line-spin-clockwise-fade-rotating>div:nth-child(5){top:84.9999999974%;left:50.0000000004%;transform:rotate(180deg);-webkit-animation-delay:-.375s;animation-delay:-.375s}.la-line-spin-clockwise-fade-rotating>div:nth-child(6){top:74.7487369862%;left:25.2512627193%;transform:rotate(225deg);-webkit-animation-delay:-.25s;animation-delay:-.25s}.la-line-spin-clockwise-fade-rotating>div:nth-child(7){top:49.9999806189%;left:15.0000039834%;transform:rotate(270deg);-webkit-animation-delay:-.125s;animation-delay:-.125s}.la-line-spin-clockwise-fade-rotating>div:nth-child(8){top:25.2506949798%;left:25.2513989292%;transform:rotate(315deg);-webkit-animation-delay:0s;animation-delay:0s}.la-line-spin-clockwise-fade-rotating.la-sm{width:16px;height:16px}.la-line-spin-clockwise-fade-rotating.la-sm>div{width:1px;height:4px;margin-top:-2px;margin-left:0}.la-line-spin-clockwise-fade-rotating.la-2x{width:64px;height:64px}.la-line-spin-clockwise-fade-rotating.la-2x>div{width:4px;height:20px;margin-top:-10px;margin-left:-2px}.la-line-spin-clockwise-fade-rotating.la-3x{width:96px;height:96px}.la-line-spin-clockwise-fade-rotating.la-3x>div{width:6px;height:30px;margin-top:-15px;margin-left:-3px}@-webkit-keyframes line-spin-clockwise-fade-rotating-rotate{100%{transform:rotate(-360deg)}}@keyframes line-spin-clockwise-fade-rotating-rotate{100%{transform:rotate(-360deg)}}@-webkit-keyframes line-spin-clockwise-fade-rotating{50%{opacity:.2}100%{opacity:1}}@keyframes line-spin-clockwise-fade-rotating{50%{opacity:.2}100%{opacity:1}}.la-line-spin-clockwise-fade,.la-line-spin-clockwise-fade>div{position:relative;box-sizing:border-box}.la-line-spin-clockwise-fade{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-line-spin-clockwise-fade.la-dark{color:#333}.la-line-spin-clockwise-fade>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;width:2px;height:10px;margin:-5px 2px 2px -1px;border-radius:0;-webkit-animation:1s ease-in-out infinite line-spin-clockwise-fade;animation:1s ease-in-out infinite line-spin-clockwise-fade}.la-line-spin-clockwise-fade>div:nth-child(1){top:15%;left:50%;transform:rotate(0);-webkit-animation-delay:-.875s;animation-delay:-.875s}.la-line-spin-clockwise-fade>div:nth-child(2){top:25.2512626585%;left:74.7487373415%;transform:rotate(45deg);-webkit-animation-delay:-.75s;animation-delay:-.75s}.la-line-spin-clockwise-fade>div:nth-child(3){top:50%;left:85%;transform:rotate(90deg);-webkit-animation-delay:-.625s;animation-delay:-.625s}.la-line-spin-clockwise-fade>div:nth-child(4){top:74.7487373415%;left:74.7487373415%;transform:rotate(135deg);-webkit-animation-delay:-.5s;animation-delay:-.5s}.la-line-spin-clockwise-fade>div:nth-child(5){top:84.9999999974%;left:50.0000000004%;transform:rotate(180deg);-webkit-animation-delay:-.375s;animation-delay:-.375s}.la-line-spin-clockwise-fade>div:nth-child(6){top:74.7487369862%;left:25.2512627193%;transform:rotate(225deg);-webkit-animation-delay:-.25s;animation-delay:-.25s}.la-line-spin-clockwise-fade>div:nth-child(7){top:49.9999806189%;left:15.0000039834%;transform:rotate(270deg);-webkit-animation-delay:-.125s;animation-delay:-.125s}.la-line-spin-clockwise-fade>div:nth-child(8){top:25.2506949798%;left:25.2513989292%;transform:rotate(315deg);-webkit-animation-delay:0s;animation-delay:0s}.la-line-spin-clockwise-fade.la-sm{width:16px;height:16px}.la-line-spin-clockwise-fade.la-sm>div{width:1px;height:4px;margin-top:-2px;margin-left:0}.la-line-spin-clockwise-fade.la-2x{width:64px;height:64px}.la-line-spin-clockwise-fade.la-2x>div{width:4px;height:20px;margin-top:-10px;margin-left:-2px}.la-line-spin-clockwise-fade.la-3x{width:96px;height:96px}.la-line-spin-clockwise-fade.la-3x>div{width:6px;height:30px;margin-top:-15px;margin-left:-3px}@-webkit-keyframes line-spin-clockwise-fade{50%{opacity:.2}100%{opacity:1}}@keyframes line-spin-clockwise-fade{50%{opacity:.2}100%{opacity:1}}.la-line-spin-fade-rotating,.la-line-spin-fade-rotating>div{position:relative;box-sizing:border-box}.la-line-spin-fade-rotating{display:block;font-size:0;color:#fff;width:32px;height:32px;-webkit-animation:6s linear infinite ball-spin-fade-rotating-rotate;animation:6s linear infinite ball-spin-fade-rotating-rotate}.la-line-spin-fade-rotating.la-dark{color:#333}.la-line-spin-fade-rotating>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;width:2px;height:10px;margin:-5px 2px 2px -1px;border-radius:0;-webkit-animation:1s ease-in-out infinite line-spin-fade-rotating;animation:1s ease-in-out infinite line-spin-fade-rotating}.la-line-spin-fade-rotating>div:nth-child(1){top:15%;left:50%;transform:rotate(0);-webkit-animation-delay:-1.125s;animation-delay:-1.125s}.la-line-spin-fade-rotating>div:nth-child(2){top:25.2512626585%;left:74.7487373415%;transform:rotate(45deg);-webkit-animation-delay:-1.25s;animation-delay:-1.25s}.la-line-spin-fade-rotating>div:nth-child(3){top:50%;left:85%;transform:rotate(90deg);-webkit-animation-delay:-1.375s;animation-delay:-1.375s}.la-line-spin-fade-rotating>div:nth-child(4){top:74.7487373415%;left:74.7487373415%;transform:rotate(135deg);-webkit-animation-delay:-1.5s;animation-delay:-1.5s}.la-line-spin-fade-rotating>div:nth-child(5){top:84.9999999974%;left:50.0000000004%;transform:rotate(180deg);-webkit-animation-delay:-1.625s;animation-delay:-1.625s}.la-line-spin-fade-rotating>div:nth-child(6){top:74.7487369862%;left:25.2512627193%;transform:rotate(225deg);-webkit-animation-delay:-1.75s;animation-delay:-1.75s}.la-line-spin-fade-rotating>div:nth-child(7){top:49.9999806189%;left:15.0000039834%;transform:rotate(270deg);-webkit-animation-delay:-1.875s;animation-delay:-1.875s}.la-line-spin-fade-rotating>div:nth-child(8){top:25.2506949798%;left:25.2513989292%;transform:rotate(315deg);-webkit-animation-delay:-2s;animation-delay:-2s}.la-line-spin-fade-rotating.la-sm{width:16px;height:16px}.la-line-spin-fade-rotating.la-sm>div{width:1px;height:4px;margin-top:-2px;margin-left:0}.la-line-spin-fade-rotating.la-2x{width:64px;height:64px}.la-line-spin-fade-rotating.la-2x>div{width:4px;height:20px;margin-top:-10px;margin-left:-2px}.la-line-spin-fade-rotating.la-3x{width:96px;height:96px}.la-line-spin-fade-rotating.la-3x>div{width:6px;height:30px;margin-top:-15px;margin-left:-3px}@-webkit-keyframes ball-spin-fade-rotating-rotate{100%{transform:rotate(360deg)}}@keyframes ball-spin-fade-rotating-rotate{100%{transform:rotate(360deg)}}@-webkit-keyframes line-spin-fade-rotating{50%{opacity:.2}100%{opacity:1}}@keyframes line-spin-fade-rotating{50%{opacity:.2}100%{opacity:1}}.la-line-spin-fade,.la-line-spin-fade>div{position:relative;box-sizing:border-box}.la-line-spin-fade{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-line-spin-fade.la-dark{color:#333}.la-line-spin-fade>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;position:absolute;width:2px;height:10px;margin:-5px 2px 2px -1px;border-radius:0;-webkit-animation:1s ease-in-out infinite line-spin-fade;animation:1s ease-in-out infinite line-spin-fade}.la-line-spin-fade>div:nth-child(1){top:15%;left:50%;transform:rotate(0);-webkit-animation-delay:-1.125s;animation-delay:-1.125s}.la-line-spin-fade>div:nth-child(2){top:25.2512626585%;left:74.7487373415%;transform:rotate(45deg);-webkit-animation-delay:-1.25s;animation-delay:-1.25s}.la-line-spin-fade>div:nth-child(3){top:50%;left:85%;transform:rotate(90deg);-webkit-animation-delay:-1.375s;animation-delay:-1.375s}.la-line-spin-fade>div:nth-child(4){top:74.7487373415%;left:74.7487373415%;transform:rotate(135deg);-webkit-animation-delay:-1.5s;animation-delay:-1.5s}.la-line-spin-fade>div:nth-child(5){top:84.9999999974%;left:50.0000000004%;transform:rotate(180deg);-webkit-animation-delay:-1.625s;animation-delay:-1.625s}.la-line-spin-fade>div:nth-child(6){top:74.7487369862%;left:25.2512627193%;transform:rotate(225deg);-webkit-animation-delay:-1.75s;animation-delay:-1.75s}.la-line-spin-fade>div:nth-child(7){top:49.9999806189%;left:15.0000039834%;transform:rotate(270deg);-webkit-animation-delay:-1.875s;animation-delay:-1.875s}.la-line-spin-fade>div:nth-child(8){top:25.2506949798%;left:25.2513989292%;transform:rotate(315deg);-webkit-animation-delay:-2s;animation-delay:-2s}.la-line-spin-fade.la-sm{width:16px;height:16px}.la-line-spin-fade.la-sm>div{width:1px;height:4px;margin-top:-2px;margin-left:0}.la-line-spin-fade.la-2x{width:64px;height:64px}.la-line-spin-fade.la-2x>div{width:4px;height:20px;margin-top:-10px;margin-left:-2px}.la-line-spin-fade.la-3x{width:96px;height:96px}.la-line-spin-fade.la-3x>div{width:6px;height:30px;margin-top:-15px;margin-left:-3px}@-webkit-keyframes line-spin-fade{50%{opacity:.2}100%{opacity:1}}@keyframes line-spin-fade{50%{opacity:.2}100%{opacity:1}}.la-pacman,.la-pacman>div{position:relative;box-sizing:border-box}.la-pacman{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-pacman.la-dark{color:#333}.la-pacman>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor}.la-pacman>div:nth-child(1),.la-pacman>div:nth-child(2){width:0;height:0;background:0 0;border-style:solid;border-width:16px;border-right-color:transparent;border-radius:100%;-webkit-animation:.5s infinite pacman-rotate-half-up;animation:.5s infinite pacman-rotate-half-up}.la-pacman>div:nth-child(2){margin-top:-32px;-webkit-animation-name:pacman-rotate-half-down;animation-name:pacman-rotate-half-down}.la-pacman>div:nth-child(3),.la-pacman>div:nth-child(4),.la-pacman>div:nth-child(5),.la-pacman>div:nth-child(6){position:absolute;top:50%;left:200%;width:8px;height:8px;border-radius:100%;opacity:0;-webkit-animation:2s linear infinite pacman-balls;animation:2s linear infinite pacman-balls}.la-pacman>div:nth-child(3){-webkit-animation-delay:-1.44s;animation-delay:-1.44s}.la-pacman>div:nth-child(4){-webkit-animation-delay:-1.94s;animation-delay:-1.94s}.la-pacman>div:nth-child(5){-webkit-animation-delay:-2.44s;animation-delay:-2.44s}.la-pacman>div:nth-child(6){-webkit-animation-delay:-2.94s;animation-delay:-2.94s}.la-pacman.la-sm{width:16px;height:16px}.la-pacman.la-sm>div:nth-child(1),.la-pacman.la-sm>div:nth-child(2){border-width:8px}.la-pacman.la-sm>div:nth-child(2){margin-top:-16px}.la-pacman.la-sm>div:nth-child(3),.la-pacman.la-sm>div:nth-child(4),.la-pacman.la-sm>div:nth-child(5),.la-pacman.la-sm>div:nth-child(6){width:4px;height:4px}.la-pacman.la-2x{width:64px;height:64px}.la-pacman.la-2x>div:nth-child(1),.la-pacman.la-2x>div:nth-child(2){border-width:32px}.la-pacman.la-2x>div:nth-child(2){margin-top:-64px}.la-pacman.la-2x>div:nth-child(3),.la-pacman.la-2x>div:nth-child(4),.la-pacman.la-2x>div:nth-child(5),.la-pacman.la-2x>div:nth-child(6){width:16px;height:16px}.la-pacman.la-3x{width:96px;height:96px}.la-pacman.la-3x>div:nth-child(1),.la-pacman.la-3x>div:nth-child(2){border-width:48px}.la-pacman.la-3x>div:nth-child(2){margin-top:-96px}.la-pacman.la-3x>div:nth-child(3),.la-pacman.la-3x>div:nth-child(4),.la-pacman.la-3x>div:nth-child(5),.la-pacman.la-3x>div:nth-child(6){width:24px;height:24px}@-webkit-keyframes pacman-rotate-half-up{0%,100%{transform:rotate(270deg)}50%{transform:rotate(360deg)}}@keyframes pacman-rotate-half-up{0%,100%{transform:rotate(270deg)}50%{transform:rotate(360deg)}}@-webkit-keyframes pacman-rotate-half-down{0%,100%{transform:rotate(90deg)}50%{transform:rotate(0)}}@keyframes pacman-rotate-half-down{0%,100%{transform:rotate(90deg)}50%{transform:rotate(0)}}@-webkit-keyframes pacman-balls{0%{left:200%;opacity:0;transform:translateY(-50%)}5%{opacity:.5}66%{opacity:1}67%{opacity:0}100%{left:0;transform:translateY(-50%)}}@keyframes pacman-balls{0%{left:200%;opacity:0;transform:translateY(-50%)}5%{opacity:.5}66%{opacity:1}67%{opacity:0}100%{left:0;transform:translateY(-50%)}}.la-square-jelly-box,.la-square-jelly-box>div{position:relative;box-sizing:border-box}.la-square-jelly-box{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-square-jelly-box.la-dark{color:#333}.la-square-jelly-box>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor}.la-square-jelly-box>div:nth-child(1),.la-square-jelly-box>div:nth-child(2){position:absolute;left:0;width:100%}.la-square-jelly-box>div:nth-child(1){top:-25%;z-index:1;height:100%;border-radius:10%;-webkit-animation:.6s linear -.1s infinite square-jelly-box-animate;animation:.6s linear -.1s infinite square-jelly-box-animate}.la-square-jelly-box>div:nth-child(2){bottom:-9%;height:10%;background:#000;border-radius:50%;opacity:.2;-webkit-animation:.6s linear -.1s infinite square-jelly-box-shadow;animation:.6s linear -.1s infinite square-jelly-box-shadow}.la-square-jelly-box.la-sm{width:16px;height:16px}.la-square-jelly-box.la-2x{width:64px;height:64px}.la-square-jelly-box.la-3x{width:96px;height:96px}@-webkit-keyframes square-jelly-box-animate{17%{border-bottom-right-radius:10%}25%{transform:translateY(25%) rotate(22.5deg)}50%{border-bottom-right-radius:100%;transform:translateY(50%) scale(1,.9) rotate(45deg)}75%{transform:translateY(25%) rotate(67.5deg)}100%{transform:translateY(0) rotate(90deg)}}@keyframes square-jelly-box-animate{17%{border-bottom-right-radius:10%}25%{transform:translateY(25%) rotate(22.5deg)}50%{border-bottom-right-radius:100%;transform:translateY(50%) scale(1,.9) rotate(45deg)}75%{transform:translateY(25%) rotate(67.5deg)}100%{transform:translateY(0) rotate(90deg)}}@-webkit-keyframes square-jelly-box-shadow{50%{transform:scale(1.25,1)}}@keyframes square-jelly-box-shadow{50%{transform:scale(1.25,1)}}.la-square-loader,.la-square-loader>div{position:relative;box-sizing:border-box}.la-square-loader{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-square-loader.la-dark{color:#333}.la-square-loader>div{display:inline-block;float:none;border:2px solid currentColor;width:100%;height:100%;background:0 0;border-radius:0;-webkit-animation:2s infinite square-loader;animation:2s infinite square-loader}.la-square-loader>div:after{display:inline-block;width:100%;vertical-align:top;content:\"\";background-color:currentColor;-webkit-animation:2s ease-in infinite square-loader-inner;animation:2s ease-in infinite square-loader-inner}.la-square-loader.la-sm{width:16px;height:16px}.la-square-loader.la-sm>div{border-width:1px}.la-square-loader.la-2x{width:64px;height:64px}.la-square-loader.la-2x>div{border-width:4px}.la-square-loader.la-3x{width:96px;height:96px}.la-square-loader.la-3x>div{border-width:6px}@-webkit-keyframes square-loader{0%{transform:rotate(0)}25%,50%{transform:rotate(180deg)}100%,75%{transform:rotate(360deg)}}@keyframes square-loader{0%{transform:rotate(0)}25%,50%{transform:rotate(180deg)}100%,75%{transform:rotate(360deg)}}@-webkit-keyframes square-loader-inner{0%,100%,25%{height:0}50%,75%{height:100%}}@keyframes square-loader-inner{0%,100%,25%{height:0}50%,75%{height:100%}}.la-square-spin,.la-square-spin>div{position:relative;box-sizing:border-box}.la-square-spin{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-square-spin.la-dark{color:#333}.la-square-spin>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor;width:100%;height:100%;border-radius:0;-webkit-animation:3s cubic-bezier(.09,.57,.49,.9) infinite square-spin;animation:3s cubic-bezier(.09,.57,.49,.9) infinite square-spin}.la-square-spin.la-sm{width:16px;height:16px}.la-square-spin.la-2x{width:64px;height:64px}.la-square-spin.la-3x{width:96px;height:96px}@-webkit-keyframes square-spin{0%{transform:perspective(100px) rotateX(0) rotateY(0)}25%{transform:perspective(100px) rotateX(180deg) rotateY(0)}50%{transform:perspective(100px) rotateX(180deg) rotateY(180deg)}75%{transform:perspective(100px) rotateX(0) rotateY(180deg)}100%{transform:perspective(100px) rotateX(0) rotateY(360deg)}}@keyframes square-spin{0%{transform:perspective(100px) rotateX(0) rotateY(0)}25%{transform:perspective(100px) rotateX(180deg) rotateY(0)}50%{transform:perspective(100px) rotateX(180deg) rotateY(180deg)}75%{transform:perspective(100px) rotateX(0) rotateY(180deg)}100%{transform:perspective(100px) rotateX(0) rotateY(360deg)}}.la-timer,.la-timer>div{position:relative;box-sizing:border-box}.la-timer{display:block;font-size:0;color:#fff;width:32px;height:32px}.la-timer.la-dark{color:#333}.la-timer>div{display:inline-block;float:none;border:2px solid currentColor;width:32px;height:32px;background:0 0;border-radius:100%}.la-timer>div:after,.la-timer>div:before{position:absolute;top:14px;left:14px;display:block;width:2px;margin-top:-1px;margin-left:-1px;content:\"\";background:currentColor;border-radius:2px;transform-origin:1px 1px 0;-webkit-animation:1.25s linear -625ms infinite timer-loader;animation:1.25s linear -625ms infinite timer-loader}.la-timer>div:before{height:12px}.la-timer>div:after{height:8px;-webkit-animation-duration:15s;animation-duration:15s;-webkit-animation-delay:-7.5s;animation-delay:-7.5s}.la-timer.la-sm{width:16px;height:16px}.la-timer.la-sm>div{width:16px;height:16px;border-width:1px}.la-timer.la-sm>div:after,.la-timer.la-sm>div:before{top:7px;left:7px;width:1px;margin-top:-.5px;margin-left:-.5px;border-radius:1px;transform-origin:.5px .5px 0}.la-timer.la-sm>div:before{height:6px}.la-timer.la-sm>div:after{height:4px}.la-timer.la-2x{width:64px;height:64px}.la-timer.la-2x>div{width:64px;height:64px;border-width:4px}.la-timer.la-2x>div:after,.la-timer.la-2x>div:before{top:28px;left:28px;width:4px;margin-top:-2px;margin-left:-2px;border-radius:4px;transform-origin:2px 2px 0}.la-timer.la-2x>div:before{height:24px}.la-timer.la-2x>div:after{height:16px}.la-timer.la-3x{width:96px;height:96px}.la-timer.la-3x>div{width:96px;height:96px;border-width:6px}.la-timer.la-3x>div:after,.la-timer.la-3x>div:before{top:42px;left:42px;width:6px;margin-top:-3px;margin-left:-3px;border-radius:6px;transform-origin:3px 3px 0}.la-timer.la-3x>div:before{height:36px}.la-timer.la-3x>div:after{height:24px}@-webkit-keyframes timer-loader{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes timer-loader{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}.la-triangle-skew-spin,.la-triangle-skew-spin>div{position:relative;box-sizing:border-box}.la-triangle-skew-spin{display:block;font-size:0;color:#fff;width:32px;height:16px}.la-triangle-skew-spin.la-dark{color:#333}.la-triangle-skew-spin>div{display:inline-block;float:none;border:0 solid currentColor;width:0;height:0;background:0 0;border:solid;border-width:0 16px 16px;border-right-color:transparent;border-left-color:transparent;-webkit-animation:3s cubic-bezier(.09,.57,.49,.9) infinite triangle-skew-spin;animation:3s cubic-bezier(.09,.57,.49,.9) infinite triangle-skew-spin}.la-triangle-skew-spin.la-sm{width:16px;height:8px}.la-triangle-skew-spin.la-sm>div{border-width:0 8px 8px}.la-triangle-skew-spin.la-2x{width:64px;height:32px}.la-triangle-skew-spin.la-2x>div{border-width:0 32px 32px}.la-triangle-skew-spin.la-3x{width:96px;height:48px}.la-triangle-skew-spin.la-3x>div{border-width:0 48px 48px}@-webkit-keyframes triangle-skew-spin{0%{transform:perspective(100px) rotateX(0) rotateY(0)}25%{transform:perspective(100px) rotateX(180deg) rotateY(0)}50%{transform:perspective(100px) rotateX(180deg) rotateY(180deg)}75%{transform:perspective(100px) rotateX(0) rotateY(180deg)}100%{transform:perspective(100px) rotateX(0) rotateY(360deg)}}@keyframes triangle-skew-spin{0%{transform:perspective(100px) rotateX(0) rotateY(0)}25%{transform:perspective(100px) rotateX(180deg) rotateY(0)}50%{transform:perspective(100px) rotateX(180deg) rotateY(180deg)}75%{transform:perspective(100px) rotateX(0) rotateY(180deg)}100%{transform:perspective(100px) rotateX(0) rotateY(360deg)}}.overlay{position:fixed;top:0;left:0;width:100%;height:100%}.overlay>div:not(.loading-text){top:50%;left:50%;margin:0;position:absolute;transform:translate(-50%,-50%)}.loading-text{position:absolute;top:60%;left:50%;transform:translate(-50%,-60%)}"]
+                }] }
+    ];
+    /** @nocollapse */
+    NgxSpinnerComponent.ctorParameters = function () { return [
+        { type: NgxSpinnerService },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+    ]; };
+    NgxSpinnerComponent.propDecorators = {
+        bdColor: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        size: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        color: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        type: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        fullScreen: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        name: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        zIndex: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }]
+    };
+    return NgxSpinnerComponent;
+}());
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: lib/ngx-spinner.module.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var NgxSpinnerModule = /** @class */ (function () {
+    function NgxSpinnerModule() {
+    }
+    NgxSpinnerModule.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"], args: [{
+                    imports: [
+                        _angular_common__WEBPACK_IMPORTED_MODULE_5__["CommonModule"]
+                    ],
+                    declarations: [NgxSpinnerComponent],
+                    exports: [NgxSpinnerComponent]
+                },] }
+    ];
+    return NgxSpinnerModule;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: public_api.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: ngx-spinner.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+
+//# sourceMappingURL=ngx-spinner.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/pages/add-categories/add-categories.component.html":
 /*!**********************************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/pages/add-categories/add-categories.component.html ***!
@@ -43370,7 +43910,7 @@ module.exports = "<h1> Add Sub Category </h1>\n<form [formGroup] = \"category\" 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-lg-12\">\n    <div class=\"row\">\n        <div class=\"col-lg-6\">\n            <h3>Patient Details</h3>\n            <div class=\"\"><label><b>Name: </b></label> {{appointmentData.patient_name}}</div>\n            <div class=\"\"><label><b>Email: </b></label> {{appointmentData.patient_email}}</div>\n            <div class=\"\"><label><b>Phone: </b></label> {{appointmentData.patient_phone}}</div>\n            <div class=\"\"><label><b>Gender: </b></label> {{appointmentData.patient_gender}}</div>\n            <div class=\"\"><label><b>Address: </b></label> {{appointmentData.patient_address}}</div>\n        </div>\n        <div class=\"col-lg-6\">\n            <h3>Appointment Details</h3>\n            <div class=\"\"><label><b>Appointment ID: </b></label> {{appointmentData.appointment_id}}</div>\n            <div class=\"\"><label><b>Appointment Date: </b></label> {{appointmentData.appointment_date_time | date:'h:mm E d:MMM:yyyy'}}</div>\n            <div class=\"\"><label><b>Category: </b></label> {{appointmentData.main_category}}</div>\n            <div class=\"\"><label><b>Sub Category: </b></label> {{appointmentData.sub_category}}</div>\n            <div class=\"\"><label><b>Final Service: </b></label> {{appointmentData.service_name}}</div>\n            <div class=\"\"><label><b>Appointment Status: </b></label> {{appointmentData.status}}</div>\n        </div>\n        <div class=\"col-lg-12\">\n            <h4>Select Staff</h4>\n                <select class=\"mb-2\" name=\"consultantList\" [(ngModel)]=\"consultantObj\">\n                    <option *ngFor=\"let x of consultantList;\" [ngValue]=\"x\">{{x.name}}</option>\n                </select>\n        </div>\n        <div class=\"col-lg-12\">\n            <button class=\"btn btn-primary\" (click)=\"acceptAppointment(appointment_id)\">Accept</button>\n            <button class=\"btn\" (click)=\"rejectAppointment(appointment_id)\">Reject</button>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"col-lg-12\">\n    <div class=\"row\">\n        <div class=\"col-lg-6\">\n            <h3>Patient Details</h3>\n            <div class=\"\"><label><b>Name: </b></label> {{appointmentData.patient_name}}</div>\n            <div class=\"\"><label><b>Email: </b></label> {{appointmentData.patient_email}}</div>\n            <div class=\"\"><label><b>Phone: </b></label> {{appointmentData.patient_phone}}</div>\n            <div class=\"\"><label><b>Gender: </b></label> {{appointmentData.patient_gender}}</div>\n            <div class=\"\"><label><b>Address: </b></label> {{appointmentData.patient_address}}</div>\n        </div>\n        <div class=\"col-lg-6\">\n            <h3>Appointment Details</h3>\n            <div class=\"\"><label><b>Appointment ID: </b></label> {{appointmentData.appointment_id}}</div>\n            <div class=\"\"><label><b>Appointment Date: </b></label> {{appointmentData.appointment_date_time | date:'h:mm E d:MMM:yyyy'}}</div>\n            <div class=\"\"><label><b>Category: </b></label> {{appointmentData.main_category}}</div>\n            <div class=\"\"><label><b>Sub Category: </b></label> {{appointmentData.sub_category}}</div>\n            <div class=\"\"><label><b>Final Service: </b></label> {{appointmentData.service_name}}</div>\n            <div class=\"\"><label><b>Appointment Status: </b></label> {{appointmentData.status}}</div>\n        </div>\n        <div class=\"col-lg-12\">\n            <h4>Select Staff</h4>\n                <select class=\"mb-2\" name=\"consultantList\" [(ngModel)]=\"consultantObj\">\n                    <option *ngFor=\"let x of consultantList;\" [ngValue]=\"x\">{{x.name}}</option>\n                </select>\n        </div>\n        <div class=\"col-lg-12\">\n            <button class=\"btn btn-primary\" (click)=\"acceptAppointment(appointmentData.appointment_id)\">Accept</button>\n            <button class=\"btn\" (click)=\"rejectAppointment(appointmentData.appointment_id)\">Reject</button>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -43381,7 +43921,7 @@ module.exports = "<div class=\"col-lg-12\">\n    <div class=\"row\">\n        <d
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n<thead>\n    <tr>\n    <th>ID</th>\n    <th>Appintment Date</th>\n    <th>Patient Name</th>\n    <th>Sub Service</th>\n    <th>Patient Mobile</th>\n    <th>Total Price</th>\n    <th>Status</th>\n    <!-- <th>Actions</th> -->\n    </tr>\n</thead>\n<tbody>\n    <tr *ngFor=\"let x of appointmentsList\" (click)=\"gotoAppointmentDetails(x.appointment_id)\">\n    <td>{{ x.appointment_id }}</td>\n    <td>{{x.appointment_date_time | date:'h:mm E d:MMM:yyyy'}}</td>\n    <td>{{x.patient_name}}</td>\n    <td>{{ x.service_name}}</td>\n    <td>{{ x.patient_phone}}</td>\n    <td>{{ x.total_price}}</td>\n    <td>{{ x.status}}</td>\n    <!-- <td>\n        <div class=\"col-lg-12\">\n            <button class=\"mr-2 mb-2\" (click)=\"acceptAppointment(x.id)\">Accept</button>\n            <button (click)=\"rejectAppointment(x.id)\">Reject</button>\n        </div>\n    </td> -->\n    </tr>\n</tbody>\n</table>"
+module.exports = "\n<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n<thead>\n    <tr>\n    <th>ID</th>\n    <th>Date</th>\n    <th>Patient Name</th>\n    <th>Sub Service</th>\n    <th>Patient Mobile</th>\n    <th>Total Price</th>\n    <th>Status</th>\n    <!-- <th>Actions</th> -->\n    </tr>\n</thead>\n<tbody>\n    <tr *ngFor=\"let x of appointmentsList\" (click)=\"gotoAppointmentDetails(x.appointment_id)\">\n    <td>{{ x.appointment_id }}</td>\n    <td>{{x.appointment_date_time | date:'shortDate'}}</td>\n    <td>{{x.patient_name}}</td>\n    <td>{{ x.service_name}}</td>\n    <td>{{ x.patient_phone}}</td>\n    <td>{{ x.total_price}}</td>\n    <td>{{ x.status}}</td>\n    <!-- <td>\n        <div class=\"col-lg-12\">\n            <button class=\"mr-2 mb-2\" (click)=\"acceptAppointment(x.id)\">Accept</button>\n            <button (click)=\"rejectAppointment(x.id)\">Reject</button>\n        </div>\n    </td> -->\n    </tr>\n</tbody>\n</table>\n<ngx-spinner></ngx-spinner>"
 
 /***/ }),
 
@@ -43392,7 +43932,7 @@ module.exports = "\n<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtT
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n        <button (click)=\"navigateAddCategory()\" class=\"bnt btn-primary add-btn\">Add</button>\n    </div>\n    <table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n        <thead>\n          <tr>\n            <th>ID</th>\n            <th>Logo</th>\n            <th>Name</th>\n            <th>Arabic Name</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let person of persons\" [routerLink]=\"['/sub-category']\">\n            <td>{{ person.id }}</td>\n            <td><img [src]=\"person.image\"></td>\n            <td>{{ person.name }}</td>\n            <td>{{ person.arabic_name}}</td>\n          </tr>\n        </tbody>\n        </table>\n"
+module.exports = "<div>\n  <button (click)=\"navigateAddCategory()\" class=\"bnt btn-primary add-btn\">\n    Add\n  </button>\n</div>\n<table\n  datatable\n  [dtOptions]=\"dtOptions\"\n  [dtTrigger]=\"dtTrigger\"\n  class=\"row-border hover\"\n>\n  <thead>\n    <tr>\n      <th>ID</th>\n      <th>Logo</th>\n      <th>Name</th>\n      <th>Arabic Name</th>\n      <th>AcSelecttion</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let person of persons\" >\n      <td>{{ person.id }}</td>\n      <td><img [src]=\"person.image\" /></td>\n      <td>{{ person.name }}</td>\n      <td>{{ person.arabic_name }}</td>\n      <td><i class=\"fa fa-check tick\" [routerLink]=\"['/sub-category']\"></i></td>\n    </tr>\n  </tbody>\n</table>\n<ngx-spinner></ngx-spinner>\n"
 
 /***/ }),
 
@@ -43403,7 +43943,7 @@ module.exports = "<div>\n        <button (click)=\"navigateAddCategory()\" class
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div>\n    <button (click)=\"navigateAddCategory()\" class=\"bnt btn-primary add-btn\">Add</button>\n</div> -->\n<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n      <tr>\n        <th>ID</th>\n        <th>Logo</th>\n        <th>Name</th>\n        <th>Arabic Name</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let x of items\" [routerLink]=\"['/sub-category', x.id]\">\n        <td>{{ x.id }}</td>\n        <td><img class=\"img-logo\" [src]=\"x.image\"></td>\n        <td>{{ x.name }}</td>\n        <td>{{ x.arabic_name}}</td>\n      </tr>\n    </tbody>\n    </table>"
+module.exports = "<!-- <div>\n    <button (click)=\"navigateAddCategory()\" class=\"bnt btn-primary add-btn\">Add</button>\n</div> -->\n<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n      <tr>\n        <th>ID</th>\n        <th>Logo</th>\n        <th>Name</th>\n        <th>Arabic Name</th>\n        <th>Select</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let x of items\">\n        <td>{{ x.id }}</td>\n        <td><img class=\"img-logo\" [src]=\"x.image\"></td>\n        <td>{{ x.name }}</td>\n        <td>{{ x.arabic_name}}</td>\n        <td><i class=\"fa fa-check tick\" [routerLink]=\"['/sub-category', x.id]\"></i></td>\n      </tr>\n    </tbody>\n    </table>\n    <ngx-spinner></ngx-spinner>"
 
 /***/ }),
 
@@ -43414,7 +43954,7 @@ module.exports = "<!-- <div>\n    <button (click)=\"navigateAddCategory()\" clas
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1> Add New Staff </h1>\n<form>\n    <div class=\"form-group row\">\n    <div class=\"col-md-12\">\n        <label class=\"btn btn-primary\" for=\"pic\">Choose File</label>\n        <input type=\"file\" name=\"pic\" [(ngModel)]=\"pic\" (change)=\"onFileChange($event)\" class=\"form-control-file\">\n    </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-6\">\n        <label>Name</label>\n        <input  name=\"name\" [(ngModel)]=\"consultant_name\" class=\"form-control\" placeholder=\"Enter Name\">\n        </div>\n        <div class=\"col-md-6\">\n            <label for=\"designation\">Designation</label>\n            <input type=\"text\" name=\"designation\" [(ngModel)]=\"designation\" class=\"form-control\" placeholder=\"\">\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-6\">\n        <label>Email</label>\n        <input  name=\"email\" [(ngModel)]=\"consultant_email\" class=\"form-control\" placeholder=\"Enter Email\">\n        </div>\n        <div class=\"col-md-6\">\n            <label for=\"number\">Number</label>\n            <input type=\"number\" name=\"number\" [(ngModel)]=\"consultant_number\" class=\"form-control\" placeholder=\"Enter your number\">\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-12\">\n            <label for=\"type\">Type</label>\n            <input type=\"text\" name=\"type\" [(ngModel)]=\"type\" class=\"form-control\" placeholder=\"\">\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-12\">\n        <label>Skills</label>\n        <input  name=\"skills\" [(ngModel)]=\"consultant_skills\" class=\"form-control\" placeholder=\"Enter Skills\">\n        </div>\n    </div>\n    <button type=\"submit\" class=\"btn btn-primary\" (click)=\"onSubmit()\">Submit</button>\n</form>"
+module.exports = "<h1> Add New Staff </h1>\n<form>\n    <div class=\"form-group row\">\n    <div class=\"col-md-12\">\n        <label class=\"btn btn-primary\" for=\"pic\">Choose File</label>\n        <input type=\"file\" name=\"pic\" [(ngModel)]=\"pic\" (change)=\"onFileChange($event)\" class=\"form-control-file\">\n    </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-6\">\n        <label>Name</label>\n        <input  name=\"name\" [(ngModel)]=\"consultant_name\" class=\"form-control\" placeholder=\"Enter Name\">\n        </div>\n        <div class=\"col-md-6\">\n            <label for=\"designation\">Designation</label>\n            <input type=\"text\" name=\"designation\" [(ngModel)]=\"designation\" class=\"form-control\" placeholder=\"\">\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-6\">\n        <label>Email</label>\n        <input  name=\"email\" [(ngModel)]=\"consultant_email\" class=\"form-control\" placeholder=\"Enter Email\">\n        </div>\n        <div class=\"col-md-6\">\n            <label for=\"number\">Number</label>\n            <input type=\"number\" name=\"number\" [(ngModel)]=\"consultant_number\" class=\"form-control\" placeholder=\"Enter your number\">\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-12\">\n            <label for=\"type\">Type</label>\n            <input type=\"text\" name=\"type\" [(ngModel)]=\"type\" class=\"form-control\" placeholder=\"\">\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-12\">\n        <label>Skills</label>\n        <input  name=\"skills\" [(ngModel)]=\"skills\" class=\"form-control\" placeholder=\"Enter Skills\">\n        </div>\n    </div>\n    <button type=\"submit\" class=\"btn btn-primary\" (click)=\"onSubmit()\">Submit</button>\n</form>"
 
 /***/ }),
 
@@ -43425,7 +43965,7 @@ module.exports = "<h1> Add New Staff </h1>\n<form>\n    <div class=\"form-group 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <button [routerLink]=\"['/consultant-details']\" class=\"bnt btn-primary add-btn\">Add</button>\n</div>\n\n<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n        <tr>\n        <th>ID</th>\n        <th>Image</th>\n        <th>Name</th>\n        <th>Email</th>\n        <th>Number</th>\n        <th>Designation</th>\n        <th>Type</th>\n        <th>Skills</th>\n        <th>Status</th>\n        <th>Action</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let x of items\">\n        <td>{{ x.id }}</td>\n        <td><img class=\"img-logo\" src=\"{{ x.image }}\"></td>\n        <td>{{ x.name }}</td>\n        <td>{{ x.email }}</td>\n        <td>{{ x.number }}</td>\n        <td>{{ x.designation}}</td>\n        <td>{{ x.type}}</td>\n        <td>{{ x.skills }}</td>\n        <td>{{ x.status}}</td>\n        <td>\n            <button class=\"\" (click)=\"onUpdateConsultant(x.id)\">Update</button>\n        </td>\n        </tr>\n    </tbody>\n</table>"
+module.exports = "<div>\n    <button [routerLink]=\"['/consultant-details']\" class=\"bnt btn-primary add-btn\">Add</button>\n</div>\n\n<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n        <tr>\n        <th>ID</th>\n        <th>Image</th>\n        <th>Name</th>\n        <th>Email</th>\n        <th>Number</th>\n        <th>Designation</th>\n        <th>Type</th>\n        <th>Skills</th>\n        <th>Status</th>\n        <th>Action</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let x of items\">\n        <td>{{ x.id }}</td>\n        <td><img class=\"img-logo\" src=\"{{ x.image }}\"></td>\n        <td>{{ x.name }}</td>\n        <td>{{ x.email }}</td>\n        <td>{{ x.number }}</td>\n        <td>{{ x.designation}}</td>\n        <td>{{ x.type}}</td>\n        <td>{{ x.skills }}</td>\n        <td>{{ x.status}}</td>\n        <td>\n            <button class=\"\" (click)=\"onUpdateConsultant(x.id)\">Update</button>\n        </td>\n        </tr>\n    </tbody>\n</table>\n<ngx-spinner></ngx-spinner>"
 
 /***/ }),
 
@@ -43436,7 +43976,7 @@ module.exports = "<div>\n    <button [routerLink]=\"['/consultant-details']\" cl
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-xl-12\">\n    <h3>Appointment List</h3>\n</div>\n<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n        <tr>\n        <th>Appointment ID</th>\n        <th>Patient Name</th>\n        <th>Service Name</th>\n        <th>Main Category</th>\n        <th>Sub Category</th>\n        <th>Status</th>\n        <th>Total Price</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let x of items\">\n        <td>{{ x.appointment_id }}</td>\n        <td>{{ x.patient_name }}</td>\n        <td>{{ x.service_name }}</td>\n        <td>{{ x.main_category }}</td>\n        <td>{{ x.sub_category}}</td>\n        <td>{{ x.status }}</td>\n        <td>{{x.total_price}}</td>\n        </tr>\n    </tbody>\n    </table>"
+module.exports = "<div class=\"col-xl-12\">\n    <h3>Appointment List</h3>\n</div>\n<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n        <tr>\n        <th>Appointment ID</th>\n        <th>Patient Name</th>\n        <th>Service Name</th>\n        <th>Main Category</th>\n        <th>Sub Category</th>\n        <th>Status</th>\n        <th>Total Price</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let x of items\">\n        <td>{{ x.appointment_id }}</td>\n        <td>{{ x.patient_name }}</td>\n        <td>{{ x.service_name }}</td>\n        <td>{{ x.main_category }}</td>\n        <td>{{ x.sub_category}}</td>\n        <td>{{ x.status }}</td>\n        <td>{{x.total_price}}</td>\n        </tr>\n    </tbody>\n    </table>\n    <ngx-spinner></ngx-spinner>"
 
 /***/ }),
 
@@ -43447,7 +43987,7 @@ module.exports = "<div class=\"col-xl-12\">\n    <h3>Appointment List</h3>\n</di
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n<thead>\n    <tr>\n    <th>ID</th>\n    <th>Name</th>\n    <th>Email</th>\n    <th>Phone</th>\n    <th>Iqama ID</th>\n    <th>Gender</th>\n    <th>Actions</th>\n    </tr>\n</thead>\n<tbody>\n    <tr *ngFor=\"let x of items\">\n    <td>{{ x.customer_id }}</td>\n    <td>{{ x.name }}</td>\n    <td>{{ x.email }}</td>\n    <td>{{ x.phone }}</td>\n    <td>{{ x.iqama_id}}</td>\n    <td>{{ x.gender }}</td>\n    <td><i class=\"fa fa-eye eye-icon\" [routerLink]=\"['/customer-details', x.customer_id]\"></i></td>\n    </tr>\n</tbody>\n</table>"
+module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n<thead>\n    <tr>\n    <th>ID</th>\n    <th>Name</th>\n    <th>Email</th>\n    <th>Phone</th>\n    <th>Iqama ID</th>\n    <th>Gender</th>\n    <th>Actions</th>\n    </tr>\n</thead>\n<tbody>\n    <tr *ngFor=\"let x of items\">\n    <td>{{ x.customer_id }}</td>\n    <td>{{ x.name }}</td>\n    <td>{{ x.email }}</td>\n    <td>{{ x.phone }}</td>\n    <td>{{ x.iqama_id}}</td>\n    <td>{{ x.gender }}</td>\n    <td><i class=\"fa fa-eye eye-icon\" [routerLink]=\"['/customer-details', x.customer_id]\"></i></td>\n    </tr>\n</tbody>\n</table>\n<ngx-spinner></ngx-spinner>"
 
 /***/ }),
 
@@ -43480,7 +44020,7 @@ module.exports = "<div class=\"row\">\n  <div class=\"col-md-12\">\n    <div cla
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n        <tr>\n        <th>ID</th>\n        <th>Logo</th>\n        <th>Name</th>\n        <th>Arabic Name</th>\n        <th>Actions</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let x of items\">\n        <td>{{ x.id }}</td>\n        <td><img class=\"img-logo\" [src]=\"x.image\"></td>\n        <td>{{ x.name }}</td>\n        <td>{{ x.arabic_name}}</td>\n        <td>\n            <button class=\"btn\" (click)=\"gotoAddService(x.id)\">Add</button>\n        </td>\n        </tr>\n    </tbody>\n</table>\n\n<div class=\"col-lg-12 no-pad mt-5\">\n    <h3 style=\"margin: 0px;\"><b>Note</b></h3>\n    <p>In above services, if desired service is not available, please request the admin to add the service. If admin is feasible to add the service and inform you. </p>\n    <button class=\"btn btn-primary\" [routerLink]=\"['/service-detail', 0]\"> Request new service</button>\n</div>"
+module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n        <tr>\n        <th>ID</th>\n        <th>Logo</th>\n        <th>Name</th>\n        <th>Arabic Name</th>\n        <th>Actions</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let x of items\">\n        <td>{{ x.id }}</td>\n        <td><img class=\"img-logo\" [src]=\"x.image\"></td>\n        <td>{{ x.name }}</td>\n        <td>{{ x.arabic_name}}</td>\n        <td>\n            <button class=\"btn\" (click)=\"gotoAddService(x.id)\">Add</button>\n        </td>\n        </tr>\n    </tbody>\n</table>\n\n<div class=\"col-lg-12 no-pad mt-5\">\n    <h3 style=\"margin: 0px;\"><b>Note</b></h3>\n    <p>In above services, if desired service is not available, please request the admin to add the service. If admin is feasible to add the service and inform you. </p>\n    <button class=\"btn btn-primary\" [routerLink]=\"['/service-detail', 0]\"> Request new service</button>\n</div>\n<ngx-spinner></ngx-spinner>"
 
 /***/ }),
 
@@ -43502,7 +44042,7 @@ module.exports = "\n<div class=\"row\">\n  <div class=\"col-md-12\">\n    <div c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1> Update Service </h1>\n<form>\n    <div class=\"form-group row\">\n        <div class=\"col-md-6\">\n        <label>Name</label>\n        <input type=\"text\" class=\"form-control\" name=\"service_name\" [(ngModel)]=\"service_name\" placeholder=\"Enter Name\">\n        </div>\n        <div class=\"col-md-6\">\n            <label>Arabic Name</label>\n            <input type=\"text\" class=\"form-control\" name=\"service_name_arabic\" [(ngModel)]=\"service_name_arabic\" placeholder=\"\">\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-6\">\n            <label>Description</label>\n            <textarea class=\"form-control\" name=\"service_description\" [(ngModel)]=\"service_description\" rows=\"3\"></textarea>\n        </div>\n        <div class=\"col-md-6\">\n            <label for=\"descriptionArabic\">Arabic Description</label>\n            <textarea class=\"form-control\" name=\"service_description_arabic\" [(ngModel)]=\"service_description_arabic\" rows=\"3\"></textarea>\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-12\">\n            <label for=\"shortDescription\">Charges</label>\n            <input type=\"number\" class=\"form-control\" name=\"charges\" [(ngModel)]=\"charges\" placeholder=\"charges\">\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-6\">\n            <label for=\"shortDescription\">Time To</label>\n            <input type=\"number\" class=\"form-control\" name=\"time_to\" [(ngModel)]=\"time_to\" placeholder=\"\">\n        </div>\n        <div class=\"col-md-6\">\n            <label for=\"shortDescriptionArabic\">Time from </label>\n            <input type=\"number\" class=\"form-control\" name=\"time_from\" [(ngModel)]=\"time_from\" placeholder=\"\">\n        </div>\n    </div>\n\n    <button type=\"submit\" class=\"btn btn-primary\" (click)=\"onSubmit()\">Submit</button>\n</form>"
+module.exports = "<h1> Update Service </h1>\n<form>\n    <div class=\"form-group row\">\n        <div class=\"col-md-6\">\n        <label>Name</label>\n        <input type=\"text\" class=\"form-control\" name=\"service_name\" [(ngModel)]=\"service_name\" placeholder=\"Enter Name\">\n        </div>\n        <div class=\"col-md-6\">\n            <label>Arabic Name</label>\n            <input type=\"text\" class=\"form-control\" name=\"service_name_arabic\" [(ngModel)]=\"service_name_arabic\" placeholder=\"\">\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-6\">\n            <label>Short Description</label>\n            <textarea class=\"form-control\" name=\"service_short_description\" [(ngModel)]=\"service_short_description\" rows=\"2\"></textarea>\n        </div>\n        <div class=\"col-md-6\">\n            <label for=\"descriptionArabic\">Short Arabic Description</label>\n            <textarea class=\"form-control\" name=\"service_short_description_arabic\" [(ngModel)]=\"service_short_description_arabic\" rows=\"2\"></textarea>\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-6\">\n            <label>Description</label>\n            <textarea class=\"form-control\" name=\"service_description\" [(ngModel)]=\"service_description\" rows=\"3\"></textarea>\n        </div>\n        <div class=\"col-md-6\">\n            <label for=\"descriptionArabic\">Arabic Description</label>\n            <textarea class=\"form-control\" name=\"service_description_arabic\" [(ngModel)]=\"service_description_arabic\" rows=\"3\"></textarea>\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-12\">\n            <label for=\"shortDescription\">Charges</label>\n            <input type=\"number\" class=\"form-control\" name=\"charges\" [(ngModel)]=\"charges\" placeholder=\"charges\">\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-6\">\n            <label for=\"shortDescription\">Time To</label>\n            <input type=\"number\" class=\"form-control\" name=\"time_to\" [(ngModel)]=\"time_to\" placeholder=\"\">\n        </div>\n        <div class=\"col-md-6\">\n            <label for=\"shortDescriptionArabic\">Time from </label>\n            <input type=\"number\" class=\"form-control\" name=\"time_from\" [(ngModel)]=\"time_from\" placeholder=\"\">\n        </div>\n    </div>\n\n    <button type=\"submit\" class=\"btn btn-primary\" (click)=\"onSubmit()\">Submit</button>\n</form>\n<ngx-spinner></ngx-spinner>"
 
 /***/ }),
 
@@ -43513,7 +44053,7 @@ module.exports = "<h1> Update Service </h1>\n<form>\n    <div class=\"form-group
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n        <tr>\n        <th>ID</th>\n        <th>Service Name</th>\n        <th>Arabic Name</th>\n        <th>Description</th>\n        <th>Arabic Description</th>\n        <th>Charges</th>\n        <th>Commision</th>\n        <th>Status</th>\n        <th>Action</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let x of items\">\n        <td>{{ x.id }}</td>\n        <td>{{ x.service_name }}</td>\n        <td>{{ x.service_name_arabic }}</td>\n        <td>{{ x.service_description }}</td>\n        <td>{{ x.service_description_arabic }}</td>\n        <td>{{ x.charges}}</td>\n        <td>{{x.commission}}</td>\n        <td>{{x.status}}</td>\n        <td><button (click)=\"onUpdateMyService(x.id)\">Update</button></td>\n        </tr>\n    </tbody>\n</table>"
+module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n        <tr>\n        <th>ID</th>\n        <th>Service Name</th>\n        <th>Arabic Name</th>\n        <th>Description</th>\n        <th>Arabic Description</th>\n        <th>Charges</th>\n        <th>Commision</th>\n        <th>Status</th>\n        <th>Action</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let x of items\">\n        <td>{{ x.id }}</td>\n        <td>{{ x.service_name }}</td>\n        <td>{{ x.service_name_arabic }}</td>\n        <td>{{ x.service_description }}</td>\n        <td>{{ x.service_description_arabic }}</td>\n        <td>{{ x.charges}}</td>\n        <td>{{x.commission}}</td>\n        <td>{{x.status}}</td>\n        <td><button (click)=\"onUpdateMyService(x.id)\">Update</button></td>\n        </tr>\n    </tbody>\n</table>\n<ngx-spinner></ngx-spinner>"
 
 /***/ }),
 
@@ -43528,6 +44068,39 @@ module.exports = "<div class=\"row\">\n  <div class=\"col-md-12\">\n    <div cla
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/pages/patients-paid-request/assign-staff/approve-modal/approve-modal.component.html":
+/*!*******************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/pages/patients-paid-request/assign-staff/approve-modal/approve-modal.component.html ***!
+  \*******************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"modal-header\">\n  <h4 class=\"modal-title\" id=\"modal-title\">Profile deletion</h4>\n  <button\n    type=\"button\"\n    class=\"close\"\n    aria-label=\"Close button\"\n    aria-describedby=\"modal-title\"\n    (click)=\"modal.dismiss('Cross click')\"\n  >\n    <span aria-hidden=\"true\">&times;</span>\n  </button>\n</div>\n<div class=\"modal-body\">\n  <p>\n    <strong\n      >Are you sure you want to delete\n      <span class=\"text-primary\">\"John Doe\"</span> profile?</strong\n    >\n  </p>\n  <p>\n    All information associated to this user profile will be permanently deleted.\n    <span class=\"text-danger\">This operation can not be undone.</span>\n  </p>\n</div>\n<div class=\"modal-footer\">\n  <button\n    type=\"button\"\n    class=\"btn btn-outline-secondary\"\n    (click)=\"modal.dismiss('cancel click')\"\n  >\n    Cancel\n  </button>\n  <button\n    type=\"button\"\n    ngbAutofocus\n    class=\"btn btn-danger\"\n    (click)=\"closeModal()\"\n  >\n    Ok\n  </button>\n</div>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/pages/patients-paid-request/assign-staff/assign-staff.component.html":
+/*!****************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/pages/patients-paid-request/assign-staff/assign-staff.component.html ***!
+  \****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1>Staff List</h1>\n<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n        <tr>\n        <th>Name</th>\n        <th>Email</th>\n        <th>Number</th>\n        <th>Designation</th>\n        <th>Type</th>\n        <th>Skills</th>\n        <th>Status</th>\n        <th>Action</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let x of staffList\">\n        <td>{{ x.name }}</td>\n        <td>{{ x.email }}</td>\n        <td>{{ x.number }}</td>\n        <td>{{ x.designation}}</td>\n        <td>{{ x.type}}</td>\n        <td>{{ x.skills }}</td>\n        <td>{{ x.status}}</td>\n        <td>\n            <button class=\"btn btn-primary\" (click)=\"assignStaff(x.id,x.name)\">Assign</button>\n        </td>\n        </tr>\n    </tbody>\n</table>\n<ngx-spinner></ngx-spinner>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/pages/patients-paid-request/patients-paid-request.component.html":
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/pages/patients-paid-request/patients-paid-request.component.html ***!
+  \************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n        <tr>\n        <th>Name</th>\n        <th>Service</th>\n        <th>Patient Address</th>\n        <th>Email</th>\n        <th>Mobile</th>\n        <th>Total Price </th>\n        <th>Assign Staff</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let x of patientPaidList\">\n        <td>{{ x.patient_name }}</td>\n        <td>{{x.service_name}}</td>\n        <td>{{ x.patient_address}}</td>\n        <td>{{ x.patient_email }}</td>\n        <td>{{ x.patient_phone}}</td>\n        <td>{{ x.total_price}}</td>\n        <td><button class=\"btn btn-primary\" [routerLink]=\"['/assign-staff', x.appointment_id, x.appointment_date_time]\">Assign</button></td>\n        </tr>\n    </tbody>\n</table>\n<ngx-spinner></ngx-spinner>"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/pages/patients-request/patients-request.component.html":
 /*!**************************************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/pages/patients-request/patients-request.component.html ***!
@@ -43535,7 +44108,7 @@ module.exports = "<div class=\"row\">\n  <div class=\"col-md-12\">\n    <div cla
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n        <tr>\n        <th>ID</th>\n        <th>Patient Name</th>\n        <th>Patient Address</th>\n        <th>Patient Mobile</th>\n        <th>Main Service</th>\n        <th>Sub Service Category</th>\n        <th>Sub Service</th>\n        <th>Total Price</th>\n        <th>Status</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let x of patientRequestList\">\n        <td>{{ x.id }}</td>\n        <td>{{x.patient_name}}</td>\n        <td>{{ x.patient_address}}</td>\n        <td>{{ x.patient_mobile}}</td>\n        <td>{{ x.main_service }}</td>\n        <td>{{ x.sub_service_category}}</td>\n        <td>{{ x.sub_service}}</td>\n        <td>{{ x.total_price}}</td>\n        <td>{{ x.status}}</td>\n        </tr>\n    </tbody>\n</table>"
+module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n        <tr>\n        <th>ID</th>\n        <th>Patient Name</th>\n        <th>Patient Address</th>\n        <th>Patient Mobile</th>\n        <th>Main Service</th>\n        <th>Sub Service Category</th>\n        <th>Sub Service</th>\n        <th>Total Price</th>\n        <th>Status</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let x of patientRequestList\">\n        <td>{{ x.id }}</td>\n        <td>{{x.patient_name}}</td>\n        <td>{{ x.patient_address}}</td>\n        <td>{{ x.patient_phone}}</td>\n        <td>{{ x.main_category }}</td>\n        <td>{{ x.sub_category}}</td>\n        <td>{{ x.service_name}}</td>\n        <td>{{ x.total_price}}</td>\n        <td>{{ x.status}}</td>\n        </tr>\n    </tbody>\n</table>\n<ngx-spinner></ngx-spinner>"
 
 /***/ }),
 
@@ -43546,7 +44119,7 @@ module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTri
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n        <tr>\n        <th>ID</th>\n        <th>Patient Name</th>\n        <th>Patient Address</th>\n        <th>Patient Mobile</th>\n        <th>Main Service</th>\n        <th>Sub Service Category</th>\n        <th>Sub Service</th>\n        <th>Total Price</th>\n        <th>Status</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let x of patientServedList\">\n        <td>{{ x.id }}</td>\n        <td>{{x.patient_name}}</td>\n        <td>{{ x.patient_address}}</td>\n        <td>{{ x.patient_mobile}}</td>\n        <td>{{ x.main_service }}</td>\n        <td>{{ x.sub_service_category}}</td>\n        <td>{{ x.sub_service}}</td>\n        <td>{{ x.total_price}}</td>\n        <td>{{ x.status}}</td>\n        </tr>\n    </tbody>\n</table>"
+module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n        <tr>\n        <th>ID</th>\n        <th>Patient Name</th>\n        <th>Patient Address</th>\n        <!-- <th>Patient Mobile</th> -->\n        <th>Main Service</th>\n        <th>Sub Service Category</th>\n        <th>Sub Service</th>\n        <th>Total Price</th>\n        <th>Status</th>\n        <th>Payment Status</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let x of patientServedList\">\n        <td>{{ x.id }}</td>\n        <td>{{x.patient_name}}</td>\n        <td>{{ x.patient_address}}</td>\n        <!-- <td>{{ x.patient_mobile}}</td> -->\n        <td>{{ x.main_service }}</td>\n        <td>{{ x.sub_service_category}}</td>\n        <td>{{ x.sub_service}}</td>\n        <td>{{ x.total_price}}</td>\n        <td>{{ x.status}}</td>\n        <td> {{x.payment_status}}</td>\n        </tr>\n    </tbody>\n</table>\n<ngx-spinner></ngx-spinner>"
 
 /***/ }),
 
@@ -43557,7 +44130,7 @@ module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTri
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n        <tr>\n        <th>ID</th>\n        <th>Patient Name</th>\n        <th>Patient Address</th>\n        <th>Patient Mobile</th>\n        <th>Main Service</th>\n        <th>Sub Service Category</th>\n        <th>Sub Service</th>\n        <th>Total Price</th>\n        <th>Status</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let x of patientList\">\n        <td>{{ x.id }}</td>\n        <td>{{x.patient_name}}</td>\n        <td>{{ x.patient_address}}</td>\n        <td>{{ x.patient_mobile}}</td>\n        <td>{{ x.main_service }}</td>\n        <td>{{ x.sub_service_category}}</td>\n        <td>{{ x.sub_service}}</td>\n        <td>{{ x.total_price}}</td>\n        <td>{{ x.status}}</td>\n        </tr>\n    </tbody>\n</table>"
+module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n        <tr>\n        <th>ID</th>\n        <th>Patient Name</th>\n        <th>Patient Address</th>\n        <th>Patient Mobile</th>\n        <th>Main Service</th>\n        <th>Sub Service Category</th>\n        <th>Sub Service</th>\n        <th>Total Price</th>\n        <th>Status</th>\n        <th>Payment Status</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let x of patientList\">\n        <td>{{ x.id }}</td>\n        <td>{{x.patient_name}}</td>\n        <td>{{ x.patient_address}}</td>\n        <td>{{ x.patient_mobile}}</td>\n        <td>{{ x.main_service }}</td>\n        <td>{{ x.sub_service_category}}</td>\n        <td>{{ x.sub_service}}</td>\n        <td>{{ x.total_price}}</td>\n        <td>{{ x.status}}</td>\n        <td>{{x.payment_status}}</td>\n        </tr>\n    </tbody>\n</table>\n<ngx-spinner></ngx-spinner>"
 
 /***/ }),
 
@@ -43568,7 +44141,7 @@ module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTri
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section id=\"content\" class=\"mt-md-6\">\n    <h1>User Profile</h1>\n    <form [formGroup]=\"register\" (ngSubmit)=\"onSubmit()\">\n        <div class=\"form-group row mb-2\">\n            <div class=\"col-md-6\">\n                <label class=\"input-label\" for=\"exampleInputEmail1\">Name</label>\n                <input type=\"text\" formControlName=\"name\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"Enter Name\" />\n            </div>\n            <div class=\"col-md-6\">\n                <label class=\"input-label\" for=\"License_number\">License Number</label>\n                <input type=\"tel\" formControlName=\"license_number\" class=\"form-control\" id=\"License_number\" aria-describedby=\"emailHelp\" placeholder=\"Enter License\" />\n            </div>\n        </div>\n\n        <div class=\"form-group row mb-2\">\n            <div class=\"col-md-6\">\n                <label class=\"input-label\" for=\"mobNumber\">Mobile Number</label>\n                <input type=\"tel\" formControlName=\"mobile_number\" class=\"form-control\" id=\"mobNumber\" aria-describedby=\"emailHelp\" placeholder=\"Mobile Number\" />\n            </div>\n            <div class=\"col-md-6\">\n                <label class=\"input-label\" for=\"City\">City</label>\n                <input type=\"text\" formControlName=\"city\" class=\"form-control\" id=\"City\" aria-describedby=\"emailHelp\" placeholder=\"Enter City\" />\n            </div>\n        </div>\n        <div class=\"form-group row mb-2\">\n\n            <div class=\"col-md-6\">\n                <label class=\"input-label\" for=\"Email\">Email</label>\n                <input type=\"email\" formControlName=\"email\" class=\"form-control\" id=\"Email\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\" />\n            </div>\n            <div class=\"col-md-6\">\n                <img class=\"profile-img\" src=\"{{profileData?.license_image}}\" />\n                <!-- <label class=\"input-label\" for=\"Email\">Email</label>\n                <input type=\"email\" formControlName=\"email\" class=\"form-control\" id=\"Email\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\" /> -->\n            </div>\n\n        </div>\n        <!-- <div class=\"form-group\">\n            <label class=\"btn btn-dark text-dark \" for=\"exampleFormControlFile1\">Select Image</label>\n            <input type=\"file\" (change)=\"onFileChange($event)\" class=\"form-control-file\" id=\"exampleFormControlFile1\" />\n        </div> -->\n        <button type=\"submit\" [disabled]=\"!register.valid\" class=\"btn btn-primary\">Update Profile</button>\n    </form>\n</section>"
+module.exports = "<section id=\"content\" class=\"mt-md-6\">\n    <h1>User Profile</h1>\n    <form [formGroup]=\"register\" (ngSubmit)=\"onSubmit()\">\n        <div class=\"form-group row mb-2\">\n            <div class=\"col-md-6\">\n                <label class=\"input-label\" for=\"exampleInputEmail1\">Name</label>\n                <input type=\"text\" formControlName=\"name\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"Enter Name\" />\n            </div>\n            <div class=\"col-md-6\">\n                <label class=\"input-label\" for=\"License_number\">License Number</label>\n                <input type=\"tel\" formControlName=\"license_number\" class=\"form-control\" id=\"License_number\" aria-describedby=\"emailHelp\" placeholder=\"Enter License\" />\n            </div>\n        </div>\n\n        <div class=\"form-group row mb-2\">\n            <div class=\"col-md-6\">\n                <label class=\"input-label\" for=\"Email\">Email</label>\n                <input type=\"email\" formControlName=\"email\" class=\"form-control\" id=\"Email\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\" />\n            </div>\n            <div class=\"col-md-6\">\n                <label class=\"input-label\" for=\"mobNumber\">Mobile Number</label>\n                <input type=\"tel\" formControlName=\"mobile_number\" class=\"form-control\" id=\"mobNumber\" aria-describedby=\"emailHelp\" placeholder=\"Mobile Number\" />\n            </div>\n        </div>\n        <div class=\"form-group row mb-2\">\n            <div class=\"col-md-6\">\n                <label class=\"input-label\" for=\"City\">City</label>\n                <input type=\"text\" formControlName=\"city\" class=\"form-control\" id=\"City\" aria-describedby=\"emailHelp\" placeholder=\"Enter City\" />\n            </div>\n            <div class=\"col-md-6\">\n                <label class=\"input-label\" for=\"Email\">Address</label>\n                <input type=\"text\" formControlName=\"location\" class=\"form-control\" id=\"location\" aria-describedby=\"emailHelp\" placeholder=\"Enter Address\" />\n            </div>\n        </div>\n        <div class=\"form-group row mb-2\">\n            <div class=\"col-md-6\">\n                <img class=\"profile-img\" src=\"{{profileData?.license_image}}\" />\n            </div>\n            <div class=\"col-md-6\">\n                <img class=\"profile-img\" src=\"{{profileData?.hospital_image}}\" />\n            </div>\n        </div>\n        <button type=\"submit\" [disabled]=\"!register.valid\" class=\"btn btn-primary\">Update Profile</button>\n    </form>\n</section>\n<ngx-spinner></ngx-spinner>"
 
 /***/ }),
 
@@ -43579,7 +44152,7 @@ module.exports = "<section id=\"content\" class=\"mt-md-6\">\n    <h1>User Profi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1> Add Service </h1>\n<form>\n<div class=\"form-group row\">\n        <div class=\"col-md-6\">\n        <label for=\"categoryName\">Category</label>\n        <input type=\"text\"  name=\"categoryName\" [(ngModel)]=\"categoryName\" class=\"form-control\" disabled id=\"categoryName\" aria-describedby=\"emailHelp\" placeholder=\"Enter Name\">\n        </div>\n        <div class=\"col-md-6\">\n            <label for=\"subcategoryName\">Sub Category</label>\n            <input type=\"text\"  name=\"subCategoryName\" [(ngModel)]=\"subCategoryName\" class=\"form-control\" disabled id=\"subcategoryName\" aria-describedby=\"emailHelp\" placeholder=\"\">\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-6\">\n        <label for=\"serviceName\">Name</label>\n        <input type=\"text\"  name=\"serviceName\" [(ngModel)]=\"serviceName\" class=\"form-control\" id=\"serviceName\" aria-describedby=\"emailHelp\" placeholder=\"Enter Name\">\n        </div>\n        <div class=\"col-md-6\">\n            <label for=\"arabicName\">Arabic Name</label>\n            <input type=\"text\"  name=\"serviceNameArabic\" [(ngModel)]=\"serviceNameArabic\" class=\"form-control\" id=\"arabicName\" aria-describedby=\"emailHelp\" placeholder=\"\">\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-6\">\n            <label for=\"description\">Description</label>\n            <textarea class=\"form-control\"  name=\"serviceDescription\" [(ngModel)]=\"serviceDescription\" id=\"description\" rows=\"3\"></textarea>\n        </div>\n        <div class=\"col-md-6\">\n            <label for=\"descriptionArabic\">Arabic Description</label>\n            <textarea class=\"form-control\"  name=\"serviceDescriptionArabic\" [(ngModel)]=\"serviceDescriptionArabic\" id=\"descriptionArabic\" rows=\"3\"></textarea>\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-12\">\n            <label for=\"shortDescription\">Charges</label>\n            <input type=\"number\"  name=\"charges\" [(ngModel)]=\"charges\" class=\"form-control\" id=\"charges\" aria-describedby=\"emailHelp\" placeholder=\"charges\">\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-6\">\n            <label for=\"time_to\">Time To</label>\n            <input type=\"number\"  name=\"time_to\" [(ngModel)]=\"timeTo\" class=\"form-control\" id=\"time_to\" aria-describedby=\"emailHelp\" placeholder=\"\">\n        </div>\n        <div class=\"col-md-6\">\n            <label for=\"time_from\">Time from </label>\n            <input type=\"number\"  name=\"time_from\" [(ngModel)]=\"timeFrom\" class=\"form-control\" id=\"time_from\" aria-describedby=\"emailHelp\" placeholder=\"\">\n        </div>\n    </div>\n\n    <button type=\"submit\" class=\"btn btn-primary\" (click)=\"onSubmit()\">Submit</button>\n</form>"
+module.exports = "<h1> Add Service </h1>\n<form>\n<div class=\"form-group row\">\n        <div class=\"col-md-6\">\n        <label for=\"categoryName\">Category</label>\n        <input type=\"text\"  name=\"categoryName\" [(ngModel)]=\"categoryName\" class=\"form-control\" disabled id=\"categoryName\" aria-describedby=\"emailHelp\" placeholder=\"Enter Name\">\n        </div>\n        <div class=\"col-md-6\">\n            <label for=\"subcategoryName\">Sub Category</label>\n            <input type=\"text\"  name=\"subCategoryName\" [(ngModel)]=\"subCategoryName\" class=\"form-control\" disabled id=\"subcategoryName\" aria-describedby=\"emailHelp\" placeholder=\"\">\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-6\">\n        <label for=\"serviceName\">Name</label>\n        <input type=\"text\"  name=\"serviceName\" [(ngModel)]=\"serviceName\" disabled class=\"form-control\" id=\"serviceName\" aria-describedby=\"emailHelp\" placeholder=\"Enter Name\">\n        </div>\n        <div class=\"col-md-6\">\n            <label for=\"arabicName\">Arabic Name</label>\n            <input type=\"text\"  name=\"serviceNameArabic\" [(ngModel)]=\"serviceNameArabic\" disabled class=\"form-control\" id=\"arabicName\" aria-describedby=\"emailHelp\" placeholder=\"\">\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-6\">\n            <label>Short Description</label>\n            <textarea class=\"form-control\" name=\"serviceShortDescription\" [(ngModel)]=\"serviceShortDescription\" rows=\"2\"></textarea>\n        </div>\n        <div class=\"col-md-6\">\n            <label for=\"descriptionArabic\">Short Arabic Description</label>\n            <textarea class=\"form-control\" name=\"serviceShortDescriptionArabic\" [(ngModel)]=\"serviceShortDescriptionArabic\" rows=\"2\"></textarea>\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-6\">\n            <label for=\"description\">Description</label>\n            <textarea class=\"form-control\"  name=\"serviceDescription\" [(ngModel)]=\"serviceDescription\" id=\"description\" rows=\"3\"></textarea>\n        </div>\n        <div class=\"col-md-6\">\n            <label for=\"descriptionArabic\">Arabic Description</label>\n            <textarea class=\"form-control\"  name=\"serviceDescriptionArabic\" [(ngModel)]=\"serviceDescriptionArabic\" id=\"descriptionArabic\" rows=\"3\"></textarea>\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-6\">\n            <label for=\"shortDescription\">Charges</label>\n            <input type=\"number\"  name=\"charges\" [(ngModel)]=\"charges\" class=\"form-control\" id=\"charges\" aria-describedby=\"emailHelp\" placeholder=\"charges\">\n        </div>\n        <div class=\"col-md-6\">\n            <label for=\"shortDescription\">Conveyance Charges</label>\n            <input type=\"number\"  name=\"conveyanceCharges\" [(ngModel)]=\"conveyanceCharges\" class=\"form-control\" id=\"charges\" aria-describedby=\"emailHelp\" placeholder=\"Conveyance Charges\">\n        </div>\n    </div>\n    <div class=\"form-group row\">\n        <div class=\"col-md-6\">\n            <label for=\"time_to\">Time To</label>\n            <input type=\"number\"  name=\"time_to\" [(ngModel)]=\"timeTo\" class=\"form-control\" id=\"time_to\" aria-describedby=\"emailHelp\" placeholder=\"\">\n        </div>\n        <div class=\"col-md-6\">\n            <label for=\"time_from\">Time from </label>\n            <input type=\"number\"  name=\"time_from\" [(ngModel)]=\"timeFrom\" class=\"form-control\" id=\"time_from\" aria-describedby=\"emailHelp\" placeholder=\"\">\n        </div>\n    </div>\n\n    <button type=\"submit\" class=\"btn btn-primary\" (click)=\"onSubmit()\">Submit</button>\n</form>"
 
 /***/ }),
 
@@ -43590,7 +44163,7 @@ module.exports = "<h1> Add Service </h1>\n<form>\n<div class=\"form-group row\">
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n        <tr>\n        <th>Service ID</th>\n        <th>Service Name</th>\n        <th>Service Arabic Name</th>\n        <th>Service Description</th>\n        <th>Service Arabic Description </th>\n        <th>Status</th>\n        <th>Charges</th>\n        <th>Commission</th>\n        <th>Actions</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let x of items\">\n        <td>{{ x.service_id }}</td>\n        <td>{{ x.service_name }}</td>\n        <td>{{ x.service_name_arabic }}</td>\n        <td>{{ x.service_description }}</td>\n        <td>{{ x.service_description_arabic}}</td>\n        <td>{{ x.status }}</td>\n        <td>{{ x.charges }}</td>\n        <td><input name=\"commission\" [(ngModel)]=\"x.commission\"></td>\n        <td><i class=\"fa fa-check-circle icon\" (click)=\"acceptService(x.commission)\"></i> <i class=\"fa fa-times icon\" (click)=\"rejectService()\"></i></td>\n        </tr>\n    </tbody>\n    </table>"
+module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n    <thead>\n        <tr>\n        <th>Service ID</th>\n        <th>Service Name</th>\n        <th>Service Arabic Name</th>\n        <th>Service Description</th>\n        <th>Service Arabic Description </th>\n        <th>Status</th>\n        <th>Charges</th>\n        <th>Commission</th>\n        <th>Actions</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let x of items\">\n        <td>{{ x.service_id }}</td>\n        <td>{{ x.service_name }}</td>\n        <td>{{ x.service_name_arabic }}</td>\n        <td>{{ x.service_description }}</td>\n        <td>{{ x.service_description_arabic}}</td>\n        <td>{{ x.status }}</td>\n        <td>{{ x.charges }}</td>\n        <td><input name=\"commission\" [(ngModel)]=\"x.commission\"></td>\n        <td><i class=\"fa fa-check-circle icon\" (click)=\"acceptService(x.commission)\"></i> <i class=\"fa fa-times icon\" (click)=\"rejectService()\"></i></td>\n        </tr>\n    </tbody>\n    </table>\n    <ngx-spinner></ngx-spinner>"
 
 /***/ }),
 
@@ -43601,7 +44174,7 @@ module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTri
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n<thead>\n    <tr>\n    <th>ID</th>\n    <th>Name</th>\n    <th>Email</th>\n    <th>Mobile</th>\n    <th>License Image</th>\n    <th>License Number</th>\n    <th>City</th>\n    <th>Actions</th>\n    </tr>\n</thead>\n<tbody>\n    <tr *ngFor=\"let x of items\">\n    <td>{{ x.id }}</td>\n    <td>{{ x.name }}</td>\n    <td>{{ x.email }}</td>\n    <td>{{ x.mobile }}</td>\n    <td><img class=\"img-logo\" [src]=\"x.license_image\"></td>\n    <td>{{ x.license_number}}</td>\n    <td>{{ x.city }}</td>\n    <td><i class=\"fa fa-eye icon\" [routerLink]=\"['/service-provider-detail', x.id]\"></i></td>\n    </tr>\n</tbody>\n</table>"
+module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n<thead>\n    <tr>\n    <th>ID</th>\n    <th>Name</th>\n    <th>Email</th>\n    <th>Mobile</th>\n    <th>License Image</th>\n    <th>License Number</th>\n    <th>City</th>\n    <th>Actions</th>\n    </tr>\n</thead>\n<tbody>\n    <tr *ngFor=\"let x of items\">\n    <td>{{ x.id }}</td>\n    <td>{{ x.name }}</td>\n    <td>{{ x.email }}</td>\n    <td>{{ x.mobile }}</td>\n    <td><img class=\"img-logo\" [src]=\"x.license_image\"></td>\n    <td>{{ x.license_number}}</td>\n    <td>{{ x.city }}</td>\n    <td><i class=\"fa fa-eye icon\" [routerLink]=\"['/service-provider-detail', x.id]\"></i></td>\n    </tr>\n</tbody>\n</table>\n<ngx-spinner></ngx-spinner>"
 
 /***/ }),
 
@@ -43612,7 +44185,7 @@ module.exports = "<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTri
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div>\n  <button (click)=\"navigateAddSubCategory()\" class=\"bnt btn-primary add-btn\">Add</button>\n</div> -->\n<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n  <thead>\n    <tr>\n      <th>ID</th>\n      <th>Logo</th>\n      <th>Name</th>\n      <th>Arabic Name</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let x of items\" [routerLink]=\"['/services', x.id]\">\n      <td>{{ x.id }}</td>\n      <td><img class=\"img-logo\" [src]=\"x.image\"></td>\n      <td>{{ x.name }}</td>\n      <td>{{ x.arabic_name}}</td>\n    </tr>\n  </tbody>\n</table>"
+module.exports = "<!-- <div>\n  <button (click)=\"navigateAddSubCategory()\" class=\"bnt btn-primary add-btn\">Add</button>\n</div> -->\n<table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"row-border hover\">\n  <thead>\n    <tr>\n      <th>ID</th>\n      <th>Logo</th>\n      <th>Name</th>\n      <th>Arabic Name</th>\n      <th>Select</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let x of items\">\n      <td>{{ x.id }}</td>\n      <td><img class=\"img-logo\" [src]=\"x.image\"></td>\n      <td>{{ x.name }}</td>\n      <td>{{ x.arabic_name}}</td>\n      <td><i class=\"fa fa-check tick\" [routerLink]=\"['/services', x.id]\"></i></td>\n    </tr>\n  </tbody>\n</table>\n<ngx-spinner></ngx-spinner>"
 
 /***/ }),
 
@@ -43710,6 +44283,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var app_pages_consultant_details_consultant_details_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! app/pages/consultant-details/consultant-details.component */ "./src/app/pages/consultant-details/consultant-details.component.ts");
 /* harmony import */ var app_pages_my_service_update_my_service_update_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! app/pages/my-service-update/my-service-update.component */ "./src/app/pages/my-service-update/my-service-update.component.ts");
 /* harmony import */ var app_pages_appointment_details_appointment_details_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! app/pages/appointment-details/appointment-details.component */ "./src/app/pages/appointment-details/appointment-details.component.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+/* harmony import */ var app_pages_patients_paid_request_patients_paid_request_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! app/pages/patients-paid-request/patients-paid-request.component */ "./src/app/pages/patients-paid-request/patients-paid-request.component.ts");
+/* harmony import */ var app_pages_patients_paid_request_assign_staff_assign_staff_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! app/pages/patients-paid-request/assign-staff/assign-staff.component */ "./src/app/pages/patients-paid-request/assign-staff/assign-staff.component.ts");
+/* harmony import */ var app_pages_patients_paid_request_assign_staff_approve_modal_approve_modal_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! app/pages/patients-paid-request/assign-staff/approve-modal/approve-modal.component */ "./src/app/pages/patients-paid-request/assign-staff/approve-modal/approve-modal.component.ts");
+
+
+
+
 
 
 
@@ -43764,7 +44345,8 @@ var AdminLayoutModule = /** @class */ (function () {
                 _swimlane_ngx_datatable__WEBPACK_IMPORTED_MODULE_5__["NgxDatatableModule"],
                 angular_datatables__WEBPACK_IMPORTED_MODULE_6__["DataTablesModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"],
-                ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_7__["NgxMaterialTimepickerModule"]
+                ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_7__["NgxMaterialTimepickerModule"],
+                ngx_spinner__WEBPACK_IMPORTED_MODULE_40__["NgxSpinnerModule"]
             ],
             declarations: [
                 _pages_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_9__["DashboardComponent"],
@@ -43796,7 +44378,10 @@ var AdminLayoutModule = /** @class */ (function () {
                 app_pages_profile_profile_component__WEBPACK_IMPORTED_MODULE_31__["ProfileComponent"],
                 app_pages_consultants_consultants_component__WEBPACK_IMPORTED_MODULE_36__["ConsultantsComponent"],
                 app_pages_consultant_details_consultant_details_component__WEBPACK_IMPORTED_MODULE_37__["ConsultantDetailsComponent"],
-                app_pages_my_service_update_my_service_update_component__WEBPACK_IMPORTED_MODULE_38__["MyServiceUpdateComponent"]
+                app_pages_my_service_update_my_service_update_component__WEBPACK_IMPORTED_MODULE_38__["MyServiceUpdateComponent"],
+                app_pages_patients_paid_request_patients_paid_request_component__WEBPACK_IMPORTED_MODULE_41__["PatientsPaidRequestComponent"],
+                app_pages_patients_paid_request_assign_staff_assign_staff_component__WEBPACK_IMPORTED_MODULE_42__["AssignStaffComponent"],
+                app_pages_patients_paid_request_assign_staff_approve_modal_approve_modal_component__WEBPACK_IMPORTED_MODULE_43__["ApproveModalComponent"]
             ]
         })
     ], AdminLayoutModule);
@@ -43847,6 +44432,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var app_pages_consultant_details_consultant_details_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! app/pages/consultant-details/consultant-details.component */ "./src/app/pages/consultant-details/consultant-details.component.ts");
 /* harmony import */ var app_pages_my_service_update_my_service_update_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! app/pages/my-service-update/my-service-update.component */ "./src/app/pages/my-service-update/my-service-update.component.ts");
 /* harmony import */ var app_pages_appointment_details_appointment_details_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! app/pages/appointment-details/appointment-details.component */ "./src/app/pages/appointment-details/appointment-details.component.ts");
+/* harmony import */ var app_pages_patients_paid_request_patients_paid_request_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! app/pages/patients-paid-request/patients-paid-request.component */ "./src/app/pages/patients-paid-request/patients-paid-request.component.ts");
+/* harmony import */ var app_pages_patients_paid_request_assign_staff_assign_staff_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! app/pages/patients-paid-request/assign-staff/assign-staff.component */ "./src/app/pages/patients-paid-request/assign-staff/assign-staff.component.ts");
+/* harmony import */ var app_pages_patients_paid_request_assign_staff_approve_modal_approve_modal_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! app/pages/patients-paid-request/assign-staff/approve-modal/approve-modal.component */ "./src/app/pages/patients-paid-request/assign-staff/approve-modal/approve-modal.component.ts");
+
+
+
 
 
 
@@ -43909,6 +44500,9 @@ var AdminLayoutRoutes = [
     { path: 'notifications', component: _pages_notifications_notifications_component__WEBPACK_IMPORTED_MODULE_6__["NotificationsComponent"] },
     { path: 'upgrade', component: _pages_upgrade_upgrade_component__WEBPACK_IMPORTED_MODULE_7__["UpgradeComponent"] },
     { path: 'profile', component: app_pages_profile_profile_component__WEBPACK_IMPORTED_MODULE_21__["ProfileComponent"] },
+    { path: 'patients-paid-request', component: app_pages_patients_paid_request_patients_paid_request_component__WEBPACK_IMPORTED_MODULE_30__["PatientsPaidRequestComponent"] },
+    { path: 'assign-staff/:id/:appointment_date', component: app_pages_patients_paid_request_assign_staff_assign_staff_component__WEBPACK_IMPORTED_MODULE_31__["AssignStaffComponent"] },
+    { path: 'assign-staff-approve', component: app_pages_patients_paid_request_assign_staff_approve_modal_approve_modal_component__WEBPACK_IMPORTED_MODULE_32__["ApproveModalComponent"] },
 ];
 
 
@@ -44327,6 +44921,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/services/appointments/appointments.service */ "./src/app/services/appointments/appointments.service.ts");
 /* harmony import */ var app_services_consultants_consultants_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/services/consultants/consultants.service */ "./src/app/services/consultants/consultants.service.ts");
 /* harmony import */ var app_services_general_api_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/services/general-api.service */ "./src/app/services/general-api.service.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+
 
 
 
@@ -44335,26 +44931,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var AppointmentsComponent = /** @class */ (function () {
-    function AppointmentsComponent(router, appointmentApi, consultantApi, sharedService) {
+    function AppointmentsComponent(router, appointmentApi, consultantApi, sharedService, spinner) {
         this.router = router;
         this.appointmentApi = appointmentApi;
         this.consultantApi = consultantApi;
         this.sharedService = sharedService;
+        this.spinner = spinner;
         this.dtOptions = {};
         this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
     }
     AppointmentsComponent.prototype.ngOnInit = function () {
         this.dtOptions = {
             pagingType: 'full_numbers',
-            pageLength: 10
+            pageLength: 25
         };
         this.getAppoinments();
         this.getConsultant();
     };
     AppointmentsComponent.prototype.getAppoinments = function () {
         var _this = this;
+        this.spinner.show();
         this.appointmentApi.getAllAppointments().subscribe(function (res) {
             console.log(res);
+            _this.spinner.hide();
             _this.appointmentsList = res.message;
             _this.dtTrigger.next();
         }, function (err) {
@@ -44413,7 +45012,8 @@ var AppointmentsComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
             app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_4__["AppointmentsService"],
             app_services_consultants_consultants_service__WEBPACK_IMPORTED_MODULE_5__["ConsultantsService"],
-            app_services_general_api_service__WEBPACK_IMPORTED_MODULE_6__["GeneralApiService"]])
+            app_services_general_api_service__WEBPACK_IMPORTED_MODULE_6__["GeneralApiService"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_7__["NgxSpinnerService"]])
     ], AppointmentsComponent);
     return AppointmentsComponent;
 }());
@@ -44429,7 +45029,7 @@ var AppointmentsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "img {\n  width: 50px;\n}\n\n.add-btn {\n  margin-bottom: 29px;\n  float: right;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zYWFkc3VmeWFuL0Rlc2t0b3AvZnJlZWxhY2UgcHJvamVjdHMvYXR0YXlhYiBwcm9qZWN0cy9uamVlay1zZXJ2aWNlLXByb3ZpZGVyL3NyYy9hcHAvcGFnZXMvY2F0ZWdvcmllcy9jYXRlZ29yaWVzLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9wYWdlcy9jYXRlZ29yaWVzL2NhdGVnb3JpZXMuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxXQUFBO0FDQ0o7O0FERUE7RUFDSSxtQkFBQTtFQUNBLFlBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2NhdGVnb3JpZXMvY2F0ZWdvcmllcy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImltZyB7XG4gICAgd2lkdGg6IDUwcHg7XG59XG5cbi5hZGQtYnRuIHtcbiAgICBtYXJnaW4tYm90dG9tOiAyOXB4O1xuICAgIGZsb2F0OiByaWdodDtcbn0iLCJpbWcge1xuICB3aWR0aDogNTBweDtcbn1cblxuLmFkZC1idG4ge1xuICBtYXJnaW4tYm90dG9tOiAyOXB4O1xuICBmbG9hdDogcmlnaHQ7XG59Il19 */"
+module.exports = "img {\n  width: 50px;\n}\n\n.add-btn {\n  margin-bottom: 29px;\n  float: right;\n}\n\n.tick {\n  font-size: 25px;\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zYWFkc3VmeWFuL0Rlc2t0b3AvZnJlZWxhY2UgcHJvamVjdHMvYXR0YXlhYiBwcm9qZWN0cy9uamVlay1zZXJ2aWNlLXByb3ZpZGVyL3NyYy9hcHAvcGFnZXMvY2F0ZWdvcmllcy9jYXRlZ29yaWVzLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9wYWdlcy9jYXRlZ29yaWVzL2NhdGVnb3JpZXMuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxXQUFBO0FDQ0o7O0FERUE7RUFDSSxtQkFBQTtFQUNBLFlBQUE7QUNDSjs7QURDQTtFQUNJLGVBQUE7RUFDQSxlQUFBO0FDRUoiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9jYXRlZ29yaWVzL2NhdGVnb3JpZXMuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpbWcge1xuICAgIHdpZHRoOiA1MHB4O1xufVxuXG4uYWRkLWJ0biB7XG4gICAgbWFyZ2luLWJvdHRvbTogMjlweDtcbiAgICBmbG9hdDogcmlnaHQ7XG59XG4udGljayB7XG4gICAgZm9udC1zaXplOiAyNXB4O1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbn0iLCJpbWcge1xuICB3aWR0aDogNTBweDtcbn1cblxuLmFkZC1idG4ge1xuICBtYXJnaW4tYm90dG9tOiAyOXB4O1xuICBmbG9hdDogcmlnaHQ7XG59XG5cbi50aWNrIHtcbiAgZm9udC1zaXplOiAyNXB4O1xuICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */"
 
 /***/ }),
 
@@ -44448,15 +45048,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+
 
 
 
 
 
 var CategoriesComponent = /** @class */ (function () {
-    function CategoriesComponent(http, router) {
+    function CategoriesComponent(http, router, spinner) {
         this.http = http;
         this.router = router;
+        this.spinner = spinner;
         this.dtOptions = {};
         this.persons = [];
         this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
@@ -44465,11 +45068,13 @@ var CategoriesComponent = /** @class */ (function () {
         var _this = this;
         this.dtOptions = {
             pagingType: 'full_numbers',
-            pageLength: 2
+            pageLength: 25
         };
+        this.spinner.show();
         this.http.get('https://najeek.herokuapp.com/admin/category')
             .subscribe(function (persons) {
             console.log('person ', persons);
+            _this.spinner.hide();
             _this.persons = persons;
             // Calling the DT trigger to manually render the table
             _this.dtTrigger.next();
@@ -44492,7 +45097,7 @@ var CategoriesComponent = /** @class */ (function () {
             template: __webpack_require__(/*! raw-loader!./categories.component.html */ "./node_modules/raw-loader/index.js!./src/app/pages/categories/categories.component.html"),
             styles: [__webpack_require__(/*! ./categories.component.scss */ "./src/app/pages/categories/categories.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_5__["NgxSpinnerService"]])
     ], CategoriesComponent);
     return CategoriesComponent;
 }());
@@ -44508,7 +45113,7 @@ var CategoriesComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".img-logo {\n  width: 50px;\n}\n\n.add-btn {\n  margin-bottom: 29px;\n  float: right;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zYWFkc3VmeWFuL0Rlc2t0b3AvZnJlZWxhY2UgcHJvamVjdHMvYXR0YXlhYiBwcm9qZWN0cy9uamVlay1zZXJ2aWNlLXByb3ZpZGVyL3NyYy9hcHAvcGFnZXMvY2F0ZWdvcnkvY2F0ZWdvcnkuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2NhdGVnb3J5L2NhdGVnb3J5LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksV0FBQTtBQ0NKOztBREVBO0VBQ0ksbUJBQUE7RUFDQSxZQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9jYXRlZ29yeS9jYXRlZ29yeS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5pbWctbG9nbyB7XG4gICAgd2lkdGg6IDUwcHg7XG59XG5cbi5hZGQtYnRuIHtcbiAgICBtYXJnaW4tYm90dG9tOiAyOXB4O1xuICAgIGZsb2F0OiByaWdodDtcbn0iLCIuaW1nLWxvZ28ge1xuICB3aWR0aDogNTBweDtcbn1cblxuLmFkZC1idG4ge1xuICBtYXJnaW4tYm90dG9tOiAyOXB4O1xuICBmbG9hdDogcmlnaHQ7XG59Il19 */"
+module.exports = ".img-logo {\n  width: 50px;\n}\n\n.add-btn {\n  margin-bottom: 29px;\n  float: right;\n}\n\n.tick {\n  font-size: 25px;\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zYWFkc3VmeWFuL0Rlc2t0b3AvZnJlZWxhY2UgcHJvamVjdHMvYXR0YXlhYiBwcm9qZWN0cy9uamVlay1zZXJ2aWNlLXByb3ZpZGVyL3NyYy9hcHAvcGFnZXMvY2F0ZWdvcnkvY2F0ZWdvcnkuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2NhdGVnb3J5L2NhdGVnb3J5LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksV0FBQTtBQ0NKOztBREVBO0VBQ0ksbUJBQUE7RUFDQSxZQUFBO0FDQ0o7O0FEQ0E7RUFDSSxlQUFBO0VBQ0EsZUFBQTtBQ0VKIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvY2F0ZWdvcnkvY2F0ZWdvcnkuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaW1nLWxvZ28ge1xuICAgIHdpZHRoOiA1MHB4O1xufVxuXG4uYWRkLWJ0biB7XG4gICAgbWFyZ2luLWJvdHRvbTogMjlweDtcbiAgICBmbG9hdDogcmlnaHQ7XG59XG4udGljayB7XG4gICAgZm9udC1zaXplOiAyNXB4O1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbn0iLCIuaW1nLWxvZ28ge1xuICB3aWR0aDogNTBweDtcbn1cblxuLmFkZC1idG4ge1xuICBtYXJnaW4tYm90dG9tOiAyOXB4O1xuICBmbG9hdDogcmlnaHQ7XG59XG5cbi50aWNrIHtcbiAgZm9udC1zaXplOiAyNXB4O1xuICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */"
 
 /***/ }),
 
@@ -44527,15 +45132,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+
 
 
 
 
 
 var CategoryComponent = /** @class */ (function () {
-    function CategoryComponent(http, router) {
+    function CategoryComponent(http, router, spinner) {
         this.http = http;
         this.router = router;
+        this.spinner = spinner;
         this.dtOptions = {};
         this.items = [];
         this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
@@ -44544,11 +45152,13 @@ var CategoryComponent = /** @class */ (function () {
         var _this = this;
         this.dtOptions = {
             pagingType: 'full_numbers',
-            pageLength: 2
+            pageLength: 25
         };
+        this.spinner.show();
         this.http.get('https://najeek.herokuapp.com/service/main_category')
             .subscribe(function (items) {
             console.log('category ', items);
+            _this.spinner.hide();
             _this.items = items;
             // Calling the DT trigger to manually render the table
             _this.dtTrigger.next();
@@ -44567,7 +45177,7 @@ var CategoryComponent = /** @class */ (function () {
             template: __webpack_require__(/*! raw-loader!./category.component.html */ "./node_modules/raw-loader/index.js!./src/app/pages/category/category.component.html"),
             styles: [__webpack_require__(/*! ./category.component.scss */ "./src/app/pages/category/category.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_5__["NgxSpinnerService"]])
     ], CategoryComponent);
     return CategoryComponent;
 }());
@@ -44723,6 +45333,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var app_services_consultants_consultants_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/services/consultants/consultants.service */ "./src/app/services/consultants/consultants.service.ts");
 /* harmony import */ var app_services_general_api_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/services/general-api.service */ "./src/app/services/general-api.service.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+
 
 
 
@@ -44731,26 +45343,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ConsultantsComponent = /** @class */ (function () {
-    function ConsultantsComponent(http, router, activatedroute, consultantApi, sharedService) {
+    function ConsultantsComponent(http, router, activatedroute, consultantApi, sharedService, spinner) {
         this.http = http;
         this.router = router;
         this.activatedroute = activatedroute;
         this.consultantApi = consultantApi;
         this.sharedService = sharedService;
+        this.spinner = spinner;
         this.dtOptions = {};
         this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
     }
     ConsultantsComponent.prototype.ngOnInit = function () {
         this.dtOptions = {
             pagingType: 'full_numbers',
-            pageLength: 10
+            pageLength: 25
         };
         this.getConsultant();
     };
     ConsultantsComponent.prototype.getConsultant = function () {
         var _this = this;
+        this.spinner.show();
         this.consultantApi.getAllConsultants().subscribe(function (res) {
             console.log(res);
+            _this.spinner.hide();
             _this.items = res;
             _this.dtTrigger.next();
         }, function (err) {
@@ -44779,7 +45394,8 @@ var ConsultantsComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],
             app_services_consultants_consultants_service__WEBPACK_IMPORTED_MODULE_5__["ConsultantsService"],
-            app_services_general_api_service__WEBPACK_IMPORTED_MODULE_6__["GeneralApiService"]])
+            app_services_general_api_service__WEBPACK_IMPORTED_MODULE_6__["GeneralApiService"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_7__["NgxSpinnerService"]])
     ], ConsultantsComponent);
     return ConsultantsComponent;
 }());
@@ -44814,15 +45430,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var app_services_customer_customer_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/services/customer/customer.service */ "./src/app/services/customer/customer.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+
 
 
 
 
 
 var CustomerDetailsComponent = /** @class */ (function () {
-    function CustomerDetailsComponent(customerApi, activatedroute) {
+    function CustomerDetailsComponent(customerApi, activatedroute, spinner) {
         this.customerApi = customerApi;
         this.activatedroute = activatedroute;
+        this.spinner = spinner;
         this.dtOptions = {};
         this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
     }
@@ -44842,8 +45461,10 @@ var CustomerDetailsComponent = /** @class */ (function () {
     };
     CustomerDetailsComponent.prototype.getCustomerData = function (id) {
         var _this = this;
+        this.spinner.show();
         this.customerApi.getCustomerWithId(id).subscribe(function (res) {
             console.log(res);
+            _this.spinner.hide();
             _this.items = res;
             // Calling the DT trigger to manually render the table
             _this.dtTrigger.next();
@@ -44862,7 +45483,8 @@ var CustomerDetailsComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./customer-details.component.scss */ "./src/app/pages/customer-details/customer-details.component.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [app_services_customer_customer_service__WEBPACK_IMPORTED_MODULE_3__["CustomerService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_5__["NgxSpinnerService"]])
     ], CustomerDetailsComponent);
     return CustomerDetailsComponent;
 }());
@@ -44898,6 +45520,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var app_services_customer_customer_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/services/customer/customer.service */ "./src/app/services/customer/customer.service.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+
 
 
 
@@ -44905,24 +45529,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var CustomerListComponent = /** @class */ (function () {
-    function CustomerListComponent(http, router, customerApi) {
+    function CustomerListComponent(http, router, customerApi, spinner) {
         this.http = http;
         this.router = router;
         this.customerApi = customerApi;
+        this.spinner = spinner;
         this.dtOptions = {};
         this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
     }
     CustomerListComponent.prototype.ngOnInit = function () {
         this.dtOptions = {
             pagingType: 'full_numbers',
-            pageLength: 2
+            pageLength: 25
         };
         this.getCustomerList();
     };
     CustomerListComponent.prototype.getCustomerList = function () {
         var _this = this;
+        this.spinner.show();
         this.customerApi.getAll().subscribe(function (res) {
             console.log(res);
+            _this.spinner.hide();
             _this.items = res;
             // Calling the DT trigger to manually render the table
             _this.dtTrigger.next();
@@ -44941,7 +45568,10 @@ var CustomerListComponent = /** @class */ (function () {
             providers: [app_services_customer_customer_service__WEBPACK_IMPORTED_MODULE_5__["CustomerService"]],
             styles: [__webpack_require__(/*! ./customer-list.component.scss */ "./src/app/pages/customer-list/customer-list.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], app_services_customer_customer_service__WEBPACK_IMPORTED_MODULE_5__["CustomerService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            app_services_customer_customer_service__WEBPACK_IMPORTED_MODULE_5__["CustomerService"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_6__["NgxSpinnerService"]])
     ], CustomerListComponent);
     return CustomerListComponent;
 }());
@@ -45206,6 +45836,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var app_services_service_provider_service_provider_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/services/service-provider/service-provider.service */ "./src/app/services/service-provider/service-provider.service.ts");
 /* harmony import */ var app_services_general_api_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/services/general-api.service */ "./src/app/services/general-api.service.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+
 
 
 
@@ -45214,12 +45846,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var MainServicesComponent = /** @class */ (function () {
-    function MainServicesComponent(http, router, activatedroute, servicesApi, sharedService) {
+    function MainServicesComponent(http, router, activatedroute, servicesApi, sharedService, spinner) {
         this.http = http;
         this.router = router;
         this.activatedroute = activatedroute;
         this.servicesApi = servicesApi;
         this.sharedService = sharedService;
+        this.spinner = spinner;
         this.dtOptions = {};
         this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
     }
@@ -45238,8 +45871,10 @@ var MainServicesComponent = /** @class */ (function () {
     };
     MainServicesComponent.prototype.getServices = function () {
         var _this = this;
+        this.spinner.show();
         this.servicesApi.getServicesWithID(this.id).subscribe(function (res) {
             console.log(res);
+            _this.spinner.hide();
             _this.items = res;
             _this.dtTrigger.next();
         }, function (err) {
@@ -45266,7 +45901,8 @@ var MainServicesComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],
             app_services_service_provider_service_provider_service__WEBPACK_IMPORTED_MODULE_5__["ServiceProviderService"],
-            app_services_general_api_service__WEBPACK_IMPORTED_MODULE_6__["GeneralApiService"]])
+            app_services_general_api_service__WEBPACK_IMPORTED_MODULE_6__["GeneralApiService"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_7__["NgxSpinnerService"]])
     ], MainServicesComponent);
     return MainServicesComponent;
 }());
@@ -45347,16 +45983,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var app_services_service_provider_service_provider_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/services/service-provider/service-provider.service */ "./src/app/services/service-provider/service-provider.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var app_services_general_api_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/services/general-api.service */ "./src/app/services/general-api.service.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+
 
 
 
 
 
 var MyServiceUpdateComponent = /** @class */ (function () {
-    function MyServiceUpdateComponent(serviceApi, activatedroute, sharedService) {
+    function MyServiceUpdateComponent(serviceApi, activatedroute, sharedService, spinner) {
         this.serviceApi = serviceApi;
         this.activatedroute = activatedroute;
         this.sharedService = sharedService;
+        this.spinner = spinner;
         this.date = new Date(Date.now());
     }
     MyServiceUpdateComponent.prototype.ngOnInit = function () {
@@ -45370,6 +46009,8 @@ var MyServiceUpdateComponent = /** @class */ (function () {
         this.id = this.MyServiceData.service_id;
         this.service_name = this.MyServiceData.service_name;
         this.service_name_arabic = this.MyServiceData.service_name_arabic;
+        this.service_short_description = this.MyServiceData.service_short_description;
+        this.service_short_description_arabic = this.MyServiceData.service_short_description_arabic;
         this.service_description = this.MyServiceData.service_description;
         this.service_description_arabic = this.MyServiceData.service_description_arabic;
         this.charges = this.MyServiceData.charges;
@@ -45377,21 +46018,27 @@ var MyServiceUpdateComponent = /** @class */ (function () {
         this.time_from = this.MyServiceData.time_from;
     };
     MyServiceUpdateComponent.prototype.onSubmit = function () {
+        var _this = this;
         var data = {
             service_id: parseInt(this.id),
             service_name: this.service_name,
             service_name_arabic: this.service_name_arabic,
+            service_short_description: this.service_short_description,
+            service_short_description_arabic: this.service_short_description_arabic,
             service_description: this.service_description,
             service_description_arabic: this.service_description_arabic,
             charges: this.charges,
             time_to: this.time_to.toString(),
             time_from: this.time_from.toString(),
         };
+        this.spinner.show();
         console.log(data);
         this.serviceApi.updateService(data).subscribe(function (res) {
             console.log(res);
+            _this.spinner.hide();
         }, function (err) {
             console.log(err);
+            _this.spinner.hide();
         });
     };
     MyServiceUpdateComponent.prototype.ngOnDestroy = function () {
@@ -45407,7 +46054,8 @@ var MyServiceUpdateComponent = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [app_services_service_provider_service_provider_service__WEBPACK_IMPORTED_MODULE_2__["ServiceProviderService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
-            app_services_general_api_service__WEBPACK_IMPORTED_MODULE_4__["GeneralApiService"]])
+            app_services_general_api_service__WEBPACK_IMPORTED_MODULE_4__["GeneralApiService"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_5__["NgxSpinnerService"]])
     ], MyServiceUpdateComponent);
     return MyServiceUpdateComponent;
 }());
@@ -45443,6 +46091,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var app_services_general_api_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/services/general-api.service */ "./src/app/services/general-api.service.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+
 
 
 
@@ -45450,27 +46100,31 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var MyServicesComponent = /** @class */ (function () {
-    function MyServicesComponent(servicesApi, router, sharedService) {
+    function MyServicesComponent(servicesApi, router, sharedService, spinner) {
         this.servicesApi = servicesApi;
         this.router = router;
         this.sharedService = sharedService;
+        this.spinner = spinner;
         this.dtOptions = {};
         this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
     }
     MyServicesComponent.prototype.ngOnInit = function () {
         this.dtOptions = {
             pagingType: 'full_numbers',
-            pageLength: 10
+            pageLength: 25
         };
         this.getMyServices();
     };
     MyServicesComponent.prototype.getMyServices = function () {
         var _this = this;
+        this.spinner.show();
         this.servicesApi.getMyService().subscribe(function (res) {
             console.log(res);
+            _this.spinner.hide();
             _this.items = res;
             _this.dtTrigger.next();
         }, function (err) {
+            _this.spinner.hide();
             console.log(err);
         });
     };
@@ -45491,7 +46145,9 @@ var MyServicesComponent = /** @class */ (function () {
             providers: [app_services_service_provider_service_provider_service__WEBPACK_IMPORTED_MODULE_2__["ServiceProviderService"], app_services_general_api_service__WEBPACK_IMPORTED_MODULE_5__["GeneralApiService"]],
             styles: [__webpack_require__(/*! ./my-services.component.scss */ "./src/app/pages/my-services/my-services.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [app_services_service_provider_service_provider_service__WEBPACK_IMPORTED_MODULE_2__["ServiceProviderService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], app_services_general_api_service__WEBPACK_IMPORTED_MODULE_5__["GeneralApiService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [app_services_service_provider_service_provider_service__WEBPACK_IMPORTED_MODULE_2__["ServiceProviderService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], app_services_general_api_service__WEBPACK_IMPORTED_MODULE_5__["GeneralApiService"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_6__["NgxSpinnerService"]])
     ], MyServicesComponent);
     return MyServicesComponent;
 }());
@@ -45586,6 +46242,305 @@ var NotificationsComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/pages/patients-paid-request/assign-staff/approve-modal/approve-modal.component.scss":
+/*!*****************************************************************************************************!*\
+  !*** ./src/app/pages/patients-paid-request/assign-staff/approve-modal/approve-modal.component.scss ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3BhdGllbnRzLXBhaWQtcmVxdWVzdC9hc3NpZ24tc3RhZmYvYXBwcm92ZS1tb2RhbC9hcHByb3ZlLW1vZGFsLmNvbXBvbmVudC5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/pages/patients-paid-request/assign-staff/approve-modal/approve-modal.component.ts":
+/*!***************************************************************************************************!*\
+  !*** ./src/app/pages/patients-paid-request/assign-staff/approve-modal/approve-modal.component.ts ***!
+  \***************************************************************************************************/
+/*! exports provided: ApproveModalComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApproveModalComponent", function() { return ApproveModalComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
+
+
+
+var ApproveModalComponent = /** @class */ (function () {
+    function ApproveModalComponent(activeModal, _modalService) {
+        this.activeModal = activeModal;
+        this._modalService = _modalService;
+        this.close = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    }
+    ApproveModalComponent.prototype.ngOnInit = function () {
+    };
+    ApproveModalComponent.prototype.closeModal = function () {
+        // this._modalService.dismissAll('modal close');
+        this.close.emit();
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], ApproveModalComponent.prototype, "minutes", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], ApproveModalComponent.prototype, "close", void 0);
+    ApproveModalComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-approve-modal',
+            template: __webpack_require__(/*! raw-loader!./approve-modal.component.html */ "./node_modules/raw-loader/index.js!./src/app/pages/patients-paid-request/assign-staff/approve-modal/approve-modal.component.html"),
+            styles: [__webpack_require__(/*! ./approve-modal.component.scss */ "./src/app/pages/patients-paid-request/assign-staff/approve-modal/approve-modal.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbActiveModal"],
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbModal"]])
+    ], ApproveModalComponent);
+    return ApproveModalComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/patients-paid-request/assign-staff/assign-staff.component.scss":
+/*!**************************************************************************************!*\
+  !*** ./src/app/pages/patients-paid-request/assign-staff/assign-staff.component.scss ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3BhdGllbnRzLXBhaWQtcmVxdWVzdC9hc3NpZ24tc3RhZmYvYXNzaWduLXN0YWZmLmNvbXBvbmVudC5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/pages/patients-paid-request/assign-staff/assign-staff.component.ts":
+/*!************************************************************************************!*\
+  !*** ./src/app/pages/patients-paid-request/assign-staff/assign-staff.component.ts ***!
+  \************************************************************************************/
+/*! exports provided: AssignStaffComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AssignStaffComponent", function() { return AssignStaffComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/services/appointments/appointments.service */ "./src/app/services/appointments/appointments.service.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+/* harmony import */ var app_services_consultants_consultants_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! app/services/consultants/consultants.service */ "./src/app/services/consultants/consultants.service.ts");
+/* harmony import */ var app_services_general_api_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! app/services/general-api.service */ "./src/app/services/general-api.service.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
+/* harmony import */ var _approve_modal_approve_modal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./approve-modal/approve-modal.component */ "./src/app/pages/patients-paid-request/assign-staff/approve-modal/approve-modal.component.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+
+
+
+
+
+
+
+
+
+
+
+
+var AssignStaffComponent = /** @class */ (function () {
+    function AssignStaffComponent(http, router, consultantApi, sharedService, activeModal, modalService, activatedRoute, appointmentApi, toastr, spinner) {
+        this.http = http;
+        this.router = router;
+        this.consultantApi = consultantApi;
+        this.sharedService = sharedService;
+        this.activeModal = activeModal;
+        this.modalService = modalService;
+        this.activatedRoute = activatedRoute;
+        this.appointmentApi = appointmentApi;
+        this.toastr = toastr;
+        this.spinner = spinner;
+        this.dtOptions = {};
+        this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+    }
+    AssignStaffComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            _this.AppointmentId = params.id;
+            _this.appointmentDate = params.appointment_date;
+            console.log('Appointment id: ', _this.AppointmentId);
+            console.log('Appointment date: ', _this.appointmentDate);
+        });
+        this.dtOptions = {
+            pagingType: 'full_numbers',
+            pageLength: 25
+        };
+        this.getConsultants();
+    };
+    AssignStaffComponent.prototype.open = function (minutes) {
+        var modalRef = this.modalService.open(_approve_modal_approve_modal_component__WEBPACK_IMPORTED_MODULE_10__["ApproveModalComponent"]);
+        modalRef.componentInstance.minutes = '30';
+    };
+    AssignStaffComponent.prototype.getConsultants = function () {
+        var _this = this;
+        this.spinner.show();
+        this.consultantApi.getAllConsultantsByDate(this.appointmentDate).subscribe(function (res) {
+            console.log(res);
+            _this.spinner.hide();
+            _this.staffList = res;
+            _this.dtTrigger.next();
+        }, function (err) {
+            console.log(err);
+        });
+    };
+    AssignStaffComponent.prototype.assignStaff = function (staffId, staffName) {
+        var _this = this;
+        this.spinner.show();
+        var data = {
+            appointment_id: this.AppointmentId,
+            consultant_name: staffName,
+            consultant_id: staffId,
+            minutes: '60'
+        };
+        this.consultantApi.assignStaff(data).subscribe(function (res) {
+            console.log(res);
+            _this.spinner.hide();
+            _this.toastr.success("The Appointment has been assigned to " + staffName, 'Appointment Assigned');
+        }, function (err) {
+            console.log(err);
+            _this.spinner.hide();
+            if (err.status === 200) {
+                _this.toastr.success("The Appointment has been assigned to " + staffName, 'Appointment Assigned');
+            }
+            else {
+                _this.toastr.error('Something went wrong', 'Failure', {
+                    timeOut: 3000
+                });
+            }
+        });
+    };
+    AssignStaffComponent.prototype.ngOnDestroy = function () {
+        // Do not forget to unsubscribe the event
+        this.dtTrigger.unsubscribe();
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], AssignStaffComponent.prototype, "name", void 0);
+    AssignStaffComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-assign-staff',
+            template: __webpack_require__(/*! raw-loader!./assign-staff.component.html */ "./node_modules/raw-loader/index.js!./src/app/pages/patients-paid-request/assign-staff/assign-staff.component.html"),
+            providers: [app_services_general_api_service__WEBPACK_IMPORTED_MODULE_8__["GeneralApiService"], app_services_consultants_consultants_service__WEBPACK_IMPORTED_MODULE_7__["ConsultantsService"]],
+            styles: [__webpack_require__(/*! ./assign-staff.component.scss */ "./src/app/pages/patients-paid-request/assign-staff/assign-staff.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            app_services_consultants_consultants_service__WEBPACK_IMPORTED_MODULE_7__["ConsultantsService"],
+            app_services_general_api_service__WEBPACK_IMPORTED_MODULE_8__["GeneralApiService"],
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_9__["NgbActiveModal"],
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_9__["NgbModal"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],
+            app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__["AppointmentsService"],
+            ngx_toastr__WEBPACK_IMPORTED_MODULE_11__["ToastrService"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_6__["NgxSpinnerService"]])
+    ], AssignStaffComponent);
+    return AssignStaffComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/patients-paid-request/patients-paid-request.component.scss":
+/*!**********************************************************************************!*\
+  !*** ./src/app/pages/patients-paid-request/patients-paid-request.component.scss ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3BhdGllbnRzLXBhaWQtcmVxdWVzdC9wYXRpZW50cy1wYWlkLXJlcXVlc3QuY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/pages/patients-paid-request/patients-paid-request.component.ts":
+/*!********************************************************************************!*\
+  !*** ./src/app/pages/patients-paid-request/patients-paid-request.component.ts ***!
+  \********************************************************************************/
+/*! exports provided: PatientsPaidRequestComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PatientsPaidRequestComponent", function() { return PatientsPaidRequestComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/services/appointments/appointments.service */ "./src/app/services/appointments/appointments.service.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+
+
+
+
+
+
+
+var PatientsPaidRequestComponent = /** @class */ (function () {
+    function PatientsPaidRequestComponent(http, router, appointmentApi, spinner) {
+        this.http = http;
+        this.router = router;
+        this.appointmentApi = appointmentApi;
+        this.spinner = spinner;
+        this.dtOptions = {};
+        this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+    }
+    PatientsPaidRequestComponent.prototype.ngOnInit = function () {
+        this.dtOptions = {
+            pagingType: 'full_numbers',
+            pageLength: 25
+        };
+        this.getPaidPatientsList();
+    };
+    PatientsPaidRequestComponent.prototype.getPaidPatientsList = function () {
+        var _this = this;
+        this.spinner.show();
+        this.appointmentApi.getAllPaidPatients().subscribe(function (res) {
+            console.log(res);
+            _this.spinner.hide();
+            _this.patientPaidList = res.message;
+            _this.dtTrigger.next();
+        }, function (err) {
+            _this.spinner.hide();
+            console.log(err);
+        });
+    };
+    PatientsPaidRequestComponent.prototype.ngOnDestroy = function () {
+        // Do not forget to unsubscribe the event
+        this.dtTrigger.unsubscribe();
+    };
+    PatientsPaidRequestComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-patients-paid-request',
+            template: __webpack_require__(/*! raw-loader!./patients-paid-request.component.html */ "./node_modules/raw-loader/index.js!./src/app/pages/patients-paid-request/patients-paid-request.component.html"),
+            providers: [app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__["AppointmentsService"]],
+            styles: [__webpack_require__(/*! ./patients-paid-request.component.scss */ "./src/app/pages/patients-paid-request/patients-paid-request.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__["AppointmentsService"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_6__["NgxSpinnerService"]])
+    ], PatientsPaidRequestComponent);
+    return PatientsPaidRequestComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/pages/patients-request/patients-request.component.scss":
 /*!************************************************************************!*\
   !*** ./src/app/pages/patients-request/patients-request.component.scss ***!
@@ -45613,6 +46568,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/services/appointments/appointments.service */ "./src/app/services/appointments/appointments.service.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+
 
 
 
@@ -45620,27 +46577,31 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var PatientsRequestComponent = /** @class */ (function () {
-    function PatientsRequestComponent(http, router, appointmentApi) {
+    function PatientsRequestComponent(http, router, appointmentApi, spinner) {
         this.http = http;
         this.router = router;
         this.appointmentApi = appointmentApi;
+        this.spinner = spinner;
         this.dtOptions = {};
         this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
     }
     PatientsRequestComponent.prototype.ngOnInit = function () {
         this.dtOptions = {
             pagingType: 'full_numbers',
-            pageLength: 10
+            pageLength: 25
         };
         this.getPatientsList();
     };
     PatientsRequestComponent.prototype.getPatientsList = function () {
         var _this = this;
+        this.spinner.show();
         this.appointmentApi.getPatientAppointmentRequestList().subscribe(function (res) {
             console.log(res);
+            _this.spinner.hide();
             _this.patientRequestList = res.message;
             _this.dtTrigger.next();
         }, function (err) {
+            _this.spinner.hide();
             console.log(err);
         });
     };
@@ -45655,7 +46616,10 @@ var PatientsRequestComponent = /** @class */ (function () {
             providers: [app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__["AppointmentsService"]],
             styles: [__webpack_require__(/*! ./patients-request.component.scss */ "./src/app/pages/patients-request/patients-request.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__["AppointmentsService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__["AppointmentsService"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_6__["NgxSpinnerService"]])
     ], PatientsRequestComponent);
     return PatientsRequestComponent;
 }());
@@ -45691,6 +46655,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/services/appointments/appointments.service */ "./src/app/services/appointments/appointments.service.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+
 
 
 
@@ -45698,27 +46664,32 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var PatientsServedComponent = /** @class */ (function () {
-    function PatientsServedComponent(http, router, appointmentApi) {
+    function PatientsServedComponent(http, router, activatedRoute, appointmentApi, spinner) {
         this.http = http;
         this.router = router;
+        this.activatedRoute = activatedRoute;
         this.appointmentApi = appointmentApi;
+        this.spinner = spinner;
         this.dtOptions = {};
         this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
     }
     PatientsServedComponent.prototype.ngOnInit = function () {
         this.dtOptions = {
             pagingType: 'full_numbers',
-            pageLength: 10
+            pageLength: 25
         };
         this.getPatientsList();
     };
     PatientsServedComponent.prototype.getPatientsList = function () {
         var _this = this;
+        this.spinner.show();
         this.appointmentApi.getServedPatientsList().subscribe(function (res) {
             console.log(res);
+            _this.spinner.hide();
             _this.patientServedList = res.message;
             _this.dtTrigger.next();
         }, function (err) {
+            _this.spinner.hide();
             console.log(err);
         });
     };
@@ -45733,7 +46704,11 @@ var PatientsServedComponent = /** @class */ (function () {
             providers: [app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__["AppointmentsService"]],
             styles: [__webpack_require__(/*! ./patients-served.component.scss */ "./src/app/pages/patients-served/patients-served.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__["AppointmentsService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],
+            app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__["AppointmentsService"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_6__["NgxSpinnerService"]])
     ], PatientsServedComponent);
     return PatientsServedComponent;
 }());
@@ -45769,6 +46744,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/services/appointments/appointments.service */ "./src/app/services/appointments/appointments.service.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+
 
 
 
@@ -45776,10 +46753,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var PatientsComponent = /** @class */ (function () {
-    function PatientsComponent(http, router, appointmentApi) {
+    function PatientsComponent(http, router, appointmentApi, spinner) {
         this.http = http;
         this.router = router;
         this.appointmentApi = appointmentApi;
+        this.spinner = spinner;
         this.dtOptions = {};
         this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
     }
@@ -45792,8 +46770,10 @@ var PatientsComponent = /** @class */ (function () {
     };
     PatientsComponent.prototype.getPatientsList = function () {
         var _this = this;
+        this.spinner.show();
         this.appointmentApi.getPatientsList().subscribe(function (res) {
             console.log(res);
+            _this.spinner.hide();
             _this.patientList = res.message;
             _this.dtTrigger.next();
         }, function (err) {
@@ -45811,7 +46791,10 @@ var PatientsComponent = /** @class */ (function () {
             providers: [app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__["AppointmentsService"]],
             styles: [__webpack_require__(/*! ./patients.component.scss */ "./src/app/pages/patients/patients.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__["AppointmentsService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            app_services_appointments_appointments_service__WEBPACK_IMPORTED_MODULE_5__["AppointmentsService"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_6__["NgxSpinnerService"]])
     ], PatientsComponent);
     return PatientsComponent;
 }());
@@ -45848,6 +46831,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var app_services_profile_profile_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/services/profile/profile.service */ "./src/app/services/profile/profile.service.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+
 
 
 
@@ -45856,10 +46841,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ProfileComponent = /** @class */ (function () {
-    function ProfileComponent(http, router, profileApi) {
+    function ProfileComponent(http, router, profileApi, spinner) {
         this.http = http;
         this.router = router;
         this.profileApi = profileApi;
+        this.spinner = spinner;
         this.dtOptions = {};
         this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
         this.register = new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormGroup"]({
@@ -45869,6 +46855,7 @@ var ProfileComponent = /** @class */ (function () {
             email: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required),
             // password: new FormControl('',Validators.required),
             city: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required),
+            location: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required),
         });
     }
     ProfileComponent.prototype.ngOnInit = function () {
@@ -45881,12 +46868,15 @@ var ProfileComponent = /** @class */ (function () {
             mobile_number: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](this.profileData.mobile, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required),
             email: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](this.profileData.email, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required),
             city: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](this.profileData.city, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required),
+            location: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](this.profileData.location, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required),
         });
     };
     ProfileComponent.prototype.getProfileDetails = function () {
         var _this = this;
+        this.spinner.show();
         this.profileApi.getProfile().subscribe(function (res) {
             console.log(res);
+            _this.spinner.hide();
             _this.profileData = res.user;
             _this.setData();
         }, function (err) {
@@ -45903,6 +46893,7 @@ var ProfileComponent = /** @class */ (function () {
             email: this.register.get('email').value,
             license_number: this.register.get('license_number').value,
             city: this.register.get('city').value,
+            location: this.register.get('location').value,
         };
         console.log(data);
         this.profileApi.updateProfile(data).subscribe(function (res) {
@@ -45919,7 +46910,10 @@ var ProfileComponent = /** @class */ (function () {
             providers: [app_services_profile_profile_service__WEBPACK_IMPORTED_MODULE_6__["ProfileService"]],
             styles: [__webpack_require__(/*! ./profile.component.scss */ "./src/app/pages/profile/profile.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], app_services_profile_profile_service__WEBPACK_IMPORTED_MODULE_6__["ProfileService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            app_services_profile_profile_service__WEBPACK_IMPORTED_MODULE_6__["ProfileService"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_7__["NgxSpinnerService"]])
     ], ProfileComponent);
     return ProfileComponent;
 }());
@@ -45954,20 +46948,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var app_services_service_provider_service_provider_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/services/service-provider/service-provider.service */ "./src/app/services/service-provider/service-provider.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var app_services_general_api_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/services/general-api.service */ "./src/app/services/general-api.service.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+
+
 
 
 
 
 
 var ServiceDetailComponent = /** @class */ (function () {
-    function ServiceDetailComponent(serviceApi, activatedroute, sharedService) {
+    function ServiceDetailComponent(serviceApi, activatedroute, spinner, toastr, sharedService) {
         this.serviceApi = serviceApi;
         this.activatedroute = activatedroute;
+        this.spinner = spinner;
+        this.toastr = toastr;
         this.sharedService = sharedService;
         this.date = new Date(Date.now());
     }
     ServiceDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.spinner.show();
         if (this.activatedroute.snapshot.params['id']) {
             this.activatedroute.params.subscribe(function (params) {
                 _this.id = params['id'];
@@ -45979,24 +46980,41 @@ var ServiceDetailComponent = /** @class */ (function () {
         this.subCategoryName = this.serviceData.category_name;
         this.serviceName = this.serviceData.name;
         this.serviceNameArabic = this.serviceData.arabic_name;
+        this.spinner.hide();
     };
     ServiceDetailComponent.prototype.onSubmit = function () {
+        var _this = this;
+        this.spinner.show();
         var data = {
             // tslint:disable-next-line:radix
             service_id: parseInt(this.id),
             service_name: this.serviceName,
             service_name_arabic: this.serviceNameArabic,
+            service_short_description: this.serviceShortDescription,
+            service_short_description_arabic: this.serviceShortDescriptionArabic,
             service_description: this.serviceDescription,
             service_description_arabic: this.serviceDescriptionArabic,
             charges: this.charges,
+            conveyance_charges: this.conveyanceCharges,
             time_to: this.timeTo,
             time_from: this.timeFrom,
         };
         console.log(data);
         this.serviceApi.addService(data).subscribe(function (res) {
             console.log(res);
+            _this.spinner.hide();
+            _this.toastr.success('Service has been sent to admin for approval', 'Service Request');
         }, function (err) {
+            _this.spinner.hide();
             console.log(err);
+            if (err.status === 200) {
+                _this.toastr.success('Service has been sent to admin for approval', 'Service Request');
+            }
+            else {
+                _this.toastr.error('Something went wrong', 'Failure', {
+                    timeOut: 3000
+                });
+            }
         });
     };
     ServiceDetailComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -46008,6 +47026,8 @@ var ServiceDetailComponent = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [app_services_service_provider_service_provider_service__WEBPACK_IMPORTED_MODULE_2__["ServiceProviderService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_6__["NgxSpinnerService"],
+            ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"],
             app_services_general_api_service__WEBPACK_IMPORTED_MODULE_4__["GeneralApiService"]])
     ], ServiceDetailComponent);
     return ServiceDetailComponent;
@@ -46045,6 +47065,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var app_services_service_provider_service_provider_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/services/service-provider/service-provider.service */ "./src/app/services/service-provider/service-provider.service.ts");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+
 
 
 
@@ -46053,12 +47075,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ServiceProvidersDetailsComponent = /** @class */ (function () {
-    function ServiceProvidersDetailsComponent(http, router, serviceProvider, activatedroute, toastr) {
+    function ServiceProvidersDetailsComponent(http, router, serviceProvider, activatedroute, toastr, spinner) {
         this.http = http;
         this.router = router;
         this.serviceProvider = serviceProvider;
         this.activatedroute = activatedroute;
         this.toastr = toastr;
+        this.spinner = spinner;
         this.dtOptions = {};
         this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
     }
@@ -46071,14 +47094,16 @@ var ServiceProvidersDetailsComponent = /** @class */ (function () {
         }
         this.dtOptions = {
             pagingType: 'full_numbers',
-            pageLength: 2
+            pageLength: 25
         };
         this.getServiceProvidersWithID(this.serviceId);
     };
     ServiceProvidersDetailsComponent.prototype.getServiceProvidersWithID = function (id) {
         var _this = this;
+        this.spinner.show();
         this.serviceProvider.getServicesWithID(id).subscribe(function (res) {
             console.log(res);
+            _this.spinner.hide();
             _this.items = res;
             // Calling the DT trigger to manually render the table
             _this.dtTrigger.next();
@@ -46129,7 +47154,8 @@ var ServiceProvidersDetailsComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
             app_services_service_provider_service_provider_service__WEBPACK_IMPORTED_MODULE_5__["ServiceProviderService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],
-            ngx_toastr__WEBPACK_IMPORTED_MODULE_6__["ToastrService"]])
+            ngx_toastr__WEBPACK_IMPORTED_MODULE_6__["ToastrService"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_7__["NgxSpinnerService"]])
     ], ServiceProvidersDetailsComponent);
     return ServiceProvidersDetailsComponent;
 }());
@@ -46165,6 +47191,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var app_services_service_provider_service_provider_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/services/service-provider/service-provider.service */ "./src/app/services/service-provider/service-provider.service.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+
 
 
 
@@ -46172,24 +47200,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ServiceProvidersComponent = /** @class */ (function () {
-    function ServiceProvidersComponent(http, router, serviceProvider) {
+    function ServiceProvidersComponent(http, router, serviceProvider, spinner) {
         this.http = http;
         this.router = router;
         this.serviceProvider = serviceProvider;
+        this.spinner = spinner;
         this.dtOptions = {};
         this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
     }
     ServiceProvidersComponent.prototype.ngOnInit = function () {
         this.dtOptions = {
             pagingType: 'full_numbers',
-            pageLength: 2
+            pageLength: 25
         };
         this.getServiceProviders();
     };
     ServiceProvidersComponent.prototype.getServiceProviders = function () {
         var _this = this;
+        this.spinner.show();
         this.serviceProvider.getAll().subscribe(function (res) {
             console.log(res);
+            _this.spinner.hide();
             _this.items = res;
             // Calling the DT trigger to manually render the table
             _this.dtTrigger.next();
@@ -46208,7 +47239,10 @@ var ServiceProvidersComponent = /** @class */ (function () {
             providers: [app_services_service_provider_service_provider_service__WEBPACK_IMPORTED_MODULE_5__["ServiceProviderService"]],
             styles: [__webpack_require__(/*! ./service-providers.component.scss */ "./src/app/pages/service-providers/service-providers.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], app_services_service_provider_service_provider_service__WEBPACK_IMPORTED_MODULE_5__["ServiceProviderService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            app_services_service_provider_service_provider_service__WEBPACK_IMPORTED_MODULE_5__["ServiceProviderService"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_6__["NgxSpinnerService"]])
     ], ServiceProvidersComponent);
     return ServiceProvidersComponent;
 }());
@@ -46224,7 +47258,7 @@ var ServiceProvidersComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".img-logo {\n  width: 50px;\n}\n\n.add-btn {\n  margin-bottom: 29px;\n  float: right;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zYWFkc3VmeWFuL0Rlc2t0b3AvZnJlZWxhY2UgcHJvamVjdHMvYXR0YXlhYiBwcm9qZWN0cy9uamVlay1zZXJ2aWNlLXByb3ZpZGVyL3NyYy9hcHAvcGFnZXMvc3ViLWNhdGVnb3J5L3N1Yi1jYXRlZ29yeS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvcGFnZXMvc3ViLWNhdGVnb3J5L3N1Yi1jYXRlZ29yeS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQUE7QUNDSjs7QURFQTtFQUNJLG1CQUFBO0VBQ0EsWUFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvc3ViLWNhdGVnb3J5L3N1Yi1jYXRlZ29yeS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5pbWctbG9nbyB7XG4gICAgd2lkdGg6IDUwcHg7XG59XG5cbi5hZGQtYnRuIHtcbiAgICBtYXJnaW4tYm90dG9tOiAyOXB4O1xuICAgIGZsb2F0OiByaWdodDtcbn0iLCIuaW1nLWxvZ28ge1xuICB3aWR0aDogNTBweDtcbn1cblxuLmFkZC1idG4ge1xuICBtYXJnaW4tYm90dG9tOiAyOXB4O1xuICBmbG9hdDogcmlnaHQ7XG59Il19 */"
+module.exports = ".img-logo {\n  width: 50px;\n}\n\n.add-btn {\n  margin-bottom: 29px;\n  float: right;\n}\n\n.tick {\n  font-size: 25px;\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zYWFkc3VmeWFuL0Rlc2t0b3AvZnJlZWxhY2UgcHJvamVjdHMvYXR0YXlhYiBwcm9qZWN0cy9uamVlay1zZXJ2aWNlLXByb3ZpZGVyL3NyYy9hcHAvcGFnZXMvc3ViLWNhdGVnb3J5L3N1Yi1jYXRlZ29yeS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvcGFnZXMvc3ViLWNhdGVnb3J5L3N1Yi1jYXRlZ29yeS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQUE7QUNDSjs7QURFQTtFQUNJLG1CQUFBO0VBQ0EsWUFBQTtBQ0NKOztBRENBO0VBQ0ksZUFBQTtFQUNBLGVBQUE7QUNFSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3N1Yi1jYXRlZ29yeS9zdWItY2F0ZWdvcnkuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaW1nLWxvZ28ge1xuICAgIHdpZHRoOiA1MHB4O1xufVxuXG4uYWRkLWJ0biB7XG4gICAgbWFyZ2luLWJvdHRvbTogMjlweDtcbiAgICBmbG9hdDogcmlnaHQ7XG59XG4udGljayB7XG4gICAgZm9udC1zaXplOiAyNXB4O1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbn0iLCIuaW1nLWxvZ28ge1xuICB3aWR0aDogNTBweDtcbn1cblxuLmFkZC1idG4ge1xuICBtYXJnaW4tYm90dG9tOiAyOXB4O1xuICBmbG9hdDogcmlnaHQ7XG59XG5cbi50aWNrIHtcbiAgZm9udC1zaXplOiAyNXB4O1xuICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */"
 
 /***/ }),
 
@@ -46243,16 +47277,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+
 
 
 
 
 
 var SubCategoryComponent = /** @class */ (function () {
-    function SubCategoryComponent(http, router, activatedroute) {
+    function SubCategoryComponent(http, router, activatedroute, spinner) {
         this.http = http;
         this.router = router;
         this.activatedroute = activatedroute;
+        this.spinner = spinner;
         this.dtOptions = {};
         this.items = [];
         this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
@@ -46261,16 +47298,18 @@ var SubCategoryComponent = /** @class */ (function () {
         var _this = this;
         this.dtOptions = {
             pagingType: 'full_numbers',
-            pageLength: 2
+            pageLength: 25
         };
         if (this.activatedroute.snapshot.params['id']) {
             this.activatedroute.params.subscribe(function (params) {
                 _this.id = params['id'];
             });
         }
+        this.spinner.show();
         this.http.get("https://najeek.herokuapp.com/service/sub_category?id=" + this.id)
             .subscribe(function (items) {
             console.log('person ', items);
+            _this.spinner.hide();
             _this.items = items;
             // Calling the DT trigger to manually render the table
             _this.dtTrigger.next();
@@ -46289,7 +47328,10 @@ var SubCategoryComponent = /** @class */ (function () {
             template: __webpack_require__(/*! raw-loader!./sub-category.component.html */ "./node_modules/raw-loader/index.js!./src/app/pages/sub-category/sub-category.component.html"),
             styles: [__webpack_require__(/*! ./sub-category.component.scss */ "./src/app/pages/sub-category/sub-category.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_5__["NgxSpinnerService"]])
     ], SubCategoryComponent);
     return SubCategoryComponent;
 }());
@@ -46523,6 +47565,15 @@ var AppointmentsService = /** @class */ (function () {
             }
         });
     };
+    AppointmentsService.prototype.getAllPaidPatients = function () {
+        return this.http
+            .get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].baseUrl + "/appointments/fetch_paid_patients_request", {
+            headers: {
+                'Content-Type': 'application/json',
+                'x-access-token': this.token
+            }
+        });
+    };
     AppointmentsService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
@@ -46609,6 +47660,15 @@ var ConsultantsService = /** @class */ (function () {
             }
         });
     };
+    ConsultantsService.prototype.getAllConsultantsByDate = function (date) {
+        return this.http
+            .get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].baseUrl + "/service/getConsultants?appointment_date_time=" + date, {
+            headers: {
+                'Content-Type': 'application/json',
+                'x-access-token': this.token
+            }
+        });
+    };
     ConsultantsService.prototype.addConsultants = function (body) {
         return this.http
             .post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].baseUrl + "/service/add_consultant", body, {
@@ -46621,6 +47681,15 @@ var ConsultantsService = /** @class */ (function () {
     ConsultantsService.prototype.updateConsultants = function (body) {
         return this.http
             .post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].baseUrl + "/service/update_consultant", body, {
+            headers: {
+                'Content-Type': 'application/json',
+                'x-access-token': this.token
+            }
+        });
+    };
+    ConsultantsService.prototype.assignStaff = function (body) {
+        return this.http
+            .post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].baseUrl + "/service/approve_paid_appointment", body, {
             headers: {
                 'Content-Type': 'application/json',
                 'x-access-token': this.token

@@ -22,6 +22,15 @@ export class ConsultantsService {
         }
     });
   }
+  getAllConsultantsByDate(date) {
+    return this.http
+    .get(`${environment.baseUrl}/service/getConsultants?appointment_date_time=${date}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'x-access-token': this.token
+        }
+    });
+  }
   addConsultants(body) {
     return this.http
     .post(`${environment.baseUrl}/service/add_consultant`, body, {
@@ -34,6 +43,15 @@ export class ConsultantsService {
   updateConsultants(body) {
     return this.http
     .post(`${environment.baseUrl}/service/update_consultant`, body, {
+      headers: {
+        'Content-Type': 'application/json',
+        'x-access-token': this.token
+        }
+    });
+  }
+  assignStaff(body) {
+    return this.http
+    .post(`${environment.baseUrl}/service/approve_paid_appointment`, body, {
       headers: {
         'Content-Type': 'application/json',
         'x-access-token': this.token

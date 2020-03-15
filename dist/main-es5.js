@@ -18,7 +18,7 @@ module.exports = "<router-outlet></router-outlet>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\n    <div class=\"sidebar\" data-color=\"white\" data-active-color=\"danger\">\n        <sidebar-cmp></sidebar-cmp>\n    </div>\n    <div class=\"main-panel\">\n        <navbar-cmp></navbar-cmp>\n        <div class=\"content\">\n            <router-outlet></router-outlet>\n        </div>\n        <!-- <footer-cmp></footer-cmp> -->\n    </div>\n</div>\n<fixedplugin-cmp></fixedplugin-cmp>\n"
+module.exports = "<div class=\"wrapper\">\n    <div class=\"sidebar\" data-color=\"white\" data-active-color=\"danger\">\n        <sidebar-cmp></sidebar-cmp>\n    </div>\n    <div class=\"main-panel\">\n        <navbar-cmp></navbar-cmp>\n        <div class=\"content\">\n            <router-outlet></router-outlet>\n        </div>\n        <!-- <footer-cmp></footer-cmp> -->\n    </div>\n</div>\n<!-- <fixedplugin-cmp></fixedplugin-cmp> -->\n"
 
 /***/ }),
 
@@ -73,7 +73,7 @@ module.exports = "<footer class=\"footer\">\n    <div class=\"container-fluid\">
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent\">\n    <div class=\"container-fluid\">\n        <div class=\"navbar-wrapper\">\n            <div class=\"navbar-toggle\">\n                <button type=\"button\" class=\"navbar-toggler\" (click)=\"sidebarToggle()\">\n          <span class=\"navbar-toggler-bar bar1\"></span>\n          <span class=\"navbar-toggler-bar bar2\"></span>\n          <span class=\"navbar-toggler-bar bar3\"></span>\n        </button>\n            </div>\n            <a class=\"navbar-brand\" href=\"javascript:void(0)\">Service Provider Dashboard</a>\n        </div>\n        <button class=\"navbar-toggler\" type=\"button\" (click)=\"collapse()\" [attr.aria-expanded]=\"!isCollapsed\" aria-controls=\"collapseExample\">\n      <span class=\"navbar-toggler-bar navbar-kebab\"></span>\n      <span class=\"navbar-toggler-bar navbar-kebab\"></span>\n      <span class=\"navbar-toggler-bar navbar-kebab\"></span>\n    </button>\n        <div class=\"collapse navbar-collapse justify-content-end\" id=\"collapseExample\" [ngbCollapse]=\"isCollapsed\">\n            <form>\n                <div class=\"input-group no-border\">\n                    <input type=\"text\" value=\"\" class=\"form-control\" placeholder=\"Search...\">\n                    <div class=\"input-group-append\">\n                        <div class=\"input-group-text\">\n                            <i class=\"nc-icon nc-zoom-split\"></i>\n                        </div>\n                    </div>\n                </div>\n            </form>\n            <ul class=\"navbar-nav\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link btn-magnify\" href=\"javascript:void(0)\">\n                        <i class=\"nc-icon nc-layout-11\"></i>\n                        <p>\n                            <span class=\"d-lg-none d-md-block\">Stats</span>\n                        </p>\n                    </a>\n                </li>\n\n                <li class=\"nav-item btn-rotate\" ngbDropdown placement=\"bottom-left\">\n                    <a class=\"nav-link\" ngbDropdownToggle id=\"navbarDropdownMenuLink\">\n                        <i class=\"nc-icon nc-bell-55\"></i>\n                        <p>\n                            <span class=\"d-lg-none d-md-block\">Some Actions</span>\n                        </p>\n                    </a>\n                    <div ngbDropdownMenu aria-labelledby=\"navbarDropdownMenuLink\" class=\"dropdown-menu dropdown-menu-right\">\n                        <a ngbDropdownItem href=\"javascript:void(0)\">Action</a>\n                        <a ngbDropdownItem href=\"javascript:void(0)\">Another action</a>\n                        <a ngbDropdownItem href=\"javascript:void(0)\">Something else here</a>\n                    </div>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link btn-rotate\" (click)='gotoProfile()' href=\"javascript:void(0)\">\n                        <i class=\"fa fa-user\"></i>\n                        <p>\n                            <span class=\"d-lg-none d-md-block\">Account</span>\n                        </p>\n                    </a>\n                </li>\n            </ul>\n        </div>\n    </div>\n</nav>"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent\">\n    <div class=\"container-fluid\">\n        <div class=\"navbar-wrapper\">\n            <div class=\"navbar-toggle\">\n                <button type=\"button\" class=\"navbar-toggler\" (click)=\"sidebarToggle()\">\n          <span class=\"navbar-toggler-bar bar1\"></span>\n          <span class=\"navbar-toggler-bar bar2\"></span>\n          <span class=\"navbar-toggler-bar bar3\"></span>\n        </button>\n            </div>\n            <a class=\"navbar-brand\" href=\"javascript:void(0)\">{{name}} Dashboard</a>\n        </div>\n        <button class=\"navbar-toggler\" type=\"button\" (click)=\"collapse()\" [attr.aria-expanded]=\"!isCollapsed\" aria-controls=\"collapseExample\">\n      <span class=\"navbar-toggler-bar navbar-kebab\"></span>\n      <span class=\"navbar-toggler-bar navbar-kebab\"></span>\n      <span class=\"navbar-toggler-bar navbar-kebab\"></span>\n    </button>\n        <div class=\"collapse navbar-collapse justify-content-end\" id=\"collapseExample\" [ngbCollapse]=\"isCollapsed\">\n            <!-- <form>\n                <div class=\"input-group no-border\">\n                    <input type=\"text\" value=\"\" class=\"form-control\" placeholder=\"Search...\">\n                    <div class=\"input-group-append\">\n                        <div class=\"input-group-text\">\n                            <i class=\"nc-icon nc-zoom-split\"></i>\n                        </div>\n                    </div>\n                </div>\n            </form> -->\n            <ul class=\"navbar-nav\">\n                <!-- <li class=\"nav-item\">\n                    <a class=\"nav-link btn-magnify\" href=\"javascript:void(0)\">\n                        <i class=\"nc-icon nc-layout-11\"></i>\n                        <p>\n                            <span class=\"d-lg-none d-md-block\">Stats</span>\n                        </p>\n                    </a>\n                </li> -->\n\n                <li class=\"nav-item btn-rotate\" ngbDropdown placement=\"bottom-left\">\n                    <a class=\"nav-link\" ngbDropdownToggle id=\"navbarDropdownMenuLink\">\n                        <i class=\"fa fa-user\"></i>\n                        <p>\n                            <span class=\"d-lg-none d-md-block\">Actions</span>\n                        </p>\n                    </a>\n                    <div ngbDropdownMenu aria-labelledby=\"navbarDropdownMenuLink\" class=\"dropdown-menu dropdown-menu-right\">\n                        <a ngbDropdownItem (click)='gotoProfile()'>Profile</a>\n                        <a ngbDropdownItem (click)='logout()'>Logout</a>\n                    </div>\n                </li>\n                <!-- <li class=\"nav-item\">\n                    <a class=\"nav-link btn-rotate\" (click)='gotoProfile()' href=\"javascript:void(0)\">\n                        <i class=\"fa fa-user\"></i>\n                        <p>\n                            <span class=\"d-lg-none d-md-block\">Account</span>\n                        </p>\n                    </a>\n                </li> -->\n            </ul>\n        </div>\n    </div>\n</nav>"
 
 /***/ }),
 
@@ -217,6 +217,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_login_login_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pages/login/login.component */ "./src/app/pages/login/login.component.ts");
 /* harmony import */ var _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @auth0/angular-jwt */ "./node_modules/@auth0/angular-jwt/index.js");
 /* harmony import */ var _pages_register_register_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./pages/register/register.component */ "./src/app/pages/register/register.component.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
+
 
 
 
@@ -271,7 +273,7 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_13__["ReactiveFormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_13__["FormsModule"]
             ],
-            providers: [],
+            providers: [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_19__["NgbActiveModal"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]]
         })
     ], AppModule);
@@ -303,7 +305,7 @@ __webpack_require__.r(__webpack_exports__);
 var AppRoutes = [
     {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: 'category',
         pathMatch: 'full',
         canActivate: [_auth_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]]
     }, {
@@ -327,7 +329,7 @@ var AppRoutes = [
     },
     {
         path: '**',
-        redirectTo: 'dashboard'
+        redirectTo: 'category'
     }
 ];
 
@@ -522,7 +524,8 @@ var LoginComponent = /** @class */ (function () {
             console.log(res);
             if (res.access_key) {
                 localStorage.setItem('token', res.access_key);
-                _this.router.navigate(['/dashboard']);
+                localStorage.setItem('name', res.name);
+                _this.router.navigate(['/category']);
             }
         });
     };
@@ -949,6 +952,7 @@ var NavbarComponent = /** @class */ (function () {
         this.location = location;
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
+        this.name = localStorage.getItem('name');
     }
     NavbarComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1022,8 +1026,13 @@ var NavbarComponent = /** @class */ (function () {
     NavbarComponent.prototype.gotoProfile = function () {
         this.router.navigate(['/profile']);
     };
+    NavbarComponent.prototype.logout = function () {
+        localStorage.setItem('token', null);
+        localStorage.setItem('name', null);
+        this.router.navigate(['/login']);
+    };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("navbar-cmp", { static: false }),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('navbar-cmp', { static: false }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
     ], NavbarComponent.prototype, "button", void 0);
     NavbarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1095,12 +1104,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ROUTES = [
-    { path: '/dashboard', title: 'Dashboard', icon: 'nc-bank', class: '' },
+    // { path: '/dashboard',     title: 'Dashboard',         icon: 'nc-bank',       class: '' },
     { path: '/category', title: 'Services', icon: 'nc-bank', class: '' },
     { path: '/my-services', title: 'My Services', icon: 'nc-bank', class: '' },
     { path: '/appointments', title: 'Appointments', icon: 'nc-bank', class: '' },
     { path: '/patients', title: 'Patients', icon: 'nc-bank', class: '' },
     { path: '/patients-request', title: 'Patients Requests', icon: 'nc-bank', class: '' },
+    { path: '/patients-paid-request', title: 'Paid Patients Requests', icon: 'nc-bank', class: '' },
     { path: '/patients-served', title: 'Patients Served', icon: 'nc-bank', class: '' },
     { path: '/consultants', title: 'Staff', icon: 'nc-bank', class: '' },
 ];
