@@ -20,6 +20,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { RegisterComponent } from './pages/register/register.component';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { PassCodeComponent } from './pages/forgot-password/pass-code/pass-code.component';
+import { ResetPasswordComponent } from './pages/forgot-password/reset-password/reset-password.component';
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -30,7 +33,10 @@ export function tokenGetter() {
         AppComponent,
         AdminLayoutComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        ForgotPasswordComponent,
+        PassCodeComponent,
+        ResetPasswordComponent
     ],
     imports: [
         BrowserAnimationsModule,

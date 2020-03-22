@@ -4,6 +4,9 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { RegisterComponent } from './pages/register/register.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { PassCodeComponent } from './pages/forgot-password/pass-code/pass-code.component';
+import { ResetPasswordComponent } from './pages/forgot-password/reset-password/reset-password.component';
 
 export const AppRoutes: Routes = [
   {
@@ -29,6 +32,15 @@ export const AppRoutes: Routes = [
     path: 'register',
     component: RegisterComponent,
   },
+  { 
+    path: 'forgot-password',        
+    component: ForgotPasswordComponent },
+  { 
+    path: 'verify-password',        
+    component: PassCodeComponent },
+  { 
+    path: 'reset-password',        
+    component: ResetPasswordComponent },
   {
     path: '**',
     redirectTo: 'category'

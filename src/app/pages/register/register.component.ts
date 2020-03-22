@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { GeneralApiService } from 'app/services/general-api.service';
 import { constants } from 'app/Utils/Constants';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +24,11 @@ export class RegisterComponent implements OnInit {
   });
 
 
-  constructor(private api: GeneralApiService, private router: Router) { }
+  constructor(
+    private api: GeneralApiService,
+    private router: Router,
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
 
@@ -37,6 +43,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
 
+    this.spinner.show();
     console.log(this.register)
 
     const formData = new FormData();
@@ -49,13 +56,11 @@ export class RegisterComponent implements OnInit {
     formData.append('password', this.register.get('password').value);
     this.api.PostRequest(constants.USER_REGISTER, formData).then((data: any) => {
       console.log(data)
+      this.spinner.hide();
       if (data.status === 200 ) {
         this.router.navigate(['/login']);
-
       }
     })
     // this.categoryService.create(formData).subscribe(res => console.log('category add', res))
   }
-
-
 }

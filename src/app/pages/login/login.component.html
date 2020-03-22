@@ -9,7 +9,7 @@
         </div>
         <div>
             <input type="submit" [disabled]="!loginForm.valid" value="Log in" />
-            <a href="#">Lost your password?</a>
+            <a [routerLink]="['/forgot-password']">Lost your password?</a>
             <a [routerLink]="['/register']">Register</a>
         </div>
     </form>

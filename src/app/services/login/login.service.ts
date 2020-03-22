@@ -17,4 +17,28 @@ export class LoginService {
       }
       );
   }
+  forgotPassword(body) {
+    return this.http.post(`${environment.baseUrl}/users/forgot_password_sp`, body, {
+      headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    })
+    }
+    );
+  }
+  verifyPassword(body) {
+    return this.http.post(`${environment.baseUrl}/users/verify_forgot_sp`, body, {
+      headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    })
+    }
+    );
+  }
+  resetPassword(body) {
+    return this.http.post(`${environment.baseUrl}/users/update_password_sp`, body, {
+      headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    })
+    }
+    );
+  }
 }

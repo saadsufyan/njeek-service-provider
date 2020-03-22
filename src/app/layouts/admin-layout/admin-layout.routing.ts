@@ -33,7 +33,6 @@ import { AppointmentDetailsComponent } from 'app/pages/appointment-details/appoi
 import { PatientsPaidRequestComponent } from 'app/pages/patients-paid-request/patients-paid-request.component';
 import { AssignStaffComponent } from 'app/pages/patients-paid-request/assign-staff/assign-staff.component';
 import { ApproveModalComponent } from 'app/pages/patients-paid-request/assign-staff/approve-modal/approve-modal.component';
-
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'services/:id',      component: MainServicesComponent },
@@ -68,6 +67,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'profile',        component: ProfileComponent },
     { path: 'patients-paid-request',        component: PatientsPaidRequestComponent },
     { path: 'assign-staff/:id/:appointment_date',        component: AssignStaffComponent },
-    { path: 'assign-staff-approve',        component: ApproveModalComponent },
+    { path: 'assign-staff-approve',        component: ApproveModalComponent }
 
 ];
