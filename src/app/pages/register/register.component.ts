@@ -60,6 +60,9 @@ export class RegisterComponent implements OnInit {
       if (data.status === 200 ) {
         this.router.navigate(['/login']);
       }
+    }, err => {
+      console.log(err);
+      this.spinner.hide();
     })
     // this.categoryService.create(formData).subscribe(res => console.log('category add', res))
   }

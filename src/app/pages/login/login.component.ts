@@ -41,6 +41,26 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('name', res.name);
         this.router.navigate(['/category']);
       }
+    }, err => {
+      console.log(err);
+      this.spinner.hide();
+      if (err.status === 200) {
+        // this.toastr.success('Category has been updated successfully', 'Category Added');
+      } else if (err.status === 401) {
+        if (err.error.message) {
+          this.toastr.error(`${err.error.message}`, 'Incorrect information', {
+            timeOut: 3000
+          });
+        } else {
+          this.toastr.error(`${err.error}`, 'User not exist', {
+            timeOut: 3000
+          });
+        }
+      } else {
+        this.toastr.error('Something went wrong', 'Failure', {
+          timeOut: 3000
+        });
+      }
     });
   }
 

@@ -24,6 +24,7 @@ export class ServiceDetailComponent implements OnInit {
   serviceDescriptionArabic;
   charges;
   conveyanceCharges;
+  offer;
   timeTo;
   timeFrom;
 
@@ -67,6 +68,7 @@ export class ServiceDetailComponent implements OnInit {
       service_description_arabic: this.serviceDescriptionArabic,
       charges: this.charges,
       conveyance_charges: this.conveyanceCharges,
+      offer: this.offer,
       time_to: this.timeTo,
       time_from: this.timeFrom,
     }
