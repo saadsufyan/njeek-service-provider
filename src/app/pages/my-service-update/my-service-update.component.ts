@@ -24,6 +24,7 @@ export class MyServiceUpdateComponent implements OnInit, OnDestroy {
   charges;
   time_to;
   time_from;
+  offer;
   id;
   MyServiceData;
   constructor(
@@ -49,6 +50,7 @@ export class MyServiceUpdateComponent implements OnInit, OnDestroy {
     this.charges = this.MyServiceData.charges;
     this.time_to = this.MyServiceData.time_to;
     this.time_from = this.MyServiceData.time_from;
+    this.offer = this.MyServiceData.offer;
   }
   onSubmit() {
 
@@ -63,6 +65,7 @@ export class MyServiceUpdateComponent implements OnInit, OnDestroy {
       charges: this.charges,
       time_to: this.time_to.toString(),
       time_from: this.time_from.toString(),
+      offer: this.offer
 
     }
 
