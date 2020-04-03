@@ -40,7 +40,7 @@ export class MyServiceUpdateComponent implements OnInit, OnDestroy {
       });
     }
     this.MyServiceData = this.sharedService.fetchData();
-    this.id = this.MyServiceData.service_id;
+    this.id = this.MyServiceData.id;
     this.service_name = this.MyServiceData.service_name;
     this.service_name_arabic = this.MyServiceData.service_name_arabic;
     this.service_short_description = this.MyServiceData.service_short_description;
@@ -63,10 +63,9 @@ export class MyServiceUpdateComponent implements OnInit, OnDestroy {
       service_description: this.service_description,
       service_description_arabic: this.service_description_arabic,
       charges: this.charges,
-      time_to: this.time_to.toString(),
-      time_from: this.time_from.toString(),
+      time_from: this.time_from + ':00',
+      time_to: this.time_to + ':00',
       offer: this.offer
-
     }
 
     this.spinner.show();
