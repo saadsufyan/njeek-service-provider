@@ -48,8 +48,8 @@ export class MyServiceUpdateComponent implements OnInit, OnDestroy {
     this.service_description = this.MyServiceData.service_description;
     this.service_description_arabic = this.MyServiceData.service_description_arabic;
     this.charges = this.MyServiceData.charges;
-    this.time_to = this.MyServiceData.time_to;
     this.time_from = this.MyServiceData.time_from;
+    this.time_to = this.MyServiceData.time_to;
     this.offer = this.MyServiceData.offer;
   }
   onSubmit() {

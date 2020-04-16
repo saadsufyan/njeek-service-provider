@@ -98,8 +98,10 @@ export class NavbarComponent implements OnInit {
         this.router.navigate(['/profile'])
       }
       logout() {
-        localStorage.setItem('token', null);
-        localStorage.setItem('name', null);
+        localStorage.removeItem('token');
+        localStorage.removeItem('name');
+        // localStorage.setItem('token', null);
+        // localStorage.setItem('name', null);
         this.router.navigate(['/login']);
       }
 
