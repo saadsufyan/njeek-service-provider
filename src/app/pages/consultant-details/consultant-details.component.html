@@ -1,42 +1,42 @@
 <h1> Add New Staff </h1>
-<form>
+<form [formGroup] = "consultant" (ngSubmit)="onSubmit()">
     <div class="form-group row">
     <div class="col-md-12">
         <label class="btn btn-primary" for="pic">Choose File</label>
-        <input type="file" name="pic" [(ngModel)]="pic" (change)="onFileChange($event)" class="form-control-file">
+        <input type="file" (change)="onFileChange($event)" class="form-control-file" id="exampleFormControlFile1">
     </div>
     </div>
     <div class="form-group row">
         <div class="col-md-6">
         <label>Name</label>
-        <input  name="name" [(ngModel)]="consultant_name" class="form-control" placeholder="Enter Name">
+        <input  type="text" formControlName="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
         </div>
         <div class="col-md-6">
             <label for="designation">Designation</label>
-            <input type="text" name="designation" [(ngModel)]="designation" class="form-control" placeholder="">
+            <input  type="text"  formControlName="designation" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  placeholder="">
         </div>
     </div>
     <div class="form-group row">
         <div class="col-md-6">
         <label>Email</label>
-        <input  name="email" [(ngModel)]="consultant_email" class="form-control" placeholder="Enter Email">
+        <input  type="text" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email">
         </div>
         <div class="col-md-6">
             <label for="number">Number</label>
-            <input type="number" name="number" [(ngModel)]="consultant_number" class="form-control" placeholder="Enter your number">
+            <input  type="text"  formControlName="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  placeholder="Enter your number">
         </div>
     </div>
     <div class="form-group row">
         <div class="col-md-12">
             <label for="type">Type</label>
-            <input type="text" name="type" [(ngModel)]="type" class="form-control" placeholder="">
+            <input  type="text"  formControlName="type" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
         </div>
     </div>
     <div class="form-group row">
         <div class="col-md-12">
         <label>Skills</label>
-        <input  name="skills" [(ngModel)]="skills" class="form-control" placeholder="Enter Skills">
+        <input  type="text"  formControlName="skills" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  placeholder="Enter Skills">
         </div>
     </div>
-    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
