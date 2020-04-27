@@ -11,7 +11,7 @@ import { ResetPasswordComponent } from './pages/forgot-password/reset-password/r
 export const AppRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'category',
+    redirectTo: 'dashboard',
     pathMatch: 'full',
     canActivate: [AuthGuardService]
   }, {
@@ -32,14 +32,14 @@ export const AppRoutes: Routes = [
     path: 'register',
     component: RegisterComponent,
   },
-  { 
-    path: 'forgot-password',        
+  {
+    path: 'forgot-password',
     component: ForgotPasswordComponent },
-  { 
-    path: 'verify-password',        
+  {
+    path: 'verify-password',
     component: PassCodeComponent },
-  { 
-    path: 'reset-password',        
+  {
+    path: 'reset-password',
     component: ResetPasswordComponent },
   {
     path: '**',

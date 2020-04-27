@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js';
+import {GeneralApiService} from '../../services/general-api.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -10,12 +12,16 @@ import Chart from 'chart.js';
 
 export class DashboardComponent implements OnInit {
 
+
   public canvas: any;
   public ctx;
   public chartColor;
   public chartEmail;
   public chartHours;
-
+  public data;
+  constructor(public dashboardApi: GeneralApiService, private spinner: NgxSpinnerService) {
+    this.getData();
+  }
     ngOnInit() {
       this.chartColor = '#FFFFFF';
 
@@ -205,5 +211,16 @@ export class DashboardComponent implements OnInit {
         data: speedData,
         options: chartOptions
       });
+    }
+    getData() {
+      this.spinner.show();
+      this.dashboardApi.getDashboard().subscribe(res => {
+        console.log(res[0]);
+        this.data = res[0];
+        this.spinner.hide();
+      }, err => {
+        this.spinner.hide();
+        console.log(err);
+      })
     }
 }

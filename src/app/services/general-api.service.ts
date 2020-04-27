@@ -9,7 +9,11 @@ let temp;
 })
 export class GeneralApiService {
 
-  constructor(public http: HttpClient, ) { }
+  token;
+  constructor(public http: HttpClient, ) { 
+    this.token = localStorage.getItem('token');
+
+  }
 
 
   sendData(data) {
@@ -19,6 +23,16 @@ export class GeneralApiService {
   }
   fetchData() {
     return temp;
+  }
+
+  getDashboard() {
+    return this.http
+    .get(`${environment.baseUrl}/admin/sp_dashboard`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'x-access-token': this.token
+        }
+    });
   }
   GetRequest(url) {
     return new Promise(resolve => {
