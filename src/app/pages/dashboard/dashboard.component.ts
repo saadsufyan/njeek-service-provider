@@ -215,7 +215,7 @@ export class DashboardComponent implements OnInit {
     getData() {
       this.spinner.show();
       this.dashboardApi.getDashboard().subscribe(res => {
-        console.log(res[0]);
+        // console.log(res[0]);
         this.data = res[0];
         this.spinner.hide();
       }, err => {
